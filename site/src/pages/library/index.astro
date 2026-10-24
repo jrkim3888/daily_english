@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import LibraryHead from '../../components/LibraryHead.astro';
+import SearchBar from '../../components/SearchBar.astro';
+import Icon from '../../components/Icon.astro';
+import { getAllVocab } from '../../lib/data';
+
+const vocab = getAllVocab();
+const sections = ['Words', 'Phrasal Verbs', 'Idioms'].filter((s) => vocab.some((v) => v.section === s));
+---
+<Base title="Word bank">
+  <LibraryHead active="vocab" count={vocab.length} />
+
+  <div class="spot card" data-spotlight>
+    <p class="eyebrow">Random pick</p>
+    <p class="spot-term display" data-spot-term>—</p>
+    <p class="spot-meaning" data-spot-meaning></p>
+    <div class="spot-actions">
+      <button class="chip lime" type="button" data-spot-next><Icon name="shuffle" size={14} /> 다른 단어</button>
+      <button class="chip" type="button" data-action="speak" data-spot-speak data-text=""><Icon name="speak" size={14} /> 듣기</button>
+    </div>
+  </div>
+
+  <SearchBar target=".v[data-item]" placeholder="단어나 뜻으로 검색" sections={sections} />
+
+  <ul class="vgrid" data-group>
+    {vocab.map((v) => (
+      <li class="v" data-item data-sec={v.section}>
+        <span class="term">{v.term}</span>
+        <span class="meaning">{v.meaning}</span>
+        <button type="button" class="sp" data-action="speak" data-text={v.term} aria-label={`${v.term} 발음`}><Icon name="speak" size={14} /></button>
+      </li>
+    ))}
+  </ul>
+</Base>
+
+<script src="../../lib/study.ts"></script>
+<script>
+  const spot = document.querySelector<HTMLElement>('[data-spotlight]');
+  if (spot) {
+    const items = [...document.querySelectorAll<HTMLElement>('.v[data-item]')];
+    const term = spot.querySelector('[data-spot-term]')!;
+    const meaning = spot.querySelector('[data-spot-meaning]')!;
+    const speak = spot.querySelector<HTMLElement>('[data-spot-speak]')!;
+    const next = () => {
+      const li = items[Math.floor(Math.random() * items.length)];
+      if (!li) return;
+      const t = li.querySelector('.term')!.textContent!;
+      term.textContent = t;
+      meaning.textContent = li.querySelector('.meaning')!.textContent;
+      speak.dataset.text = t;
+    };
+    spot.querySelector('[data-spot-next]')!.addEventListener('click', next);
+    next();
+  }
+</script>
+
+<style>
+  .spot { padding: 26px 28px; margin-bottom: 14px; overflow: hidden; }
+  .spot::after { content: ''; position: absolute; right: -40px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 35%, transparent), transparent 70%); pointer-events: none; }
+  .spot .eyebrow { margin: 0 0 8px; }
+  .spot-term { font-size: clamp(40px, 6vw, 64px); }
+  .spot-meaning { margin: 8px 0 18px; font-size: 18px; font-weight: 600; color: var(--ink-2); }
+  .spot-actions { display: flex; gap: 8px; position: relative; z-index: 1; }
+  .vgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 8px; }
+  .v {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 12px 14px 12px 16px;
+    border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
+  }
+  .term { font-family: var(--serif); font-size: 21px; line-height: 1.15; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+  .meaning { grid-column: 1; font-size: 14px; color: var(--muted); }
+  .sp { grid-column: 2; grid-row: 1 / span 2; align-self: center; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-solid); color: var(--ink-2); cursor: pointer; }
+  .sp:hover { color: var(--accent); }
+  @media (max-width: 520px) { .vgrid { grid-template-columns: 1fr; } }
+</style>

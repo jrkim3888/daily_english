@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import Heatmap from '../../components/Heatmap.astro';
+import DayTile from '../../components/DayTile.astro';
+import { getDays } from '../../lib/data';
+
+const days = getDays();
+const episodes = days.filter((d) => d.post).length;
+const words = days.reduce((n, d) => n + d.newVocab.length, 0);
+
+// Longest run of consecutive archived days.
+const sorted = days.map((d) => Date.parse(d.date + 'T00:00:00Z')).sort((a, b) => a - b);
+let best = 0, run = 0;
+sorted.forEach((t, i) => {
+  run = i > 0 && t - sorted[i - 1] === 86400000 ? run + 1 : 1;
+  best = Math.max(best, run);
+});
+
+const months = new Map<string, typeof days>();
+for (const d of days) {
+  const key = d.date.slice(0, 7);
+  if (!months.has(key)) months.set(key, []);
+  months.get(key)!.push(d);
+}
+const stats = [
+  { n: days.length, l: '공부한 날' },
+  { n: episodes, l: '에피소드' },
+  { n: words, l: '새로 배운 표현' },
+  { n: best, l: '최장 연속 일수' },
+];
+---
+<Base title="History">
+  <header class="page-head">
+    <p class="eyebrow">History</p>
+    <h1 class="display">Every day, <em>a little.</em></h1>
+  </header>
+
+  <div class="stats">
+    {stats.map((s) => <div class="card stat"><span class="n">{s.n.toLocaleString()}</span><span class="l">{s.l}</span></div>)}
+  </div>
+
+  <Heatmap days={days} />
+
+  {[...months].map(([month, list]) => (
+    <section>
+      <div class="section-head">
+        <h2>{Number(month.slice(5))}월 <em>{month.slice(0, 4)}</em></h2>
+        <span class="muted mono">{list.length} days</span>
+      </div>
+      <div class="tiles">{list.map((d) => <DayTile day={d} />)}</div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .page-head { margin: 12px 0 28px; }
+  .page-head .eyebrow { margin: 0 0 10px; }
+  .page-head h1 { font-size: clamp(48px, 8vw, 104px); }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+  .stat { padding: 18px 20px; display: flex; flex-direction: column; }
+  .stat .n { font-family: var(--serif); font-size: 48px; line-height: 1; letter-spacing: -0.03em; }
+  .stat .l { font-size: 13px; color: var(--muted); font-weight: 550; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

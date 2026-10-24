@@ -1,50 +1,29 @@
 ---
 import Base from '../layouts/Base.astro';
 import DayView from '../components/DayView.astro';
-import { getDays } from '../lib/data';
+import DayTile from '../components/DayTile.astro';
+import { getDays, getAllVocab } from '../lib/data';
 
 const days = getDays();
-const [latest, ...rest] = days;
-
-const months = new Map<string, typeof days>();
-for (const d of rest) {
-  const key = d.date.slice(0, 7);
-  if (!months.has(key)) months.set(key, []);
-  months.get(key)!.push(d);
-}
+const [latest] = days;
+const recent = days.slice(1, 7);
 ---
 <Base>
-  {latest ? <DayView day={latest} /> : <p class="muted">아직 기록이 없어요.</p>}
+  {latest ? <DayView day={latest} librarySize={getAllVocab().length} isToday /> : <p class="muted">아직 기록이 없어요.</p>}
 
-  {rest.length > 0 && (
-    <section class="archive">
-      <h2>지난 기록</h2>
-      {[...months].map(([month, list]) => (
-        <details open={month === [...months.keys()][0]}>
-          <summary>{Number(month.slice(0, 4))}년 {Number(month.slice(5))}월 <span class="muted">· {list.length}일</span></summary>
-          <ul>
-            {list.map((d) => (
-              <li>
-                <a href={`/days/${d.date}/`}>
-                  <span class="d">{Number(d.date.slice(8))}일</span>
-                  <span class="t">{d.post ? d.post.title.replace(/^EBS 라디오 입이 트이는 영어 - /, '') : '복습'}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </details>
-      ))}
+  {recent.length > 0 && (
+    <section>
+      <div class="section-head">
+        <h2>Recently <em>studied</em></h2>
+        <a class="chip" href="/history/">전체 기록 →</a>
+      </div>
+      <div class="recent">
+        {recent.map((d) => <DayTile day={d} />)}
+      </div>
     </section>
   )}
 </Base>
 
 <style>
-  .archive { margin-top: 40px; }
-  details { border-top: 1px solid var(--line); padding: 10px 0; }
-  summary { cursor: pointer; font-weight: 600; }
-  details ul { list-style: none; margin: 8px 0 0; padding: 0; }
-  details li a { display: flex; gap: 14px; padding: 7px 0; color: var(--text); text-decoration: none; }
-  details li a:hover .t { color: var(--accent); }
-  .d { color: var(--muted); min-width: 2.6em; font-variant-numeric: tabular-nums; }
-  .t { overflow-wrap: anywhere; }
+  .recent { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
 </style>

@@ -11,9 +11,16 @@ export interface Vocab {
   meaning: string;
 }
 
+export interface Post {
+  title: string;
+  episode: string;
+  link: string;
+}
+
 export interface Day {
   date: string;
-  post?: { title: string; link: string };
+  dayNo: number;
+  post?: Post;
   newVocab: Vocab[];
   newSentences: string[];
   reviewVocab: Vocab[];
@@ -33,8 +40,15 @@ function lines(s: unknown): string[] {
     .filter(Boolean);
 }
 
-function cleanLink(link: string): string {
-  return link.replace(/\?.*$/, '');
+// "EBS 라디오 입이 트이는 영어 - 10.6 Choosing a Pillow" → episode "10.6", title "Choosing a Pillow"
+function parsePost(title: string, link: string): Post {
+  const rest = title.replace(/^.*입이 트이는 영어\s*-\s*/, '').trim();
+  const m = rest.match(/^(\d{1,2}\.\d{1,2})\s+(.*)$/);
+  return {
+    episode: m ? m[1] : '',
+    title: m ? m[2] : rest,
+    link: link.replace(/\?.*$/, ''),
+  };
 }
 
 let cache: Day[] | undefined;
@@ -43,10 +57,10 @@ let cache: Day[] | undefined;
 export function getDays(): Day[] {
   if (cache) return cache;
   const files = fs.existsSync(HISTORY)
-    ? fs.readdirSync(HISTORY).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    ? fs.readdirSync(HISTORY).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort()
     : [];
   cache = files
-    .map((f) => {
+    .map((f, i) => {
       const raw = JSON.parse(fs.readFileSync(path.join(HISTORY, f), 'utf-8'));
       const date = f.replace('.json', '');
       const study = raw.today_study ?? {};
@@ -54,14 +68,15 @@ export function getDays(): Day[] {
       const delta = raw.today_delta?.date === date ? raw.today_delta : {};
       return {
         date,
-        post: delta.title ? { title: delta.title, link: cleanLink(delta.link ?? '') } : undefined,
+        dayNo: i + 1,
+        post: delta.title ? parsePost(delta.title, delta.link ?? '') : undefined,
         newVocab: lines(delta.vocab).filter((l) => l.includes(':')).map(parseVocab),
         newSentences: lines(delta.sentences),
         reviewVocab: (study.vocab ?? []).map((v: string) => parseVocab(String(v))),
         reviewSentences: (study.sentences ?? []).map((s: string) => String(s).trim()).filter(Boolean),
       } satisfies Day;
     })
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .reverse();
   return cache;
 }
 
@@ -94,10 +109,41 @@ export function getAllSentences(): string[] {
   return bullets('english_sentences.md').map((b) => b.text);
 }
 
+// Split a sentence into plain / matched segments for the given vocab terms.
+export function markTerms(sentence: string, terms: string[]): { text: string; mark: boolean }[] {
+  const pats = terms
+    .map((t) => t.replace(/\(.*?\)|~/g, '').replace(/\bone's\b/gi, '').trim())
+    .filter((t) => t.length >= 3)
+    .sort((a, b) => b.length - a.length)
+    .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'));
+  if (!pats.length) return [{ text: sentence, mark: false }];
+  const re = new RegExp(`\\b(${pats.join('|')})\\b`, 'gi');
+  const out: { text: string; mark: boolean }[] = [];
+  let last = 0;
+  for (const m of sentence.matchAll(re)) {
+    if (m.index! > last) out.push({ text: sentence.slice(last, m.index), mark: false });
+    out.push({ text: m[0], mark: true });
+    last = m.index! + m[0].length;
+  }
+  if (last < sentence.length) out.push({ text: sentence.slice(last), mark: false });
+  return out;
+}
+
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
+const WEEKDAYS_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function ymd(date: string) {
+  const [y, m, d] = date.split('-').map(Number);
+  return { y, m, d, wd: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
+}
 
 export function formatDate(date: string): string {
-  const [y, m, d] = date.split('-').map(Number);
-  const wd = WEEKDAYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
-  return `${y}년 ${m}월 ${d}일 (${wd})`;
+  const { y, m, d, wd } = ymd(date);
+  return `${y}년 ${m}월 ${d}일 (${WEEKDAYS[wd]})`;
+}
+
+export function formatDateEn(date: string): { weekday: string; month: string; day: number; year: number } {
+  const { y, m, d, wd } = ymd(date);
+  return { weekday: WEEKDAYS_EN[wd], month: MONTHS_EN[m - 1], day: d, year: y };
 }

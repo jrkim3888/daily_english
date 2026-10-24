@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import DayView from '../../components/DayView.astro';
-import { getDays, formatDate } from '../../lib/data';
+import { getDays, getAllVocab, formatDate } from '../../lib/data';
 
 export function getStaticPaths() {
   const days = getDays();
@@ -14,14 +14,17 @@ export function getStaticPaths() {
 const { day, newer, older } = Astro.props;
 ---
 <Base title={formatDate(day.date)}>
-  <DayView day={day} />
+  <DayView day={day} librarySize={getAllVocab().length} />
   <nav class="pager">
-    {older ? <a href={`/days/${older.date}/`}>← {older.date}</a> : <span />}
-    {newer ? <a href={`/days/${newer.date}/`}>{newer.date} →</a> : <span />}
+    {older ? <a class="card" href={`/days/${older.date}/`}><span class="eyebrow">← Previous</span><b>{older.post?.title ?? '복습'}</b><span class="muted mono">{older.date}</span></a> : <span />}
+    {newer ? <a class="card next" href={`/days/${newer.date}/`}><span class="eyebrow">Next →</span><b>{newer.post?.title ?? '복습'}</b><span class="muted mono">{newer.date}</span></a> : <span />}
   </nav>
 </Base>
 
 <style>
-  .pager { display: flex; justify-content: space-between; margin-top: 36px; font-variant-numeric: tabular-nums; }
-  .pager a { text-decoration: none; }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 48px; }
+  .pager a { display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; text-decoration: none; transition: transform 0.2s; }
+  .pager a:hover { transform: translateY(-2px); }
+  .pager .next { text-align: right; }
+  .pager .mono { font-size: 12px; }
 </style>

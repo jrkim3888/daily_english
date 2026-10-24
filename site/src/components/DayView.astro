@@ -1,78 +1,109 @@
 ---
 import type { Day } from '../lib/data';
-import { formatDate } from '../lib/data';
+import { formatDateEn, formatDate } from '../lib/data';
+import SourceCard from './SourceCard.astro';
+import Flashcards from './Flashcards.astro';
+import Sentences from './Sentences.astro';
 
 interface Props {
   day: Day;
+  librarySize: number;
+  isToday?: boolean;
 }
-const { day } = Astro.props;
-const hasNew = day.newVocab.length > 0 || day.newSentences.length > 0;
----
-<article>
-  <p class="muted date">{formatDate(day.date)}</p>
-  <h1>{day.post ? day.post.title.replace(/^EBS 라디오 입이 트이는 영어 - /, '') : '오늘의 복습'}</h1>
-  {day.post && <p class="muted"><a href={day.post.link}>블로그 원문 보기 →</a></p>}
+const { day, librarySize, isToday = false } = Astro.props;
+const en = formatDateEn(day.date);
 
-  <div class="toolbar">
-    <label><input type="checkbox" class="toggle-meaning" /> 뜻 가리기</label>
+const vocab = [
+  ...day.newVocab.map((v) => ({ ...v, tag: 'new' as const })),
+  ...day.reviewVocab.map((v) => ({ ...v, tag: 'review' as const })),
+];
+const sentences = [
+  ...day.newSentences.map((text) => ({ text, tag: 'new' as const })),
+  ...day.reviewSentences.map((text) => ({ text, tag: 'review' as const })),
+];
+const stats = [
+  { n: day.newVocab.length, label: '새 표현', tone: 'lime' },
+  { n: day.reviewVocab.length, label: '복습 단어', tone: '' },
+  { n: sentences.length, label: '오늘의 문장', tone: '' },
+  { n: librarySize, label: '누적 단어', tone: 'ink' },
+];
+---
+<section class="bento">
+  <div class="hero card">
+    <p class="eyebrow">Day {day.dayNo} · {en.weekday}, {en.month} {en.day} {en.year}</p>
+    <h1 class="display">
+      {isToday ? <>Today’s <em>English</em></> : day.post ? day.post.title : <>Review <em>day</em></>}
+    </h1>
+    <p class="lede">
+      {isToday && day.post ? <>오늘의 에피소드 <b>{day.post.title}</b>에서 나온 표현과 복습 세트예요.</>
+        : day.post ? formatDate(day.date)
+        : <>새 에피소드가 없는 날 — 쌓아둔 표현을 복습해요.</>}
+    </p>
+    <div class="cta">
+      {vocab.length > 0 && <a class="chip solid" href="#study">공부 시작</a>}
+      <a class="chip" href="/history/">History</a>
+    </div>
   </div>
 
-  {hasNew && (
-    <section>
-      <h2>오늘의 새 표현</h2>
-      {day.newVocab.length > 0 && (
-        <div class="card">
-          <ul class="vocab">
-            {day.newVocab.map((v) => <li><span class="term">{v.term}</span><span class="meaning">{v.meaning}</span></li>)}
-          </ul>
-        </div>
-      )}
-      {day.newSentences.length > 0 && (
-        <div class="card spaced">
-          <ul class="sentences">
-            {day.newSentences.map((s) => <li>{s}</li>)}
-          </ul>
-        </div>
-      )}
-    </section>
+  {day.post ? (
+    <div class="src"><SourceCard post={day.post} date={day.date} words={day.newVocab.length} sentences={day.newSentences.length} size="lg" /></div>
+  ) : (
+    <div class="src card empty">
+      <p class="eyebrow">Source</p>
+      <p class="display big"><em>No new</em><br />episode</p>
+      <p class="muted">오늘은 복습만 있어요.</p>
+    </div>
   )}
 
-  {(day.reviewVocab.length > 0 || day.reviewSentences.length > 0) && (
-    <section>
-      <h2>복습</h2>
-      {day.reviewVocab.length > 0 && (
-        <div class="card">
-          <ul class="vocab">
-            {day.reviewVocab.map((v) => <li><span class="term">{v.term}</span><span class="meaning">{v.meaning}</span></li>)}
-          </ul>
-        </div>
-      )}
-      {day.reviewSentences.length > 0 && (
-        <div class="card spaced">
-          <ul class="sentences">
-            {day.reviewSentences.map((s) => <li>{s}</li>)}
-          </ul>
-        </div>
-      )}
-    </section>
-  )}
-</article>
+  {stats.map((s) => (
+    <div class:list={['stat', 'card', s.tone]}>
+      <span class="n">{s.n.toLocaleString()}</span>
+      <span class="l">{s.label}</span>
+    </div>
+  ))}
+</section>
 
-<script>
-  const toggle = document.querySelector<HTMLInputElement>('.toggle-meaning');
-  toggle?.addEventListener('change', () => {
-    document.body.classList.toggle('hide-meaning', toggle.checked);
-    document.querySelectorAll('.meaning.revealed').forEach((el) => el.classList.remove('revealed'));
-  });
-  document.addEventListener('click', (e) => {
-    const el = (e.target as HTMLElement).closest('.meaning');
-    if (el && document.body.classList.contains('hide-meaning')) el.classList.toggle('revealed');
-  });
-</script>
+<div id="study">
+  {vocab.length > 0 && <Flashcards deck={day.date} items={vocab} />}
+  {sentences.length > 0 && <Sentences items={sentences} terms={vocab.map((v) => v.term)} />}
+  {vocab.length === 0 && sentences.length === 0 && (
+    <p class="muted empty-note">이 날은 기록된 학습 데이터가 없어요.</p>
+  )}
+</div>
+
+<script src="../lib/study.ts"></script>
 
 <style>
-  .date { margin: 0 0 4px; font-size: 0.9rem; }
-  .toolbar { margin-top: 16px; font-size: 0.9rem; color: var(--muted); }
-  .toolbar label { cursor: pointer; user-select: none; }
-  .spaced { margin-top: 12px; }
+  .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; }
+  .hero { grid-column: span 8; padding: 30px 32px 28px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+  .hero::after {
+    content: ''; position: absolute; right: -60px; bottom: -80px; width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in oklab, var(--lime) 70%, transparent), transparent 70%); pointer-events: none;
+  }
+  .hero .eyebrow { margin: 0; }
+  .hero h1 { font-size: clamp(48px, 7.5vw, 96px); }
+  .lede { margin: 0; max-width: 46ch; color: var(--ink-2); font-size: 16px; }
+  .cta { display: flex; gap: 8px; margin-top: auto; padding-top: 8px; position: relative; z-index: 1; }
+  .cta .chip { padding: 9px 16px; font-size: 14px; }
+  .src { grid-column: span 4; }
+  .empty { padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .empty .eyebrow, .empty p { margin: 0; }
+  .big { font-size: 46px; }
+  .stat { grid-column: span 3; padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+  .stat .n { font-family: var(--serif); font-size: 54px; line-height: 1; letter-spacing: -0.03em; }
+  .stat .l { font-size: 13px; color: var(--muted); font-weight: 550; }
+  .stat.lime { background: var(--lime); color: var(--lime-ink); border-color: transparent; }
+  .stat.lime .l { color: color-mix(in oklab, var(--lime-ink) 65%, transparent); }
+  .stat.ink { background: var(--ink); color: var(--bg); }
+  .stat.ink .l { color: color-mix(in oklab, var(--bg) 60%, transparent); }
+  .empty-note { margin-top: 40px; }
+  #study { scroll-margin-top: 80px; }
+  @media (max-width: 880px) {
+    .hero, .src { grid-column: span 12; }
+    .stat { grid-column: span 6; }
+  }
+  @media (max-width: 520px) {
+    .hero { padding: 24px 22px; }
+    .stat .n { font-size: 42px; }
+  }
 </style>
