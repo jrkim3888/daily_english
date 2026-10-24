@@ -1,5 +1,44 @@
 # ✍ 외울 문장 정리
 
+- I had always felt deep down that books written in Korean were the best in the world.
+- I have to look up words in the dictionary as I read.
+
+- It piqued my interest.
+- We have fun competing against each other.
+- She must have picked it up quickly.
+
+- Let it sit there.
+- The rice grains have a great texture.
+- Isn't it a bit of a hassle?
+
+- I'm father who heaped praise on other children.
+- I can't tell you how touched I was by those words.
+
+- He seemed like a kind and upstanding young man.
+- I binged the show.
+- I'm rooting for him more passionately.
+
+- I got so caught up in the actors' performances.
+- I can't remember the last time I cried so much.
+- I gave them a big round of applause.
+- I went to see a play for the first time in a while.
+
+- He didn't go out much last year.
+- We played tag and lost track of time.
+- I cheer him on in my heart.
+- Kids need to play to their hearts' content.
+
+- I don't usually care much for special events.
+- I got bored of using the same ones over and over.
+- They were a little puzzled.
+
+- Playing an instrument always felt out of reach.
+- I had become a real enthusiast.
+- I've been working on it for over a year.
+
+- It happened exactly 26 years after I joined the company.
+- Retirement is just around the corner.
+
 - She already has a demanding job as a teacher.
 - I move around on my own.
 - I live about three and a half hours away by car.

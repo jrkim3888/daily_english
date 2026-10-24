@@ -1,6 +1,44 @@
 # 📘 영어 단어 정리
 
 ## Words
+- presence: 전재, 있음, 존재감
+- passionate: 열정을 느끼는
+
+- pique: 자극하다, 불쾌감
+- repeatedly: 반복적으로
+
+- pot: 솥, 냄비
+- stainless: 녹슬지 않는, 깨끗한
+- drain: 물 빼내다
+- sit: 두다
+- hassle: 귀찮은 상황, 따지기
+
+- heap: 쌓다
+- complain: 불평하다
+- criticize: 비평하다
+
+- upstanding: 강직한, 정직한
+- binge: 흥청망청하다, 정주행하다
+- glamorous: 화려한
+- sincerity: 진실함
+- innocence: 순수함
+- passionately: 열성적으로
+
+- fascinating: 매력적인, 신기한
+
+- exception: 예외
+- tag: 술래잡기
+
+- seaweed: 해초, 미역
+- puzzled: 어리둥절해하는, 얼떨떨한, 의아한
+
+- reach: ~에 이르다, 거리
+- instrument: 악기
+- enthusiast: 열렬한 지지자
+- fade: 바래다, 희미해지다
+
+- ironically: 역설적이게
+
 - demanding: 부담이 큰, 힘든
 - nature: 성격, 특성, 자연
 
@@ -2726,6 +2764,25 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- feel deep down: 마음 한켠에 가지고 있다
+- impact on: ~에 충격을 주다
+- look up: 찾아보다
+
+- pick somthing up: ~을 익히게 되다, ~을 알아채다
+
+- measure out: 계량해서 내놓다
+- cook something over: 조리하다
+
+- immerse in: 몰두하다
+
+- go out: 밖에 나가 놀다
+- cheer on: 응원한다
+
+- over and over: 반복하다
+
+- come around: 도래하다, 다가오다
+
 - settle down: 정착하다
 - move around: 자주 이사하다, 돌아다니다
 
@@ -2967,6 +3024,35 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- fall into place: 제자리를 찾다
+- competing against: ~과 경쟁하다
+
+- with the lid on: 뚜껑을 닫고
+- rice grain: 밥알
+
+- doctoral studies: 박사학위
+- heap praise on ~: 아낌없는 칭찬을 보내다
+- can't tell: 말로 표현할 수 없는
+
+- up close: 코 앞에서
+- runny nose: 콧물
+- burst into tears: 갑자기 울음을 터뜨리다
+- get caught up in: ~에 휘말리다
+- can't remember: 기억이 안난다
+- a big round of applause: 큰 박수
+- for the first time in a while: 오랫만에
+
+- lost track of time: 시간가는 줄 모르다
+- in my heart: 마음속으로
+- to one's heart's content: 실컷 놀다
+
+- don't care much for: 별로 신경쓰지 않다
+
+- over a year: 1년 넘게
+
+- join the company: 입사하다
+- just around the corner: 임박하여
 
 - dual-income couple: 맞벌이 부부
 - on one's own: 혼자서, 독립해서

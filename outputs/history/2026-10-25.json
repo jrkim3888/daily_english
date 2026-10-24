@@ -1,27 +1,27 @@
 {
   "date": "2026-10-25",
-  "archivedAt": "2026-10-24T16:40:50.389767Z",
+  "archivedAt": "2026-10-24T16:58:13.092828Z",
   "today_study": {
     "date": "2026-10-25",
-    "generatedAt": "2026-10-24T16:40:49.408395Z",
+    "generatedAt": "2026-10-24T16:58:06.056106Z",
     "vocab": [
-      "detox: 해독",
-      "dedication: 헌신",
-      "comprehensive: 포괄적인, 종합적인, 능력별 구분을 않는",
-      "bittersweet: 달콤쌈싸름한",
-      "cradle: 아기침대"
+      "catechins: 카테킨",
+      "demanding: 힘든, 부담이 큰, 요구가 많은",
+      "foster: 조성하다, 발전시키다, 위탁 양육하다",
+      "curriculum: 교육과정",
+      "appreciate: 고마워하다, 인식하다, 진가를 알아보다"
     ],
     "sentences": [
-      "I guess it's all just part of growing up.",
-      "It felt good to spend the holiday in such a healthy and meaningful way.",
-      "My self-control snapped."
+      "She already has a demanding job as a teacher.",
+      "As I have gotten older, the intense exercise has started to feel a bit too demanding.",
+      "When I was a new hire, I promised myself that I would become an open-minded senior."
     ],
     "counts": {
-      "vocabPool": 2936,
-      "sentencePool": 619
+      "vocabPool": 2943,
+      "sentencePool": 622
     }
   },
   "today_delta": {},
-  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-25)\n\n[오늘의 단어]\n- dual-income couple: 맞벌이 부부\n- settle down: 정착하다\n- demanding: 부담이 큰, 힘든\n- nature: 성격, 특성, 자연\n- on one's own: 혼자서, 독립해서\n- move around: 자주 이사하다, 돌아다니다\n- by car: 자동차를 타고\n- detox: 해독\n- dedication: 헌신\n- comprehensive: 포괄적인, 종합적인, 능력별 구분을 않는\n- bittersweet: 달콤쌈싸름한\n- cradle: 아기침대\n\n[오늘의 문장]\n- She already has a demanding job as a teacher.\n- I move around on my own.\n- I live about three and a half hours away by car.\n- I guess it's all just part of growing up.\n- It felt good to spend the holiday in such a healthy and meaningful way.\n- My self-control snapped.\n",
-  "deltas": []
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-25)\n\n[오늘의 단어]\n- catechins: 카테킨\n- demanding: 힘든, 부담이 큰, 요구가 많은\n- foster: 조성하다, 발전시키다, 위탁 양육하다\n- curriculum: 교육과정\n- appreciate: 고마워하다, 인식하다, 진가를 알아보다\n\n[오늘의 문장]\n- She already has a demanding job as a teacher.\n- As I have gotten older, the intense exercise has started to feel a bit too demanding.\n- When I was a new hire, I promised myself that I would become an open-minded senior.\n"
 }
