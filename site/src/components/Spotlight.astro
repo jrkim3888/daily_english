@@ -1,0 +1,98 @@
+---
+// Random-pick card. Fills from any [data-item] in the list (data-text / data-meaning);
+// clicking a list item shows it here.
+import Icon from './Icon.astro';
+
+interface Props {
+  kind: 'vocab' | 'sentence';
+}
+const { kind } = Astro.props;
+const noun = kind === 'vocab' ? '단어' : '문장';
+---
+<aside class="spot card" data-spotlight={kind}>
+  <p class="eyebrow" data-spot-label>랜덤 {noun}</p>
+  <p class:list={['spot-text', kind]} data-spot-text>&nbsp;</p>
+  {kind === 'vocab' && (
+    <button type="button" class="spot-meaning" data-spot-meaning aria-label="뜻 보기">
+      <span data-spot-meaning-text></span>
+      <span class="reveal">탭해서 뜻 보기</span>
+    </button>
+  )}
+  <div class="spot-actions">
+    <button class="chip lime" type="button" data-spot-next><Icon name="shuffle" size={14} /> 다른 {noun}</button>
+    <button class="chip" type="button" data-action="speak" data-spot-speak data-text=""><Icon name="speak" size={14} /> 듣기</button>
+  </div>
+  <p class="spot-hint">아래 목록에서 {noun}을 누르면 여기에 보여요</p>
+</aside>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-spotlight]').forEach((spot) => {
+    const items = [...document.querySelectorAll<HTMLElement>('[data-item]')];
+    const label = spot.querySelector('[data-spot-label]')!;
+    const text = spot.querySelector('[data-spot-text]')!;
+    const meaningBtn = spot.querySelector<HTMLElement>('[data-spot-meaning]');
+    const meaning = spot.querySelector('[data-spot-meaning-text]');
+    const speak = spot.querySelector<HTMLElement>('[data-spot-speak]')!;
+    const noun = spot.dataset.spotlight === 'vocab' ? '단어' : '문장';
+    let selected: HTMLElement | undefined;
+
+    const show = (li: HTMLElement, picked: boolean) => {
+      selected?.classList.remove('selected');
+      selected = li;
+      li.classList.add('selected');
+      label.textContent = picked ? `선택한 ${noun}` : `랜덤 ${noun}`;
+      text.textContent = li.dataset.text!;
+      speak.dataset.text = li.dataset.text!;
+      if (meaning) meaning.textContent = li.dataset.meaning ?? '';
+      // Hide the meaning for random picks (quiz yourself); show it for picked items.
+      meaningBtn?.classList.toggle('hidden', !picked);
+      spot.classList.remove('pop');
+      void spot.offsetWidth;
+      spot.classList.add('pop');
+    };
+
+    const random = () => {
+      const pool = items.filter((el) => !el.hidden);
+      const li = pool[Math.floor(Math.random() * pool.length)];
+      if (li) show(li, false);
+    };
+
+    spot.querySelector('[data-spot-next]')!.addEventListener('click', random);
+    meaningBtn?.addEventListener('click', () => meaningBtn.classList.remove('hidden'));
+
+    document.addEventListener('click', (e) => {
+      const el = e.target as HTMLElement;
+      if (el.closest('[data-action]')) return; // speak buttons keep their own behavior
+      const li = el.closest<HTMLElement>('[data-item]');
+      if (!li) return;
+      show(li, true);
+      // On narrow screens the card sits above the list; bring it into view.
+      if (matchMedia('(max-width: 900px)').matches) spot.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    random();
+  });
+</script>
+
+<style>
+  .spot { padding: 24px 26px; overflow: hidden; }
+  .spot::after { content: ''; position: absolute; right: -50px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 30%, transparent), transparent 70%); pointer-events: none; }
+  .spot.pop { animation: pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  @keyframes pop { from { transform: scale(0.98); opacity: 0.6; } }
+  .spot .eyebrow { margin: 0 0 10px; }
+  .spot-text { margin: 0; font-weight: 800; letter-spacing: -0.045em; line-height: 1.15; overflow-wrap: anywhere; word-break: keep-all; }
+  .spot-text.vocab { font-size: clamp(32px, 4.5vw, 44px); }
+  .spot-text.sentence { font-size: clamp(21px, 2.6vw, 26px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.4; }
+  .spot-meaning {
+    display: block; width: 100%; margin: 10px 0 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer;
+    font-size: 18px; font-weight: 650; color: var(--ink-2); position: relative; min-height: 1.6em;
+  }
+  .spot-meaning .reveal { display: none; }
+  .spot-meaning.hidden [data-spot-meaning-text] { visibility: hidden; }
+  .spot-meaning.hidden .reveal {
+    display: inline-flex; position: absolute; left: 0; top: 0; padding: 3px 12px; border-radius: 999px;
+    background: var(--line); color: var(--muted); font-size: 13px; font-weight: 650;
+  }
+  .spot-actions { display: flex; gap: 8px; margin-top: 18px; position: relative; z-index: 1; flex-wrap: wrap; }
+  .spot-hint { margin: 14px 0 0; font-size: 12.5px; color: var(--muted); }
+</style>

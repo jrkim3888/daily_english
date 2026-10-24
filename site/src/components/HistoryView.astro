@@ -1,0 +1,94 @@
+---
+import Heatmap from './Heatmap.astro';
+import DayRow from './DayRow.astro';
+import { getDays, getMonths } from '../lib/data';
+
+interface Props {
+  year: number;
+  month: number;
+}
+const { year, month } = Astro.props;
+
+const days = getDays();
+const months = getMonths();
+const years = [...new Set(months.map((m) => m.year))];
+const current = months.find((m) => m.year === year && m.month === month)!;
+const yearMonths = new Map(months.filter((m) => m.year === year).map((m) => [m.month, m]));
+const href = (y: number, m: number) => `/history/${y}/${String(m).padStart(2, '0')}/`;
+// Year chip goes to that year's latest month.
+const yearHref = (y: number) => {
+  const m = months.find((x) => x.year === y)!;
+  return href(m.year, m.month);
+};
+
+const stats = [
+  { n: days.length, l: '공부한 날' },
+  { n: days.filter((d) => d.post).length, l: '에피소드' },
+  { n: days.reduce((n, d) => n + d.newVocab.length, 0), l: '새로 배운 단어' },
+];
+const monthEpisodes = current.days.filter((d) => d.post).length;
+---
+<header class="page-head">
+  <p class="eyebrow">History</p>
+  <h1 class="display">공부 기록</h1>
+</header>
+
+<div class="stats">
+  {stats.map((s) => <div class="card stat"><span class="n">{s.n.toLocaleString()}</span><span class="l">{s.l}</span></div>)}
+</div>
+
+<nav class="picker card" aria-label="연도와 월 선택">
+  <div class="pick-row">
+    <span class="pick-label">연도</span>
+    <div class="pick-chips">
+      {years.map((y) => <a class="chip" href={yearHref(y)} aria-current={y === year ? 'page' : undefined}>{y}년</a>)}
+    </div>
+  </div>
+  <div class="pick-row">
+    <span class="pick-label">월</span>
+    <div class="pick-chips months">
+      {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => {
+        const has = yearMonths.get(m);
+        return has
+          ? <a class="chip" href={href(year, m)} aria-current={m === month ? 'page' : undefined}>{m}월</a>
+          : <span class="chip off" aria-disabled="true">{m}월</span>;
+      })}
+    </div>
+  </div>
+</nav>
+
+<Heatmap days={days.filter((d) => d.date.startsWith(`${year}-`))} />
+
+<section>
+  <div class="section-head">
+    <h2>{year}년 {month}월 <small>{current.days.length}일 · 에피소드 {monthEpisodes}개</small></h2>
+  </div>
+  <ul class="rows card">
+    {current.days.map((d) => <DayRow day={d} />)}
+  </ul>
+</section>
+
+<style>
+  .page-head { margin: 12px 0 24px; }
+  .page-head .eyebrow { margin: 0 0 8px; }
+  .page-head h1 { font-size: clamp(36px, 6vw, 56px); }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 14px; }
+  .stat { padding: 18px 20px; display: flex; flex-direction: column; gap: 2px; }
+  .stat .n { font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -0.05em; }
+  .stat .l { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .picker { padding: 14px 18px; margin-bottom: 14px; display: grid; gap: 10px; }
+  .pick-row { display: flex; gap: 14px; align-items: center; }
+  .pick-label { flex: none; width: 32px; font-size: 13px; font-weight: 700; color: var(--muted); }
+  .pick-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pick-chips .chip[aria-current='page'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip.off { opacity: 0.35; cursor: default; }
+  .chip.off:hover { transform: none; }
+  @media (max-width: 640px) {
+    .stats { gap: 8px; }
+    .stat { padding: 14px; }
+    .stat .n { font-size: 28px; }
+    .pick-row { flex-direction: column; align-items: stretch; gap: 6px; }
+    .months { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .months .chip { justify-content: center; padding: 7px 0; font-size: 12.5px; }
+  }
+</style>

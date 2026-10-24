@@ -13,7 +13,7 @@ export interface Vocab {
 
 export interface Post {
   title: string;
-  episode: string;
+  aired: string; // broadcast date YYYY-MM-DD ('' if unknown)
   link: string;
 }
 
@@ -40,15 +40,21 @@ function lines(s: unknown): string[] {
     .filter(Boolean);
 }
 
-// "EBS 라디오 입이 트이는 영어 - 10.6 Choosing a Pillow" → episode "10.6", title "Choosing a Pillow"
-function parsePost(title: string, link: string): Post {
+const pad = (n: number) => String(n).padStart(2, '0');
+
+// "EBS 라디오 입이 트이는 영어 - 10.6 Choosing a Pillow" → aired "2026-10-06", title "Choosing a Pillow".
+// The title only carries month.day, so the year comes from the study date
+// (an episode in a later month than the study date belongs to the previous year).
+function parsePost(title: string, link: string, date: string): Post {
   const rest = title.replace(/^.*입이 트이는 영어\s*-\s*/, '').trim();
-  const m = rest.match(/^(\d{1,2}\.\d{1,2})\s+(.*)$/);
-  return {
-    episode: m ? m[1] : '',
-    title: m ? m[2] : rest,
-    link: link.replace(/\?.*$/, ''),
-  };
+  const m = rest.match(/^(\d{1,2})\.(\d{1,2})\s+(.*)$/);
+  let aired = '';
+  if (m) {
+    const [y, mo] = date.split('-').map(Number);
+    const em = Number(m[1]);
+    aired = `${em > mo ? y - 1 : y}-${pad(em)}-${pad(Number(m[2]))}`;
+  }
+  return { title: m ? m[3] : rest, aired, link: link.replace(/\?.*$/, '') };
 }
 
 let cache: Day[] | undefined;
@@ -69,7 +75,7 @@ export function getDays(): Day[] {
       return {
         date,
         dayNo: i + 1,
-        post: delta.title ? parsePost(delta.title, delta.link ?? '') : undefined,
+        post: delta.title ? parsePost(delta.title, delta.link ?? '', date) : undefined,
         newVocab: lines(delta.vocab).filter((l) => l.includes(':')).map(parseVocab),
         newSentences: lines(delta.sentences),
         reviewVocab: (study.vocab ?? []).map((v: string) => parseVocab(String(v))),
@@ -129,21 +135,27 @@ export function markTerms(sentence: string, terms: string[]): { text: string; ma
   return out;
 }
 
+// Days grouped by "YYYY-MM", newest month first.
+export function getMonths(): { key: string; year: number; month: number; days: Day[] }[] {
+  const map = new Map<string, Day[]>();
+  for (const d of getDays()) {
+    const key = d.date.slice(0, 7);
+    if (!map.has(key)) map.set(key, []);
+    map.get(key)!.push(d);
+  }
+  return [...map].map(([key, days]) => ({ key, year: Number(key.slice(0, 4)), month: Number(key.slice(5)), days }));
+}
+
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
-const WEEKDAYS_EN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function ymd(date: string) {
   const [y, m, d] = date.split('-').map(Number);
   return { y, m, d, wd: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
 }
 
-export function formatDate(date: string): string {
+// 2026년 10월 14일 (수)
+export function formatDate(date: string, weekday = true): string {
+  if (!date) return '';
   const { y, m, d, wd } = ymd(date);
-  return `${y}년 ${m}월 ${d}일 (${WEEKDAYS[wd]})`;
-}
-
-export function formatDateEn(date: string): { weekday: string; month: string; day: number; year: number } {
-  const { y, m, d, wd } = ymd(date);
-  return { weekday: WEEKDAYS_EN[wd], month: MONTHS_EN[m - 1], day: d, year: y };
+  return `${y}년 ${m}월 ${d}일${weekday ? ` (${WEEKDAYS[wd]})` : ''}`;
 }

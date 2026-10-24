@@ -16,15 +16,16 @@ const { day, newer, older } = Astro.props;
 <Base title={formatDate(day.date)}>
   <DayView day={day} librarySize={getAllVocab().length} />
   <nav class="pager">
-    {older ? <a class="card" href={`/days/${older.date}/`}><span class="eyebrow">← Previous</span><b>{older.post?.title ?? '복습'}</b><span class="muted mono">{older.date}</span></a> : <span />}
-    {newer ? <a class="card next" href={`/days/${newer.date}/`}><span class="eyebrow">Next →</span><b>{newer.post?.title ?? '복습'}</b><span class="muted mono">{newer.date}</span></a> : <span />}
+    {older ? <a class="card" href={`/days/${older.date}/`}><span class="eyebrow">← 이전</span><b>{older.post?.title ?? '복습'}</b><span class="muted">{formatDate(older.date)}</span></a> : <span />}
+    {newer ? <a class="card next" href={`/days/${newer.date}/`}><span class="eyebrow">다음 →</span><b>{newer.post?.title ?? '복습'}</b><span class="muted">{formatDate(newer.date)}</span></a> : <span />}
   </nav>
 </Base>
 
 <style>
   .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 48px; }
-  .pager a { display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; text-decoration: none; transition: transform 0.2s; }
+  .pager a { display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; text-decoration: none; transition: transform 0.2s; min-width: 0; }
   .pager a:hover { transform: translateY(-2px); }
+  .pager b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .pager .next { text-align: right; }
-  .pager .mono { font-size: 12px; }
+  .pager .muted { font-size: 13px; }
 </style>

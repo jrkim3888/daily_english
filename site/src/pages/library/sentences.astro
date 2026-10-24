@@ -2,33 +2,45 @@
 import Base from '../../layouts/Base.astro';
 import LibraryHead from '../../components/LibraryHead.astro';
 import SearchBar from '../../components/SearchBar.astro';
+import Spotlight from '../../components/Spotlight.astro';
 import Icon from '../../components/Icon.astro';
 import { getAllSentences } from '../../lib/data';
 
 const sentences = getAllSentences();
 ---
-<Base title="Sentences">
+<Base title="문장 모음">
   <LibraryHead active="sentences" count={sentences.length} />
-  <SearchBar target=".s[data-item]" placeholder="문장 검색" />
-  <ul class="slist" data-group>
-    {sentences.map((s) => (
-      <li class="s" data-item>
-        <p>{s}</p>
-        <button type="button" class="sp" data-action="speak" data-text={s} aria-label="문장 듣기"><Icon name="speak" size={14} /></button>
-      </li>
-    ))}
-  </ul>
+  <div class="lib">
+    <div class="side"><Spotlight kind="sentence" /></div>
+    <div class="main">
+      <SearchBar target="[data-item]" placeholder="문장 검색" />
+      <ul class="rows card" data-group>
+        {sentences.map((s) => (
+          <li class="s" data-item data-text={s}>
+            <p>{s}</p>
+            <button type="button" class="sp" data-action="speak" data-text={s} aria-label="문장 듣기"><Icon name="speak" size={14} /></button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </Base>
 
 <script src="../../lib/study.ts"></script>
 
 <style>
-  .slist { list-style: none; margin: 0; padding: 0; columns: 2 340px; column-gap: 10px; }
-  .s {
-    break-inside: avoid; display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 16px 16px 16px 20px;
-    border-radius: 18px; background: var(--surface); border: 1px solid var(--line);
-  }
-  .s p { margin: 0; flex: 1; font-family: var(--serif); font-size: 21px; line-height: 1.28; }
+  .lib { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 18px; align-items: start; }
+  .side { grid-column: 2; grid-row: 1; position: sticky; top: 84px; }
+  .main { grid-column: 1; grid-row: 1; min-width: 0; }
+  .s { display: flex; gap: 14px; align-items: center; padding: 13px 16px 13px 20px; cursor: pointer; transition: background 0.15s; }
+  .s:hover { background: color-mix(in oklab, var(--ink) 4%, transparent); }
+  .s:global(.selected) { background: color-mix(in oklab, var(--lime) 35%, transparent); }
+  .s p { margin: 0; flex: 1; font-size: 16px; font-weight: 550; line-height: 1.5; letter-spacing: -0.02em; }
   .sp { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-solid); color: var(--ink-2); cursor: pointer; }
   .sp:hover { color: var(--accent); }
+  @media (max-width: 900px) {
+    .lib { grid-template-columns: 1fr; }
+    .side { grid-column: 1; position: static; }
+    .main { grid-row: 2; }
+  }
 </style>

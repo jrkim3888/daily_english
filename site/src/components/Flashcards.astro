@@ -8,24 +8,29 @@ interface Props {
 }
 const { deck, items } = Astro.props;
 ---
-<section class="deck" data-deck={deck}>
+<section class="deck" id="flashcards" data-deck={deck}>
   <div class="section-head">
-    <h2>Flash<em>cards</em></h2>
+    <h2>플래시카드 <small>탭해서 뜻 확인</small></h2>
     <div class="controls">
-      <span class="progress mono"><b data-known-count>0</b> / {items.length} 외움</span>
+      <span class="progress"><b data-known-count>0</b> / {items.length} 외움</span>
       <button class="chip" type="button" data-action="shuffle"><Icon name="shuffle" size={14} /> 섞기</button>
       <button class="chip" type="button" data-action="flip-all"><Icon name="flip" size={14} /> 모두 뒤집기</button>
     </div>
   </div>
   <div class="bar" aria-hidden="true"><span data-known-bar></span></div>
+  <div class="filters" role="group" aria-label="카드 필터">
+    <button class="chip" type="button" data-filter="" aria-pressed="true">전체 {items.length}</button>
+    <button class="chip" type="button" data-filter="new" aria-pressed="false">새 단어 {items.filter((v) => v.tag === 'new').length}</button>
+    <button class="chip" type="button" data-filter="review" aria-pressed="false">복습 {items.filter((v) => v.tag === 'review').length}</button>
+  </div>
   <ul class="cards">
     {items.map((v, i) => (
-      <li class="fc" data-term={v.term} style={`--i:${i}`}>
+      <li class="fc" data-term={v.term} data-tag={v.tag} style={`--i:${i}`}>
         <button class="fc-inner" type="button" data-action="flip" aria-label={`${v.term} 뜻 보기`}>
           <span class="face front">
-            <span class:list={['tag', v.tag]}>{v.tag === 'new' ? 'NEW' : 'REVIEW'}</span>
+            <span class:list={['tag', v.tag]}>{v.tag === 'new' ? '새 단어' : '복습'}</span>
             <span class="term">{v.term}</span>
-            <span class="hint mono">tap to flip</span>
+            <span class="hint">탭해서 뒤집기</span>
           </span>
           <span class="face back">
             <span class="term-sm">{v.term}</span>
@@ -43,8 +48,10 @@ const { deck, items } = Astro.props;
 
 <style>
   .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .progress { font-size: 13px; color: var(--muted); margin-right: 4px; }
-  .progress b { color: var(--ink); font-weight: 500; }
+  .progress { font-size: 13px; color: var(--muted); margin-right: 4px; font-weight: 600; }
+  .progress b { color: var(--ink); font-weight: 800; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  #flashcards { scroll-margin-top: 80px; }
   .bar { height: 4px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 18px; }
   .bar span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: inherit; transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
@@ -62,12 +69,11 @@ const { deck, items } = Astro.props;
   }
   .front { background: var(--surface-solid); }
   .back { background: var(--ink); color: var(--bg); transform: rotateY(180deg); }
-  .tag { align-self: flex-start; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); }
-  .tag.new { background: var(--lime); color: var(--lime-ink); border-color: transparent; }
-  .term { font-family: var(--serif); font-size: clamp(26px, 3vw, 32px); line-height: 1.05; letter-spacing: -0.02em; overflow-wrap: anywhere; }
-  .hint { font-size: 10.5px; color: var(--muted); letter-spacing: 0.06em; }
-  .term-sm { font-family: var(--mono); font-size: 11.5px; opacity: 0.6; }
-  .meaning { font-size: 19px; font-weight: 600; line-height: 1.35; letter-spacing: -0.02em; }
+  .tag { align-self: flex-start; }
+  .term { font-size: clamp(22px, 2.6vw, 26px); font-weight: 750; line-height: 1.2; letter-spacing: -0.035em; overflow-wrap: anywhere; }
+  .hint { font-size: 11.5px; color: var(--muted); font-weight: 500; }
+  .term-sm { font-size: 12.5px; font-weight: 600; opacity: 0.6; }
+  .meaning { font-size: 19px; font-weight: 700; line-height: 1.4; letter-spacing: -0.03em; word-break: keep-all; }
   .fc-actions { display: flex; justify-content: space-between; align-items: center; padding: 8px 4px 0; }
   .icon-btn { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-solid); cursor: pointer; color: var(--ink-2); }
   .icon-btn:hover { color: var(--accent); }

@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import DayView from '../components/DayView.astro';
-import DayTile from '../components/DayTile.astro';
+import DayRow from '../components/DayRow.astro';
 import { getDays, getAllVocab } from '../lib/data';
 
 const days = getDays();
 const [latest] = days;
-const recent = days.slice(1, 7);
+const recent = days.slice(1, 8);
 ---
 <Base>
   {latest ? <DayView day={latest} librarySize={getAllVocab().length} isToday /> : <p class="muted">아직 기록이 없어요.</p>}
@@ -14,16 +14,12 @@ const recent = days.slice(1, 7);
   {recent.length > 0 && (
     <section>
       <div class="section-head">
-        <h2>Recently <em>studied</em></h2>
+        <h2>최근 공부한 날</h2>
         <a class="chip" href="/history/">전체 기록 →</a>
       </div>
-      <div class="recent">
-        {recent.map((d) => <DayTile day={d} />)}
-      </div>
+      <ul class="rows card">
+        {recent.map((d) => <DayRow day={d} />)}
+      </ul>
     </section>
   )}
 </Base>
-
-<style>
-  .recent { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
-</style>

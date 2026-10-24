@@ -1,0 +1,45 @@
+---
+import type { Day } from '../lib/data';
+import { formatDate } from '../lib/data';
+import Icon from './Icon.astro';
+
+interface Props {
+  day: Day;
+}
+const { day } = Astro.props;
+const words = day.newVocab.length + day.reviewVocab.length;
+const sents = day.newSentences.length + day.reviewSentences.length;
+---
+<li>
+  <a class="row" href={`/days/${day.date}/`}>
+    <span class="date">{formatDate(day.date)}</span>
+    <span class="title">
+      {day.post ? <span class="tag new">새 에피소드</span> : <span class="tag">복습</span>}
+      <span class:list={['t', { review: !day.post }]}>{day.post ? day.post.title : '쌓아둔 표현 복습'}</span>
+    </span>
+    <span class="count">단어 {words} · 문장 {sents}</span>
+    <Icon name="arrow" size={16} />
+  </a>
+</li>
+
+<style>
+  .row {
+    display: grid; grid-template-columns: 170px minmax(0, 1fr) auto 16px; align-items: center; gap: 16px;
+    padding: 14px 20px; text-decoration: none; transition: background 0.15s;
+  }
+  .row:hover { background: color-mix(in oklab, var(--ink) 4%, transparent); }
+  .row :global(svg) { color: var(--muted); transition: transform 0.15s; }
+  .row:hover :global(svg) { transform: translateX(3px); color: var(--ink); }
+  .date { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+  .title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .t { font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .t.review { color: var(--muted); font-weight: 500; }
+  .count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  @media (max-width: 640px) {
+    .row { grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; padding: 13px 16px; }
+    .date { grid-column: 1; font-size: 13px; color: var(--muted); }
+    .title { grid-column: 1; }
+    .count { grid-column: 1; }
+    .row :global(svg) { grid-column: 2; grid-row: 1 / span 3; }
+  }
+</style>

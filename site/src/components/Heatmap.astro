@@ -10,6 +10,7 @@ const iso = (t: number) => new Date(t).toISOString().slice(0, 10);
 const DAY = 86400000;
 
 const dates = days.map((d) => d.date).sort();
+if (!dates.length) dates.push(new Date().toISOString().slice(0, 10));
 const first = Date.parse(dates[0] + 'T00:00:00Z');
 const last = Date.parse(dates[dates.length - 1] + 'T00:00:00Z');
 // Start on the Sunday on/before the first day.
@@ -33,6 +34,7 @@ const monthLabels = weeks.map((w, i) => {
 const inRange = (date: string) => date >= dates[0] && date <= dates[dates.length - 1];
 ---
 <div class="heat card">
+  <p class="heat-title">{dates[0].slice(0, 4)}년 공부 달력</p>
   <div class="scroll">
     <div class="months" style={`grid-template-columns: repeat(${weeks.length}, 14px)`}>
       {monthLabels.map((l) => <span>{l}</span>)}
@@ -59,7 +61,8 @@ const inRange = (date: string) => date >= dates[0] && date <= dates[dates.length
 </script>
 
 <style>
-  .heat { padding: 20px 22px 16px; }
+  .heat { padding: 18px 22px 16px; margin-bottom: 8px; }
+  .heat-title { margin: 0 0 10px; font-size: 13px; font-weight: 700; color: var(--muted); }
   .scroll { overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
   .months, .grid { display: grid; gap: 3px; width: max-content; }
   .months span { font-size: 11px; color: var(--muted); white-space: nowrap; height: 18px; }

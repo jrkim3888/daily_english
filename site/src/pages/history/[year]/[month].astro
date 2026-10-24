@@ -1,0 +1,17 @@
+---
+import Base from '../../../layouts/Base.astro';
+import HistoryView from '../../../components/HistoryView.astro';
+import { getMonths } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return getMonths().map((m) => ({
+    params: { year: String(m.year), month: String(m.month).padStart(2, '0') },
+    props: { year: m.year, month: m.month },
+  }));
+}
+
+const { year, month } = Astro.props;
+---
+<Base title={`${year}년 ${month}월 기록`}>
+  <HistoryView year={year} month={month} />
+</Base>

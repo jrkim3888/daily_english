@@ -14,7 +14,7 @@ const { target, placeholder, sections = [] } = Astro.props;
       {sections.map((s) => <button class="chip" type="button" data-section={s} aria-pressed="false">{s}</button>)}
     </div>
   )}
-  <span class="count mono" aria-live="polite"></span>
+  <span class="count" aria-live="polite"></span>
 </div>
 
 <script>

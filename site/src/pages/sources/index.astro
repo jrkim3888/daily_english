@@ -1,28 +1,63 @@
 ---
 import Base from '../../layouts/Base.astro';
-import SourceCard from '../../components/SourceCard.astro';
-import { getDays } from '../../lib/data';
+import Icon from '../../components/Icon.astro';
+import { getDays, formatDate } from '../../lib/data';
 
 const eps = getDays().filter((d) => d.post);
+const groups = new Map<string, typeof eps>();
+for (const d of eps) {
+  const key = (d.post!.aired || d.date).slice(0, 7);
+  if (!groups.has(key)) groups.set(key, []);
+  groups.get(key)!.push(d);
+}
 ---
 <Base title="Sources">
   <header class="page-head">
-    <p class="eyebrow">Sources · {eps.length} episodes</p>
-    <h1 class="display">From the <em>airwaves.</em></h1>
-    <p class="muted lede">EBS 라디오 「입이 트이는 영어」 에피소드를 정리한 <a href="https://blog.naver.com/witjung">witjung 블로그</a> 글에서 표현을 모았어요.</p>
+    <p class="eyebrow">Sources</p>
+    <h1 class="display">방송 에피소드</h1>
+    <p class="muted lede">EBS 라디오 「입이 트이는 영어」를 정리한 <a href="https://blog.naver.com/witjung">witjung 블로그</a> 글 {eps.length}편에서 표현을 모았어요.</p>
   </header>
-  <div class="grid">
-    {eps.map((d) => (
-      <SourceCard post={d.post!} date={d.date} words={d.newVocab.length} sentences={d.newSentences.length} href={`/days/${d.date}/`} />
-    ))}
-  </div>
+
+  {[...groups].map(([key, list]) => (
+    <section>
+      <div class="section-head">
+        <h2>{key.slice(0, 4)}년 {Number(key.slice(5))}월 방송 <small>{list.length}편</small></h2>
+      </div>
+      <ul class="rows card">
+        {list.map((d) => (
+          <li class="ep">
+            <span class="aired">{formatDate(d.post!.aired || d.date)}</span>
+            <a class="title" href={`/days/${d.date}/`}>{d.post!.title}</a>
+            <span class="count">단어 {d.newVocab.length} · 문장 {d.newSentences.length}</span>
+            <span class="links">
+              <a class="chip" href={`/days/${d.date}/`}>공부하기</a>
+              <a class="chip" href={d.post!.link} target="_blank" rel="noopener" aria-label={`${d.post!.title} 블로그 원문`}>원문 <Icon name="external" size={12} /></a>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
 </Base>
 
 <style>
-  .page-head { margin: 12px 0 32px; }
-  .page-head .eyebrow { margin: 0 0 10px; }
-  .page-head h1 { font-size: clamp(48px, 8vw, 104px); }
-  .lede { max-width: 52ch; margin: 14px 0 0; }
+  .page-head { margin: 12px 0 8px; }
+  .page-head .eyebrow { margin: 0 0 8px; }
+  .page-head h1 { font-size: clamp(36px, 6vw, 56px); }
+  .lede { max-width: 52ch; margin: 12px 0 0; }
   .lede a { color: var(--ink-2); }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .ep { display: grid; grid-template-columns: 170px minmax(0, 1fr) auto auto; align-items: center; gap: 16px; padding: 12px 20px; }
+  .aired { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+  .title { font-weight: 650; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .title:hover { color: var(--accent); }
+  .count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .links { display: flex; gap: 6px; }
+  .links .chip { padding: 5px 11px; font-size: 12.5px; }
+  @media (max-width: 720px) {
+    .ep { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 13px 16px; }
+    .aired { grid-column: 1; font-size: 13px; color: var(--muted); }
+    .title { grid-column: 1; white-space: normal; }
+    .count { grid-column: 1; }
+    .links { grid-column: 2; grid-row: 1 / span 3; flex-direction: column; }
+  }
 </style>

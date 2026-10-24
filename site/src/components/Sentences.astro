@@ -10,20 +10,20 @@ const { items, terms } = Astro.props;
 const marked = items.map((s) => ({ ...s, parts: markTerms(s.text, terms) }));
 const hasMarks = marked.some((s) => s.parts.some((p) => p.mark));
 ---
-<section class="sentences" data-sentences>
+<section class="sentences" id="sentences" data-sentences>
   <div class="section-head">
-    <h2>Say it <em>out loud</em></h2>
+    <h2>오늘의 문장 <small>소리 내어 읽어보세요</small></h2>
     {hasMarks && <button class="chip" type="button" data-action="blanks" aria-pressed="false"><Icon name="eye" size={14} /> 빈칸 퀴즈</button>}
   </div>
   <ol class="list">
     {marked.map((s, i) => (
       <li class="card s">
-        <span class="no mono">{String(i + 1).padStart(2, '0')}</span>
+        <span class="no">{String(i + 1).padStart(2, '0')}</span>
         <p class="text">
           {s.parts.map((p) => (p.mark ? <mark class="hl" data-word={p.text}>{p.text}</mark> : p.text))}
         </p>
         <div class="row">
-          <span class:list={['tag', s.tag]}>{s.tag === 'new' ? 'NEW' : 'REVIEW'}</span>
+          <span class:list={['tag', s.tag]}>{s.tag === 'new' ? '새 문장' : '복습'}</span>
           <button type="button" class="listen" data-action="speak" data-text={s.text}><Icon name="speak" size={15} /> 듣기</button>
         </div>
       </li>
@@ -34,11 +34,10 @@ const hasMarks = marked.some((s) => s.parts.some((p) => p.mark));
 <style>
   .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .s { display: grid; grid-template-columns: 44px 1fr; gap: 4px 14px; padding: 20px 22px; }
-  .no { font-size: 12px; color: var(--muted); padding-top: 9px; }
-  .text { margin: 0; font-family: var(--serif); font-size: clamp(23px, 2.6vw, 30px); line-height: 1.22; letter-spacing: -0.012em; }
+  #sentences { scroll-margin-top: 80px; }
+  .no { font-size: 13px; font-weight: 700; color: var(--muted); padding-top: 5px; }
+  .text { margin: 0; font-size: clamp(19px, 2.2vw, 23px); font-weight: 650; line-height: 1.45; letter-spacing: -0.025em; }
   .row { grid-column: 2; display: flex; align-items: center; gap: 12px; margin-top: 8px; }
-  .tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); }
-  .tag.new { background: var(--lime); color: var(--lime-ink); border-color: transparent; }
   .listen { display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; color: var(--accent); font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px 0; }
   :global(.blanks) .hl { color: transparent; background: none; border-bottom: 2px dashed var(--ink-2); cursor: pointer; transition: color 0.2s; }
   :global(.blanks) .hl.revealed { color: inherit; background: linear-gradient(transparent 58%, var(--lime) 58%); border-bottom-color: transparent; }

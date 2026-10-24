@@ -37,6 +37,16 @@ document.querySelectorAll<HTMLElement>('[data-deck]').forEach((deck) => {
     if (bar) bar.style.width = `${cards.length ? (n / cards.length) * 100 : 0}%`;
   };
 
+  const setFilter = (tag: string) => {
+    cards.forEach((c) => (c.hidden = !!tag && c.dataset.tag !== tag));
+    deck.querySelectorAll('[data-filter]').forEach((b) => b.setAttribute('aria-pressed', String((b as HTMLElement).dataset.filter === tag)));
+  };
+  deck.querySelectorAll<HTMLElement>('[data-filter]').forEach((b) => b.addEventListener('click', () => setFilter(b.dataset.filter!)));
+  // Stat tiles on the same page link here with a preset filter.
+  document.querySelectorAll<HTMLElement>('a[href="#flashcards"]').forEach((a) =>
+    a.addEventListener('click', () => setFilter(a.dataset.deckFilter ?? '')),
+  );
+
   deck.addEventListener('click', (e) => {
     const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-action]');
     if (!btn) return;
