@@ -12,8 +12,8 @@ const hasMarks = marked.some((s) => s.parts.some((p) => p.mark));
 ---
 <section class="sentences" id="sentences" data-sentences>
   <div class="section-head">
-    <h2>오늘의 문장 <small>소리 내어 읽어보세요</small></h2>
-    {hasMarks && <button class="chip" type="button" data-action="blanks" aria-pressed="false"><Icon name="eye" size={14} /> 빈칸 퀴즈</button>}
+    <h2>Sentences <small>Read them out loud</small></h2>
+    {hasMarks && <button class="chip" type="button" data-action="blanks" aria-pressed="false"><Icon name="eye" size={14} /> Blank quiz</button>}
   </div>
   <ol class="list">
     {marked.map((s, i) => (
@@ -23,8 +23,8 @@ const hasMarks = marked.some((s) => s.parts.some((p) => p.mark));
           {s.parts.map((p) => (p.mark ? <mark class="hl" data-word={p.text}>{p.text}</mark> : p.text))}
         </p>
         <div class="row">
-          <span class:list={['tag', s.tag]}>{s.tag === 'new' ? '새 문장' : '복습'}</span>
-          <button type="button" class="listen" data-action="speak" data-text={s.text}><Icon name="speak" size={15} /> 듣기</button>
+          <span class:list={['tag', s.tag]}>{s.tag === 'new' ? 'New' : 'Review'}</span>
+          <button type="button" class="listen" data-action="speak" data-text={s.text}><Icon name="speak" size={15} /> Listen</button>
         </div>
       </li>
     ))}

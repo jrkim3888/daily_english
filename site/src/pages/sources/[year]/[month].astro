@@ -1,0 +1,17 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SourcesView from '../../../components/SourcesView.astro';
+import { getSourceMonths, MONTHS_LONG } from '../../../lib/data';
+
+export function getStaticPaths() {
+  return getSourceMonths().map((m) => ({
+    params: { year: String(m.year), month: String(m.month).padStart(2, '0') },
+    props: { year: m.year, month: m.month },
+  }));
+}
+
+const { year, month } = Astro.props;
+---
+<Base title={`${MONTHS_LONG[month - 1]} ${year} — Sources`}>
+  <SourcesView year={year} month={month} />
+</Base>

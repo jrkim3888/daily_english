@@ -4,21 +4,22 @@ import LibraryHead from '../../components/LibraryHead.astro';
 import SearchBar from '../../components/SearchBar.astro';
 import Spotlight from '../../components/Spotlight.astro';
 import Icon from '../../components/Icon.astro';
-import { getAllSentences } from '../../lib/data';
+import { getAllSentences, letterOf } from '../../lib/data';
 
 const sentences = getAllSentences();
+const letters = [...new Set(sentences.map(letterOf))];
 ---
-<Base title="문장 모음">
+<Base title="Sentences">
   <LibraryHead active="sentences" count={sentences.length} />
   <div class="lib">
     <div class="side"><Spotlight kind="sentence" /></div>
     <div class="main">
-      <SearchBar target="[data-item]" placeholder="문장 검색" />
+      <SearchBar target="[data-item]" placeholder="Search sentences" letters={letters} />
       <ul class="rows card" data-group>
         {sentences.map((s) => (
-          <li class="s" data-item data-text={s}>
+          <li class="s" data-item data-letter={letterOf(s)} data-text={s}>
             <p>{s}</p>
-            <button type="button" class="sp" data-action="speak" data-text={s} aria-label="문장 듣기"><Icon name="speak" size={14} /></button>
+            <button type="button" class="sp" data-action="speak" data-text={s} aria-label="Listen"><Icon name="speak" size={14} /></button>
           </li>
         ))}
       </ul>

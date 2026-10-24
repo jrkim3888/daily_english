@@ -7,30 +7,32 @@ interface Props {
   items: (Vocab & { tag: 'new' | 'review' })[];
 }
 const { deck, items } = Astro.props;
+const count = (tag: string) => items.filter((v) => v.tag === tag).length;
 ---
 <section class="deck" id="flashcards" data-deck={deck}>
   <div class="section-head">
-    <h2>플래시카드 <small>탭해서 뜻 확인</small></h2>
+    <h2>Flashcards <small>Tap a card to flip</small></h2>
     <div class="controls">
-      <span class="progress"><b data-known-count>0</b> / {items.length} 외움</span>
-      <button class="chip" type="button" data-action="shuffle"><Icon name="shuffle" size={14} /> 섞기</button>
-      <button class="chip" type="button" data-action="flip-all"><Icon name="flip" size={14} /> 모두 뒤집기</button>
+      <span class="progress"><b data-known-count>0</b> / {items.length} learned</span>
+      <button class="chip lime" type="button" data-action="open-list"><Icon name="list" size={14} /> Word list</button>
+      <button class="chip" type="button" data-action="shuffle"><Icon name="shuffle" size={14} /> Shuffle</button>
+      <button class="chip" type="button" data-action="flip-all"><Icon name="flip" size={14} /> Flip all</button>
     </div>
   </div>
   <div class="bar" aria-hidden="true"><span data-known-bar></span></div>
-  <div class="filters" role="group" aria-label="카드 필터">
-    <button class="chip" type="button" data-filter="" aria-pressed="true">전체 {items.length}</button>
-    <button class="chip" type="button" data-filter="new" aria-pressed="false">새 단어 {items.filter((v) => v.tag === 'new').length}</button>
-    <button class="chip" type="button" data-filter="review" aria-pressed="false">복습 {items.filter((v) => v.tag === 'review').length}</button>
+  <div class="filters" role="group" aria-label="Filter cards">
+    <button class="chip" type="button" data-filter="" aria-pressed="true">All {items.length}</button>
+    <button class="chip" type="button" data-filter="new" aria-pressed="false">New {count('new')}</button>
+    <button class="chip" type="button" data-filter="review" aria-pressed="false">Review {count('review')}</button>
   </div>
   <ul class="cards">
     {items.map((v, i) => (
       <li class="fc" data-term={v.term} data-tag={v.tag} style={`--i:${i}`}>
-        <button class="fc-inner" type="button" data-action="flip" aria-label={`${v.term} 뜻 보기`}>
+        <button class="fc-inner" type="button" data-action="flip" aria-label={`Flip ${v.term}`}>
           <span class="face front">
-            <span class:list={['tag', v.tag]}>{v.tag === 'new' ? '새 단어' : '복습'}</span>
+            <span class:list={['tag', v.tag]}>{v.tag === 'new' ? 'New' : 'Review'}</span>
             <span class="term">{v.term}</span>
-            <span class="hint">탭해서 뒤집기</span>
+            <span class="hint">Tap to flip</span>
           </span>
           <span class="face back">
             <span class="term-sm">{v.term}</span>
@@ -38,22 +40,39 @@ const { deck, items } = Astro.props;
           </span>
         </button>
         <div class="fc-actions">
-          <button type="button" class="icon-btn" data-action="speak" data-text={v.term} aria-label="발음 듣기"><Icon name="speak" /></button>
-          <button type="button" class="known-btn" data-action="known" aria-pressed="false"><Icon name="check" size={14} /> 외웠어요</button>
+          <button type="button" class="icon-btn" data-action="speak" data-text={v.term} aria-label={`Listen to ${v.term}`}><Icon name="speak" /></button>
+          <button type="button" class="known-btn" data-action="known" aria-pressed="false"><Icon name="check" size={14} /> Got it</button>
         </div>
       </li>
     ))}
   </ul>
+
+  <dialog class="wordlist" data-wordlist aria-labelledby={`wl-${deck}`}>
+    <header>
+      <h3 id={`wl-${deck}`}>Word list <small>{items.length} words</small></h3>
+      <button type="button" class="icon-btn" data-action="close-list" aria-label="Close"><Icon name="close" /></button>
+    </header>
+    <ul class="rows">
+      {items.map((v) => (
+        <li class="wl-row" data-tag={v.tag}>
+          <span class="wl-term">{v.term}</span>
+          <span class="wl-meaning">{v.meaning}</span>
+          <span class:list={['tag', v.tag]}>{v.tag === 'new' ? 'New' : 'Review'}</span>
+          <button type="button" class="icon-btn" data-action="speak" data-text={v.term} aria-label={`Listen to ${v.term}`}><Icon name="speak" size={14} /></button>
+        </li>
+      ))}
+    </ul>
+  </dialog>
 </section>
 
 <style>
   .controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .progress { font-size: 13px; color: var(--muted); margin-right: 4px; font-weight: 600; }
   .progress b { color: var(--ink); font-weight: 800; }
+  .bar { height: 4px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 16px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: inherit; transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
   #flashcards { scroll-margin-top: 80px; }
-  .bar { height: 4px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 18px; }
-  .bar span { display: block; height: 100%; width: 0; background: var(--ink); border-radius: inherit; transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
   .fc { perspective: 1200px; animation: rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i) * 35ms); }
   @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
@@ -69,17 +88,42 @@ const { deck, items } = Astro.props;
   }
   .front { background: var(--surface-solid); }
   .back { background: var(--ink); color: var(--bg); transform: rotateY(180deg); }
-  .tag { align-self: flex-start; }
+  .face .tag { align-self: flex-start; }
   .term { font-size: clamp(22px, 2.6vw, 26px); font-weight: 750; line-height: 1.2; letter-spacing: -0.035em; overflow-wrap: anywhere; }
   .hint { font-size: 11.5px; color: var(--muted); font-weight: 500; }
   .term-sm { font-size: 12.5px; font-weight: 600; opacity: 0.6; }
   .meaning { font-size: 19px; font-weight: 700; line-height: 1.4; letter-spacing: -0.03em; word-break: keep-all; }
   .fc-actions { display: flex; justify-content: space-between; align-items: center; padding: 8px 4px 0; }
-  .icon-btn { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-solid); cursor: pointer; color: var(--ink-2); }
+  .icon-btn { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-solid); cursor: pointer; color: var(--ink-2); }
   .icon-btn:hover { color: var(--accent); }
-  .known-btn { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; font-size: 13px; font-weight: 550; color: var(--muted); cursor: pointer; padding: 6px 4px; }
+  .known-btn { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; padding: 6px 4px; }
   .known-btn[aria-pressed='true'] { color: var(--ink); }
   .known-btn[aria-pressed='true'] :global(svg) { background: var(--lime); color: var(--lime-ink); border-radius: 999px; padding: 1px; }
   .fc.known .front { opacity: 0.55; }
-  @media (max-width: 520px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .face { padding: 13px 14px; } .meaning { font-size: 16px; } }
+
+  .wordlist {
+    width: min(560px, calc(100vw - 32px)); max-height: min(80vh, 720px); padding: 0; border: 1px solid var(--line); border-radius: 24px;
+    background: var(--surface-solid); color: var(--ink); box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.45);
+  }
+  .wordlist[open] { display: flex; flex-direction: column; animation: dlg 0.25s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  @keyframes dlg { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+  .wordlist::backdrop { background: rgba(10, 10, 12, 0.45); backdrop-filter: blur(4px); }
+  .wordlist header { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px 12px; border-bottom: 1px solid var(--line); }
+  .wordlist h3 { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.035em; }
+  .wordlist h3 small { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+  .wordlist .rows { overflow-y: auto; padding: 0; }
+  .wl-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 64px 32px; align-items: center; gap: 12px; padding: 12px 20px; }
+  .wl-row .tag { justify-self: end; }
+  .wl-term { font-weight: 750; letter-spacing: -0.025em; overflow-wrap: anywhere; }
+  .wl-meaning { font-size: 14px; color: var(--ink-2); word-break: keep-all; }
+
+  @media (max-width: 520px) {
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .face { padding: 13px 14px; }
+    .meaning { font-size: 16px; }
+    .wl-row { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 11px 16px; }
+    .wl-meaning { grid-column: 1; }
+    .wl-row .tag { display: none; }
+    .wl-row .icon-btn { grid-column: 2; grid-row: 1 / span 2; }
+  }
 </style>

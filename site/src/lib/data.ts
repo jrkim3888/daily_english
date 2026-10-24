@@ -146,16 +146,42 @@ export function getMonths(): { key: string; year: number; month: number; days: D
   return [...map].map(([key, days]) => ({ key, year: Number(key.slice(0, 4)), month: Number(key.slice(5)), days }));
 }
 
-const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const WEEKDAYS_LONG = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+export const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export const MONTHS_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function ymd(date: string) {
   const [y, m, d] = date.split('-').map(Number);
   return { y, m, d, wd: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
 }
 
-// 2026년 10월 14일 (수)
-export function formatDate(date: string, weekday = true): string {
+// "Wed, Oct 14, 2026" — or long: "Wednesday, October 14, 2026"
+export function formatDate(date: string, style: 'short' | 'long' | 'plain' = 'short'): string {
   if (!date) return '';
   const { y, m, d, wd } = ymd(date);
-  return `${y}년 ${m}월 ${d}일${weekday ? ` (${WEEKDAYS[wd]})` : ''}`;
+  if (style === 'long') return `${WEEKDAYS_LONG[wd]}, ${MONTHS_LONG[m - 1]} ${d}, ${y}`;
+  if (style === 'plain') return `${MONTHS[m - 1]} ${d}, ${y}`;
+  return `${WEEKDAYS[wd]}, ${MONTHS[m - 1]} ${d}, ${y}`;
+}
+
+export const plural = (n: number, word: string) => `${n.toLocaleString()} ${n === 1 ? word : word + 's'}`;
+
+// Episode days grouped by broadcast month ("YYYY-MM"), newest first.
+export function getSourceMonths(): { key: string; year: number; month: number; days: Day[] }[] {
+  const map = new Map<string, Day[]>();
+  for (const d of getDays().filter((x) => x.post)) {
+    const key = (d.post!.aired || d.date).slice(0, 7);
+    if (!map.has(key)) map.set(key, []);
+    map.get(key)!.push(d);
+  }
+  return [...map]
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([key, days]) => ({ key, year: Number(key.slice(0, 4)), month: Number(key.slice(5)), days }));
+}
+
+// First letter bucket for the A–Z navigator ("#" for anything else).
+export function letterOf(s: string): string {
+  const c = s.trim().charAt(0).toUpperCase();
+  return c >= 'A' && c <= 'Z' ? c : '#';
 }

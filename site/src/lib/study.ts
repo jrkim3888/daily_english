@@ -55,6 +55,12 @@ document.querySelectorAll<HTMLElement>('[data-deck]').forEach((deck) => {
       case 'flip':
         card?.classList.toggle('flipped');
         break;
+      case 'open-list':
+        deck.querySelector<HTMLDialogElement>('[data-wordlist]')?.showModal();
+        break;
+      case 'close-list':
+        btn.closest('dialog')?.close();
+        break;
       case 'known': {
         const t = card!.dataset.term!;
         known.has(t) ? known.delete(t) : known.add(t);
@@ -81,6 +87,10 @@ document.querySelectorAll<HTMLElement>('[data-deck]').forEach((deck) => {
         break;
       }
     }
+  });
+  const dialog = deck.querySelector<HTMLDialogElement>('[data-wordlist]');
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
   });
   render();
 });

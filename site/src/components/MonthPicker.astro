@@ -1,0 +1,51 @@
+---
+import { MONTHS } from '../lib/data';
+
+interface Props {
+  months: { year: number; month: number }[];
+  year: number;
+  month: number;
+  base: string; // e.g. "/history"
+}
+const { months, year, month, base } = Astro.props;
+const years = [...new Set(months.map((m) => m.year))];
+const has = new Set(months.filter((m) => m.year === year).map((m) => m.month));
+const href = (y: number, m: number) => `${base}/${y}/${String(m).padStart(2, '0')}/`;
+const yearHref = (y: number) => {
+  const m = months.find((x) => x.year === y)!;
+  return href(m.year, m.month);
+};
+---
+<nav class="picker card" aria-label="Choose year and month">
+  <div class="pick-row">
+    <span class="pick-label">Year</span>
+    <div class="pick-chips">
+      {years.map((y) => <a class="chip" href={yearHref(y)} aria-current={y === year ? 'page' : undefined}>{y}</a>)}
+    </div>
+  </div>
+  <div class="pick-row">
+    <span class="pick-label">Month</span>
+    <div class="pick-chips months">
+      {MONTHS.map((name, i) =>
+        has.has(i + 1)
+          ? <a class="chip" href={href(year, i + 1)} aria-current={i + 1 === month ? 'page' : undefined}>{name}</a>
+          : <span class="chip off" aria-disabled="true">{name}</span>,
+      )}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .picker { padding: 14px 18px; margin-bottom: 14px; display: grid; gap: 10px; }
+  .pick-row { display: flex; gap: 14px; align-items: center; }
+  .pick-label { flex: none; width: 46px; font-size: 13px; font-weight: 700; color: var(--muted); }
+  .pick-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pick-chips .chip[aria-current='page'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .chip.off { opacity: 0.35; cursor: default; }
+  .chip.off:hover { transform: none; }
+  @media (max-width: 640px) {
+    .pick-row { flex-direction: column; align-items: stretch; gap: 6px; }
+    .months { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .months .chip { justify-content: center; padding: 7px 0; font-size: 12.5px; }
+  }
+</style>

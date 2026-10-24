@@ -7,22 +7,22 @@ interface Props {
   kind: 'vocab' | 'sentence';
 }
 const { kind } = Astro.props;
-const noun = kind === 'vocab' ? '단어' : '문장';
+const noun = kind === 'vocab' ? 'word' : 'sentence';
 ---
 <aside class="spot card" data-spotlight={kind}>
-  <p class="eyebrow" data-spot-label>랜덤 {noun}</p>
+  <p class="eyebrow" data-spot-label>Random {noun}</p>
   <p class:list={['spot-text', kind]} data-spot-text>&nbsp;</p>
   {kind === 'vocab' && (
-    <button type="button" class="spot-meaning" data-spot-meaning aria-label="뜻 보기">
+    <button type="button" class="spot-meaning" data-spot-meaning aria-label="Show meaning">
       <span data-spot-meaning-text></span>
-      <span class="reveal">탭해서 뜻 보기</span>
+      <span class="reveal">Tap to reveal meaning</span>
     </button>
   )}
   <div class="spot-actions">
-    <button class="chip lime" type="button" data-spot-next><Icon name="shuffle" size={14} /> 다른 {noun}</button>
-    <button class="chip" type="button" data-action="speak" data-spot-speak data-text=""><Icon name="speak" size={14} /> 듣기</button>
+    <button class="chip lime" type="button" data-spot-next><Icon name="shuffle" size={14} /> Another {noun}</button>
+    <button class="chip" type="button" data-action="speak" data-spot-speak data-text=""><Icon name="speak" size={14} /> Listen</button>
   </div>
-  <p class="spot-hint">아래 목록에서 {noun}을 누르면 여기에 보여요</p>
+  <p class="spot-hint">Tap any {noun} in the list to show it here.</p>
 </aside>
 
 <script>
@@ -33,14 +33,14 @@ const noun = kind === 'vocab' ? '단어' : '문장';
     const meaningBtn = spot.querySelector<HTMLElement>('[data-spot-meaning]');
     const meaning = spot.querySelector('[data-spot-meaning-text]');
     const speak = spot.querySelector<HTMLElement>('[data-spot-speak]')!;
-    const noun = spot.dataset.spotlight === 'vocab' ? '단어' : '문장';
+    const noun = spot.dataset.spotlight === 'vocab' ? 'word' : 'sentence';
     let selected: HTMLElement | undefined;
 
     const show = (li: HTMLElement, picked: boolean) => {
       selected?.classList.remove('selected');
       selected = li;
       li.classList.add('selected');
-      label.textContent = picked ? `선택한 ${noun}` : `랜덤 ${noun}`;
+      label.textContent = picked ? `Picked ${noun}` : `Random ${noun}`;
       text.textContent = li.dataset.text!;
       speak.dataset.text = li.dataset.text!;
       if (meaning) meaning.textContent = li.dataset.meaning ?? '';

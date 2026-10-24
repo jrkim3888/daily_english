@@ -3,18 +3,29 @@ interface Props {
   target: string;
   placeholder: string;
   sections?: string[];
+  letters?: string[]; // letters that have at least one item
 }
-const { target, placeholder, sections = [] } = Astro.props;
+const { target, placeholder, sections = [], letters = [] } = Astro.props;
+const ALPHA = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ', '#'];
+const has = new Set(letters);
 ---
 <div class="searchbar" data-search={target}>
-  <input class="search" type="search" placeholder={placeholder} aria-label={placeholder} />
-  {sections.length > 0 && (
-    <div class="chips">
-      <button class="chip" type="button" data-section="" aria-pressed="true">전체</button>
-      {sections.map((s) => <button class="chip" type="button" data-section={s} aria-pressed="false">{s}</button>)}
+  <div class="line">
+    <input class="search" type="search" placeholder={placeholder} aria-label={placeholder} />
+    {sections.length > 0 && (
+      <div class="chips">
+        <button class="chip" type="button" data-section="" aria-pressed="true">All</button>
+        {sections.map((s) => <button class="chip" type="button" data-section={s} aria-pressed="false">{s}</button>)}
+      </div>
+    )}
+    <span class="count" aria-live="polite"></span>
+  </div>
+  {letters.length > 0 && (
+    <div class="alpha" role="group" aria-label="Filter by first letter">
+      <button type="button" data-letter="" aria-pressed="true">All</button>
+      {ALPHA.map((l) => <button type="button" data-letter={l} aria-pressed="false" disabled={!has.has(l)}>{l}</button>)}
     </div>
   )}
-  <span class="count" aria-live="polite"></span>
 </div>
 
 <script>
@@ -25,41 +36,57 @@ const { target, placeholder, sections = [] } = Astro.props;
     const text = items.map((el) => el.textContent!.toLowerCase());
     const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
     let section = '';
+    let letter = '';
 
     const apply = () => {
       const q = input.value.trim().toLowerCase();
       let shown = 0;
       items.forEach((el, i) => {
-        const hit = (!q || text[i].includes(q)) && (!section || el.dataset.sec === section);
+        const hit = (!q || text[i].includes(q)) && (!section || el.dataset.sec === section) && (!letter || el.dataset.letter === letter);
         el.hidden = !hit;
         if (hit) shown++;
       });
       groups.forEach((g) => (g.hidden = !g.querySelector('[data-item]:not([hidden])')));
-      count.textContent = q || section ? `${shown.toLocaleString()}개` : '';
+      count.textContent = q || section || letter ? `${shown.toLocaleString()} found` : '';
     };
 
+    const toggleGroup = (attr: string, set: (v: string) => void) =>
+      bar.querySelectorAll<HTMLElement>(`[${attr}]`).forEach((btn) =>
+        btn.addEventListener('click', () => {
+          set(btn.getAttribute(attr)!);
+          bar.querySelectorAll(`[${attr}]`).forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          apply();
+          bar.nextElementSibling?.scrollIntoView({ block: 'nearest' });
+        }),
+      );
+
     input.addEventListener('input', apply);
-    bar.querySelectorAll<HTMLElement>('[data-section]').forEach((chip) =>
-      chip.addEventListener('click', () => {
-        section = chip.dataset.section!;
-        bar.querySelectorAll('[data-section]').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
-        apply();
-      }),
-    );
+    toggleGroup('data-section', (v) => (section = v));
+    toggleGroup('data-letter', (v) => (letter = v));
   });
 </script>
 
 <style>
   .searchbar {
-    position: sticky; top: 72px; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    position: sticky; top: 72px; z-index: 5; display: grid; gap: 8px;
     padding: 10px; margin-bottom: 18px; border-radius: 20px; border: 1px solid var(--line);
     background: var(--surface); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow);
   }
+  .line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
   .search {
-    flex: 1 1 260px; min-width: 0; font: inherit; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line-strong);
+    flex: 1 1 240px; min-width: 0; font: inherit; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line-strong);
     background: var(--surface-solid); color: var(--ink);
   }
   .search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
   .chips { display: flex; gap: 6px; flex-wrap: wrap; }
-  .count { font-size: 12px; color: var(--muted); padding: 0 6px; }
+  .count { font-size: 12px; font-weight: 600; color: var(--muted); padding: 0 6px; }
+  .alpha { display: grid; grid-template-columns: repeat(28, minmax(0, 1fr)); gap: 2px; }
+  .alpha button {
+    min-width: 0; height: 28px; padding: 0; border: 0; border-radius: 8px; background: none;
+    font-size: 13px; font-weight: 700; color: var(--ink-2); cursor: pointer;
+  }
+  .alpha button:hover:not(:disabled) { background: var(--line); }
+  .alpha button[aria-pressed='true'] { background: var(--ink); color: var(--bg); }
+  .alpha button:disabled { opacity: 0.25; cursor: default; }
+  @media (max-width: 640px) { .alpha { grid-template-columns: repeat(14, minmax(0, 1fr)); } }
 </style>

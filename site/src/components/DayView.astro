@@ -1,7 +1,6 @@
 ---
 import type { Day } from '../lib/data';
-import { formatDate } from '../lib/data';
-import SourceCard from './SourceCard.astro';
+import { formatDate, plural } from '../lib/data';
 import Flashcards from './Flashcards.astro';
 import Sentences from './Sentences.astro';
 import Icon from './Icon.astro';
@@ -22,32 +21,42 @@ const sentences = [
   ...day.reviewSentences.map((text) => ({ text, tag: 'review' as const })),
 ];
 const stats = [
-  { n: day.newVocab.length, label: '새 단어', href: '#flashcards', filter: 'new', tone: 'lime' },
-  { n: day.reviewVocab.length, label: '복습 단어', href: '#flashcards', filter: 'review', tone: '' },
-  { n: sentences.length, label: '오늘의 문장', href: '#sentences', filter: '', tone: '' },
-  { n: librarySize, label: '누적 단어', href: '/library/', filter: '', tone: 'ink' },
+  { n: day.newVocab.length, label: 'New words', href: '#flashcards', filter: 'new', tone: 'lime' },
+  { n: day.reviewVocab.length, label: 'Review words', href: '#flashcards', filter: 'review', tone: '' },
+  { n: sentences.length, label: 'Sentences', href: '#sentences', filter: '', tone: '' },
+  { n: librarySize, label: 'Word bank', href: '/library/', filter: '', tone: 'ink' },
 ];
 ---
 <section class="bento">
-  <div class="hero card">
-    <p class="kicker">{isToday ? 'Today’s English' : 'Daily English'} <span>Day {day.dayNo}</span></p>
-    <h1 class="display">{day.post ? day.post.title : '복습하는 날'}</h1>
-    <p class="date">{formatDate(day.date)}</p>
-    <p class="lede">
-      {day.post ? '오늘 방송에서 나온 단어와 문장, 그리고 쌓아둔 표현 복습 세트예요.' : '새 에피소드가 없는 날이에요. 쌓아둔 표현을 복습해요.'}
-    </p>
-    {vocab.length > 0 && <div class="cta"><a class="chip solid" href="#flashcards">공부 시작</a></div>}
-  </div>
-
-  {day.post ? (
-    <div class="src"><SourceCard post={day.post} words={day.newVocab.length} sentences={day.newSentences.length} /></div>
-  ) : (
-    <div class="src card empty">
-      <p class="eyebrow">오늘의 소스</p>
-      <p class="empty-title">새 에피소드 없음</p>
-      <p class="muted">오늘은 복습만 있어요.</p>
+  <article class="hero card">
+    <div class="hero-main">
+      <div class="top">
+        <span class="collected"><Icon name="calendar" size={15} /> {formatDate(day.date, 'long')}</span>
+        <span class="dayno">{isToday ? 'Today · ' : ''}Day {day.dayNo}</span>
+      </div>
+      <h1 class="display">{day.post ? day.post.title : 'Review day'}</h1>
+      {vocab.length > 0 && <a class="chip solid start" href="#flashcards">Start studying <Icon name="arrow" size={14} /></a>}
     </div>
-  )}
+
+    <div class="source">
+      {day.post ? (
+        <>
+          <div class="src-info">
+            <span class="station">EBS Radio · Today’s source</span>
+            <span class="aired">Aired {day.post.aired ? formatDate(day.post.aired) : '—'}</span>
+            <span class="src-meta">{plural(day.newVocab.length, 'word')} · {plural(day.newSentences.length, 'sentence')}</span>
+          </div>
+          <a class="chip src-link" href={day.post.link} target="_blank" rel="noopener">Read the post <Icon name="external" size={13} /></a>
+        </>
+      ) : (
+        <div class="src-info">
+          <span class="station">EBS Radio</span>
+          <span class="aired">No new episode</span>
+          <span class="src-meta">Review what you’ve collected so far.</span>
+        </div>
+      )}
+    </div>
+  </article>
 
   {stats.map((s) => (
     <a class:list={['stat', 'card', s.tone]} href={s.href} data-deck-filter={s.filter || undefined}>
@@ -60,36 +69,46 @@ const stats = [
 <div id="study">
   {vocab.length > 0 && <Flashcards deck={day.date} items={vocab} />}
   {sentences.length > 0 && <Sentences items={sentences} terms={vocab.map((v) => v.term)} />}
-  {vocab.length === 0 && sentences.length === 0 && <p class="muted empty-note">이 날은 기록된 학습 데이터가 없어요.</p>}
+  {vocab.length === 0 && sentences.length === 0 && <p class="muted empty-note">Nothing was recorded for this day.</p>}
 </div>
 
 <script src="../lib/study.ts"></script>
 
 <style>
-  .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; }
-  .hero { grid-column: span 8; padding: 28px 32px; display: flex; flex-direction: column; overflow: hidden; }
-  .hero::after {
-    content: ''; position: absolute; right: -60px; bottom: -80px; width: 260px; height: 260px; border-radius: 50%;
-    background: radial-gradient(circle, color-mix(in oklab, var(--lime) 70%, transparent), transparent 70%); pointer-events: none;
+  .bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .hero { grid-column: 1 / -1; overflow: hidden; display: flex; flex-direction: column; }
+  .hero-main { position: relative; padding: 26px 32px 30px; }
+  .hero-main::after {
+    content: ''; position: absolute; right: -40px; top: -90px; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in oklab, var(--lime) 65%, transparent), transparent 70%); pointer-events: none;
   }
-  .kicker { margin: 0 0 14px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
-  .kicker span { font-size: 12px; font-weight: 600; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-strong); }
-  .hero h1 { font-size: clamp(38px, 6vw, 64px); }
-  .date { margin: 12px 0 0; font-size: 16px; font-weight: 600; color: var(--ink-2); }
-  .lede { margin: 6px 0 0; max-width: 44ch; color: var(--muted); font-size: 15px; }
-  .cta { margin-top: auto; padding-top: 22px; position: relative; z-index: 1; }
-  .cta .chip { padding: 10px 18px; font-size: 14px; }
-  .src { grid-column: span 4; }
-  .empty { padding: 22px; display: flex; flex-direction: column; gap: 6px; }
-  .empty p { margin: 0; }
-  .empty-title { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .collected { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink-2); }
+  .dayno { font-size: 12.5px; font-weight: 700; color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface-solid); }
+  .hero h1 { margin-top: 22px; font-size: clamp(40px, 6.5vw, 76px); position: relative; z-index: 1; }
+  .start { margin-top: 24px; padding: 10px 18px; font-size: 14px; position: relative; z-index: 1; }
+
+  .source {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 32px; color: #fff;
+    background:
+      radial-gradient(70% 180% at 100% 0%, var(--accent), transparent 60%),
+      radial-gradient(50% 160% at 0% 100%, color-mix(in oklab, var(--lime) 55%, transparent), transparent 60%),
+      #15161a;
+  }
+  .src-info { display: flex; align-items: baseline; gap: 6px 18px; flex-wrap: wrap; }
+  .station { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.75; }
+  .aired { font-size: 18px; font-weight: 800; letter-spacing: -0.03em; }
+  .src-meta { font-size: 13.5px; opacity: 0.75; }
+  .src-link { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.25); color: #fff; flex: none; }
+  .src-link:hover { background: #fff; color: #15161a; }
+
   .stat {
-    grid-column: span 3; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; text-decoration: none;
+    padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; text-decoration: none;
     transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s;
   }
   .stat:hover { transform: translateY(-3px); border-color: var(--line-strong); }
   .stat .n { font-size: 44px; font-weight: 800; line-height: 1; letter-spacing: -0.05em; }
-  .stat .l { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); font-weight: 600; }
+  .stat .l { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); font-weight: 650; }
   .stat .l :global(svg) { transition: transform 0.2s; }
   .stat:hover .l :global(svg) { transform: translateX(3px); }
   .stat.lime { background: var(--lime); color: var(--lime-ink); border-color: transparent; }
@@ -97,12 +116,11 @@ const stats = [
   .stat.ink { background: var(--ink); color: var(--bg); }
   .stat.ink .l { color: color-mix(in oklab, var(--bg) 60%, transparent); }
   .empty-note { margin-top: 40px; }
-  @media (max-width: 880px) {
-    .hero, .src { grid-column: span 12; }
-    .stat { grid-column: span 6; }
-  }
-  @media (max-width: 520px) {
-    .hero { padding: 24px 22px; }
+  @media (max-width: 760px) {
+    .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero-main { padding: 22px 22px 24px; }
+    .source { flex-direction: column; align-items: flex-start; padding: 16px 22px; }
+    .src-info { flex-direction: column; gap: 2px; }
     .stat .n { font-size: 36px; }
   }
 </style>

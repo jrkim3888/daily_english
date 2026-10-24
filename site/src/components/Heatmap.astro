@@ -1,5 +1,6 @@
 ---
 import type { Day } from '../lib/data';
+import { MONTHS } from '../lib/data';
 
 interface Props {
   days: Day[];
@@ -22,19 +23,19 @@ for (let t = start; t <= last; t += 7 * DAY) {
     const date = iso(t + i * DAY);
     const d = byDate.get(date);
     const level = !d ? 0 : d.post ? 2 : 1;
-    week.push({ date, level, label: d ? `${date} · ${d.post ? d.post.title : '복습'}` : date });
+    week.push({ date, level, label: d ? `${date} · ${d.post ? d.post.title : 'Review'}` : date });
   }
   weeks.push(week);
 }
 const monthLabels = weeks.map((w, i) => {
   const m = Number(w[0].date.slice(5, 7));
   const prev = i > 0 ? Number(weeks[i - 1][0].date.slice(5, 7)) : -1;
-  return m !== prev ? `${m}월` : '';
+  return m !== prev ? MONTHS[m - 1] : '';
 });
 const inRange = (date: string) => date >= dates[0] && date <= dates[dates.length - 1];
 ---
 <div class="heat card">
-  <p class="heat-title">{dates[0].slice(0, 4)}년 공부 달력</p>
+  <p class="heat-title">{dates[0].slice(0, 4)} study calendar</p>
   <div class="scroll">
     <div class="months" style={`grid-template-columns: repeat(${weeks.length}, 14px)`}>
       {monthLabels.map((l) => <span>{l}</span>)}
@@ -50,9 +51,9 @@ const inRange = (date: string) => date >= dates[0] && date <= dates[dates.length
     </div>
   </div>
   <div class="legend">
-    <span><i class="c l0"></i>기록 없음</span>
-    <span><i class="c l1"></i>복습</span>
-    <span><i class="c l2"></i>새 에피소드</span>
+    <span><i class="c l0"></i>No record</span>
+    <span><i class="c l1"></i>Review</span>
+    <span><i class="c l2"></i>New episode</span>
   </div>
 </div>
 

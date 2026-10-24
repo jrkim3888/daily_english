@@ -1,6 +1,6 @@
 ---
 interface Props {
-  name: 'speak' | 'shuffle' | 'flip' | 'check' | 'arrow' | 'external' | 'eye';
+  name: 'speak' | 'shuffle' | 'flip' | 'check' | 'arrow' | 'external' | 'eye' | 'calendar' | 'list' | 'close';
   size?: number;
 }
 const { name, size = 16 } = Astro.props;
@@ -11,6 +11,9 @@ const paths: Record<Props['name'], string> = {
   check: 'M5 12.5 10 17 19 7',
   arrow: 'M5 12h14M13 6l6 6-6 6',
   external: 'M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5',
+  calendar: 'M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Zm0 4h16M8 2v4M16 2v4',
+  list: 'M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01',
+  close: 'M6 6l12 12M18 6 6 18',
   eye: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
 };
 ---

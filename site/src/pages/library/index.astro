@@ -4,23 +4,24 @@ import LibraryHead from '../../components/LibraryHead.astro';
 import SearchBar from '../../components/SearchBar.astro';
 import Spotlight from '../../components/Spotlight.astro';
 import Icon from '../../components/Icon.astro';
-import { getAllVocab } from '../../lib/data';
+import { getAllVocab, letterOf } from '../../lib/data';
 
 const vocab = getAllVocab();
 const sections = ['Words', 'Phrasal Verbs', 'Idioms'].filter((s) => vocab.some((v) => v.section === s));
+const letters = [...new Set(vocab.map((v) => letterOf(v.term)))];
 ---
-<Base title="단어장">
+<Base title="Word bank">
   <LibraryHead active="vocab" count={vocab.length} />
   <div class="lib">
     <div class="side"><Spotlight kind="vocab" /></div>
     <div class="main">
-      <SearchBar target="[data-item]" placeholder="단어나 뜻으로 검색" sections={sections} />
+      <SearchBar target="[data-item]" placeholder="Search words or meanings" sections={sections} letters={letters} />
       <ul class="vlist rows card" data-group>
         {vocab.map((v) => (
-          <li class="v" data-item data-sec={v.section} data-text={v.term} data-meaning={v.meaning}>
+          <li class="v" data-item data-sec={v.section} data-letter={letterOf(v.term)} data-text={v.term} data-meaning={v.meaning}>
             <span class="term">{v.term}</span>
             <span class="meaning">{v.meaning}</span>
-            <button type="button" class="sp" data-action="speak" data-text={v.term} aria-label={`${v.term} 발음`}><Icon name="speak" size={14} /></button>
+            <button type="button" class="sp" data-action="speak" data-text={v.term} aria-label={`Listen to ${v.term}`}><Icon name="speak" size={14} /></button>
           </li>
         ))}
       </ul>

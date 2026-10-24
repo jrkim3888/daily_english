@@ -9,13 +9,13 @@ const [latest] = days;
 const recent = days.slice(1, 8);
 ---
 <Base>
-  {latest ? <DayView day={latest} librarySize={getAllVocab().length} isToday /> : <p class="muted">아직 기록이 없어요.</p>}
+  {latest ? <DayView day={latest} librarySize={getAllVocab().length} isToday /> : <p class="muted">No records yet.</p>}
 
   {recent.length > 0 && (
     <section>
       <div class="section-head">
-        <h2>최근 공부한 날</h2>
-        <a class="chip" href="/history/">전체 기록 →</a>
+        <h2>Recently studied</h2>
+        <a class="chip" href="/history/">Full history →</a>
       </div>
       <ul class="rows card">
         {recent.map((d) => <DayRow day={d} />)}

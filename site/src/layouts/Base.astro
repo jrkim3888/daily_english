@@ -3,7 +3,7 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title, description = '입이 트이는 영어로 쌓아가는 매일의 단어와 문장' } = Astro.props;
+const { title, description = 'Daily English words and sentences from EBS radio, one day at a time.' } = Astro.props;
 const fullTitle = title ? `${title} — Daily English` : 'Daily English';
 const path = Astro.url.pathname;
 const nav = [
@@ -14,7 +14,7 @@ const nav = [
 ];
 ---
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,7 +28,7 @@ const nav = [
   <body>
     <div class="grain" aria-hidden="true"></div>
     <header class="topbar">
-      <a class="logo" href="/" aria-label="Daily English 홈">
+      <a class="logo" href="/" aria-label="Daily English home">
         <span class="logo-mark">E</span>
         <span class="logo-text">Daily English</span>
       </a>
@@ -42,7 +42,7 @@ const nav = [
       <slot />
     </main>
     <footer class="shell footer">
-      <span>Built from <a href="https://blog.naver.com/witjung">witjung</a> · EBS 입이 트이는 영어</span>
+      <span>Built from the <a href="https://blog.naver.com/witjung">witjung</a> blog · EBS Radio</span>
       <span>One day at a time.</span>
     </footer>
   </body>

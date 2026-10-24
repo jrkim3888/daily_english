@@ -7,10 +7,10 @@ const { active, count } = Astro.props;
 ---
 <header class="page-head">
   <p class="eyebrow">Library</p>
-  <h1 class="display">{active === 'vocab' ? '단어장' : '문장 모음'} <span>{count.toLocaleString()}</span></h1>
+  <h1 class="display">{active === 'vocab' ? 'Word bank' : 'Sentences'} <span>{count.toLocaleString()}</span></h1>
   <nav class="tabs">
-    <a href="/library/" aria-current={active === 'vocab' ? 'page' : undefined}>단어</a>
-    <a href="/library/sentences/" aria-current={active === 'sentences' ? 'page' : undefined}>문장</a>
+    <a href="/library/" aria-current={active === 'vocab' ? 'page' : undefined}>Words</a>
+    <a href="/library/sentences/" aria-current={active === 'sentences' ? 'page' : undefined}>Sentences</a>
   </nav>
 </header>
 
