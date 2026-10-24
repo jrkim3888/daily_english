@@ -1,27 +1,27 @@
 {
   "date": "2026-10-25",
-  "archivedAt": "2026-10-24T16:58:13.092828Z",
+  "archivedAt": "2026-10-24T23:30:00.987732Z",
   "today_study": {
     "date": "2026-10-25",
-    "generatedAt": "2026-10-24T16:58:06.056106Z",
+    "generatedAt": "2026-10-24T23:30:00.594258Z",
     "vocab": [
-      "catechins: 카테킨",
-      "demanding: 힘든, 부담이 큰, 요구가 많은",
-      "foster: 조성하다, 발전시키다, 위탁 양육하다",
-      "curriculum: 교육과정",
-      "appreciate: 고마워하다, 인식하다, 진가를 알아보다"
+      "vinegar: 식초",
+      "scoop: 스쿱",
+      "consciousness: 의식, 자각",
+      "pediatrician: 소아과",
+      "means: 수단"
     ],
     "sentences": [
-      "She already has a demanding job as a teacher.",
-      "As I have gotten older, the intense exercise has started to feel a bit too demanding.",
-      "When I was a new hire, I promised myself that I would become an open-minded senior."
+      "My wife and I have been taking turns going with him, which means he has seen the movie ten times all told.",
+      "I've never been a big fan of over-the-top wedding culture.",
+      "In the end, it just left me feeling frustrated."
     ],
     "counts": {
-      "vocabPool": 2943,
-      "sentencePool": 622
+      "vocabPool": 3003,
+      "sentencePool": 651
     }
   },
   "today_delta": {},
   "deltas": [],
-  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-25)\n\n[오늘의 단어]\n- catechins: 카테킨\n- demanding: 힘든, 부담이 큰, 요구가 많은\n- foster: 조성하다, 발전시키다, 위탁 양육하다\n- curriculum: 교육과정\n- appreciate: 고마워하다, 인식하다, 진가를 알아보다\n\n[오늘의 문장]\n- She already has a demanding job as a teacher.\n- As I have gotten older, the intense exercise has started to feel a bit too demanding.\n- When I was a new hire, I promised myself that I would become an open-minded senior.\n"
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-25)\n\n[오늘의 단어]\n- vinegar: 식초\n- scoop: 스쿱\n- consciousness: 의식, 자각\n- pediatrician: 소아과\n- means: 수단\n\n[오늘의 문장]\n- My wife and I have been taking turns going with him, which means he has seen the movie ten times all told.\n- I've never been a big fan of over-the-top wedding culture.\n- In the end, it just left me feeling frustrated.\n"
 }
