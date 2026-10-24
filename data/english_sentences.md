@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- She already has a demanding job as a teacher.
+- I move around on my own.
+- I live about three and a half hours away by car.
+
 - My neck and shoulders often feel stiff.
 - The right pillow can make a big difference.
 

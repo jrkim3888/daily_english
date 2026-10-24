@@ -1,6 +1,8 @@
 # 📘 영어 단어 정리
 
 ## Words
+- demanding: 부담이 큰, 힘든
+- nature: 성격, 특성, 자연
 
 - stiff: 뻣뻣한
 - tense: 뭉친
@@ -2724,6 +2726,8 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- settle down: 정착하다
+- move around: 자주 이사하다, 돌아다니다
 
 - come over: 건너오다
 
@@ -2963,6 +2967,11 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- dual-income couple: 맞벌이 부부
+- on one's own: 혼자서, 독립해서
+- by car: 자동차를 타고
+
 - on one's side: ~의 측에서, 옆으로
 - part of me wants to: 그런 마음이 있다
 
