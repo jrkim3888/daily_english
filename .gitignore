@@ -15,3 +15,14 @@ data/today_*.json
 site/node_modules/
 site/dist/
 site/.astro/
+
+# openclaw agent workspace files
+/AGENTS.md
+/IDENTITY.md
+/SOUL.md
+/USER.md
+/HEARTBEAT.md
+/MEMORY.md
+/DREAMS.md
+/memory/
+/.openclaw/

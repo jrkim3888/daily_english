@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
@@ -43,10 +43,8 @@ def main() -> int:
     s = read_json(STUDY)
     d = read_json(DELTA)
 
-    date = (s.get('date') or d.get('date') or '').strip()
-    if not date:
-        # Fall back to UTC date if missing (should be rare)
-        date = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    # Archive under today's KST date; inputs from another day are dropped below.
+    date = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d')
 
     HIST.mkdir(parents=True, exist_ok=True)
     out_path = HIST / f"{date}.json"
@@ -55,6 +53,9 @@ def main() -> int:
     # Snapshot raw inputs
     today_study = read_json(STUDY)
     today_delta = read_json(DELTA) if DELTA.exists() else {}
+    if today_study.get('date') != date:
+        print(f"archive: today_study is for {today_study.get('date')!r}, not {date}; skipping", file=sys.stderr)
+        return 1
     if today_delta.get('date') != date:
         today_delta = {}
 

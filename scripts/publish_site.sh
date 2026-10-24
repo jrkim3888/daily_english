@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Commit archive/data changes and push; Cloudflare Pages rebuilds on push.
+# Commit archive/data changes and push; GitHub Actions deploys to Cloudflare Pages on push.
 set -euo pipefail
 source "$(dirname "$0")/_env.sh"
 cd "$BASE"
@@ -11,5 +11,7 @@ if git diff --cached --quiet; then
 fi
 
 git commit -q -m "daily: $(TZ=Asia/Seoul date +%Y-%m-%d)"
+# Site code may have been pushed from elsewhere; replay the data commit on top.
+git pull -q --rebase --autostash origin main
 git push -q origin main
 echo "publish: pushed"
