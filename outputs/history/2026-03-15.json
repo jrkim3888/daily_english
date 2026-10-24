@@ -1,0 +1,34 @@
+{
+  "date": "2026-03-15",
+  "archivedAt": "2026-03-15T01:01:23.797869Z",
+  "today_study": {
+    "date": "2026-03-15",
+    "generatedAt": "2026-03-14T15:00:13.932476Z",
+    "vocab": [
+      "selfish: 이기적인",
+      "adverse: 부정적인",
+      "environmental: 환경의",
+      "oasis: 오아시스",
+      "special-purpose: 특수목적"
+    ],
+    "sentences": [
+      "I complained that he was wasting money replacing switches that were perfectly fine.",
+      "It was fascinating to watch them grow so quickly.",
+      "I soaked the mushrooms in water for a day."
+    ],
+    "counts": {
+      "vocabPool": 2254,
+      "sentencePool": 269
+    }
+  },
+  "today_delta": {
+    "date": "2026-03-13",
+    "title": "EBS 라디오 입이 트이는 영어 - 3.12 Five Day Market",
+    "link": "https://blog.naver.com/witjung/224214687322?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Fri, 13 Mar 2026 07:34:00 +0900",
+    "vocab": "hand in hand: 서로 손을 잡고\nseasonal: 계절적인\nmouth-watering: 군침도는\nperilla leaf: 깻잎\nthrive: 번창하다, 잘 자라다",
+    "sentences": "We sample street food and enjoy looking at everything.\nI always go and have a look around."
+  },
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-03-15)\n\n[오늘의 단어]\n- hand in hand: 서로 손을 잡고\n- seasonal: 계절적인\n- mouth-watering: 군침도는\n- perilla leaf: 깻잎\n- thrive: 번창하다, 잘 자라다\n- selfish: 이기적인\n- adverse: 부정적인\n- environmental: 환경의\n- oasis: 오아시스\n- special-purpose: 특수목적\n\n[오늘의 문장]\n- We sample street food and enjoy looking at everything.\n- I always go and have a look around.\n- I complained that he was wasting money replacing switches that were perfectly fine.\n- It was fascinating to watch them grow so quickly.\n- I soaked the mushrooms in water for a day.\n"
+}

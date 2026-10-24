@@ -1,0 +1,34 @@
+{
+  "date": "2026-03-03",
+  "archivedAt": "2026-03-03T01:00:14.816878Z",
+  "today_study": {
+    "date": "2026-03-03",
+    "generatedAt": "2026-03-02T15:00:06.100990Z",
+    "vocab": [
+      "partly: 부분적으로, 어느 정도",
+      "inspire: 고무하다, 영감을 주다",
+      "C: 걱정 마세요.",
+      "recurrence: 되풀이, 반복, 재발",
+      "flat: 평지"
+    ],
+    "sentences": [
+      "I start by setting aside my concern and giving my mind a break.",
+      "I might have to go get one today.",
+      "Around this time next year, he will be a college student."
+    ],
+    "counts": {
+      "vocabPool": 2203,
+      "sentencePool": 246
+    }
+  },
+  "today_delta": {
+    "date": "2026-03-03",
+    "title": "EBS 라디오 입이 트이는 영어 - 2.27 Late Bloomer",
+    "link": "https://blog.naver.com/witjung/224202120179?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Tue, 03 Mar 2026 07:17:54 +0900",
+    "vocab": "late-in-life: 만년에\nfill in the gap: 차이를 매우다\njust around the corner: 입박하여",
+    "sentences": "I'm a late-in-life mom with 60 just around the corner.\nStudying together instead of alone makes it more fun and effective."
+  },
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-03-03)\n\n[오늘의 단어]\n- late-in-life: 만년에\n- fill in the gap: 차이를 매우다\n- just around the corner: 입박하여\n- partly: 부분적으로, 어느 정도\n- inspire: 고무하다, 영감을 주다\n- C: 걱정 마세요.\n- recurrence: 되풀이, 반복, 재발\n- flat: 평지\n\n[오늘의 문장]\n- I'm a late-in-life mom with 60 just around the corner.\n- Studying together instead of alone makes it more fun and effective.\n- I start by setting aside my concern and giving my mind a break.\n- I might have to go get one today.\n- Around this time next year, he will be a college student.\n"
+}

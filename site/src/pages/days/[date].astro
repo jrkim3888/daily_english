@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import DayView from '../../components/DayView.astro';
+import { getDays, formatDate } from '../../lib/data';
+
+export function getStaticPaths() {
+  const days = getDays();
+  return days.map((day, i) => ({
+    params: { date: day.date },
+    props: { day, newer: days[i - 1], older: days[i + 1] },
+  }));
+}
+
+const { day, newer, older } = Astro.props;
+---
+<Base title={formatDate(day.date)}>
+  <DayView day={day} />
+  <nav class="pager">
+    {older ? <a href={`/days/${older.date}/`}>← {older.date}</a> : <span />}
+    {newer ? <a href={`/days/${newer.date}/`}>{newer.date} →</a> : <span />}
+  </nav>
+</Base>
+
+<style>
+  .pager { display: flex; justify-content: space-between; margin-top: 36px; font-variant-numeric: tabular-nums; }
+  .pager a { text-decoration: none; }
+</style>

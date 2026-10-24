@@ -1,0 +1,32 @@
+{
+  "date": "2026-08-07",
+  "archivedAt": "2026-08-07T01:00:38.909878Z",
+  "today_study": {
+    "date": "2026-08-07",
+    "generatedAt": "2026-08-06T15:00:35.799047Z",
+    "vocab": [
+      "calm: 침착한",
+      "electric: 열광하는, 전기의",
+      "athlete: 운동선수, 운동잘하는 사람",
+      "punishment: 벌, 처벌",
+      "noteworthy: 주목할만한"
+    ],
+    "sentences": [
+      "I'm a calm person and not very talkative."
+    ],
+    "counts": {
+      "vocabPool": 2696,
+      "sentencePool": 495
+    }
+  },
+  "today_delta": {
+    "date": "2026-08-07",
+    "title": "EBS 라디오 입이 트이는 영어 - 7.30 Taking a Break",
+    "link": "https://blog.naver.com/witjung/224370724123?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Fri, 07 Aug 2026 08:05:19 +0900",
+    "vocab": "freshmen: 신입생\nyear off: 휴학, 휴직\non top of that: 그 위에\nkeep me awake: 잠을 깨다\nregain: 되찾다",
+    "sentences": "I decided to take a year off this year.\nI spent a long time thinking about it before making the decision.\nThe stress even kept me awake at night."
+  },
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-08-07)\n\n[오늘의 단어]\n- freshmen: 신입생\n- year off: 휴학, 휴직\n- on top of that: 그 위에\n- keep me awake: 잠을 깨다\n- regain: 되찾다\n- calm: 침착한\n- electric: 열광하는, 전기의\n- athlete: 운동선수, 운동잘하는 사람\n- punishment: 벌, 처벌\n- noteworthy: 주목할만한\n\n[오늘의 문장]\n- I decided to take a year off this year.\n- I spent a long time thinking about it before making the decision.\n- The stress even kept me awake at night.\n- I'm a calm person and not very talkative.\n"
+}

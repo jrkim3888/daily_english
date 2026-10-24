@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { getAllSentences } from '../lib/data';
+
+const sentences = getAllSentences();
+---
+<Base title="문장">
+  <h1>외울 문장</h1>
+  <p class="muted">총 {sentences.length.toLocaleString()}개 · 최근에 추가된 순</p>
+  <input class="search" type="search" placeholder="문장 검색" data-filter=".sentences li" />
+  <p class="muted count" aria-live="polite"></p>
+  <section data-group>
+    <div class="card spaced">
+      <ul class="sentences">
+        {sentences.map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<script src="../lib/filter.ts"></script>
+
+<style>
+  .spaced { margin-top: 16px; }
+</style>

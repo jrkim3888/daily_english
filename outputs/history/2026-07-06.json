@@ -1,0 +1,34 @@
+{
+  "date": "2026-07-06",
+  "archivedAt": "2026-07-06T01:00:41.426094Z",
+  "today_study": {
+    "date": "2026-07-06",
+    "generatedAt": "2026-07-05T15:00:24.805183Z",
+    "vocab": [
+      "nutrient: 영양소",
+      "Danish: 덴마크의",
+      "rescue: 구하다, 구조",
+      "glimpse: 잠깐 봄, 깨닫다",
+      "outfit: 한 벌로 입은 옷"
+    ],
+    "sentences": [
+      "It really hit me.",
+      "Since it fell on a weekday, we didn't get a chance to eat out as a family.",
+      "I was traumatized by that experience."
+    ],
+    "counts": {
+      "vocabPool": 2601,
+      "sentencePool": 444
+    }
+  },
+  "today_delta": {
+    "date": "2026-07-06",
+    "title": "EBS 라디오 입이 트이는 영어 - 7.2 Growing with My Son",
+    "link": "https://blog.naver.com/witjung/224337630687?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Mon, 06 Jul 2026 07:27:08 +0900",
+    "vocab": "come up with: 제시하다, 제안하다\nsit across: 마주보고 앉다",
+    "sentences": "Being with my son has made me start to warm to English.\nIt sounds like you two are really close.\nWe sit across from each other talking and laughing."
+  },
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-07-06)\n\n[오늘의 단어]\n- come up with: 제시하다, 제안하다\n- sit across: 마주보고 앉다\n- nutrient: 영양소\n- Danish: 덴마크의\n- rescue: 구하다, 구조\n- glimpse: 잠깐 봄, 깨닫다\n- outfit: 한 벌로 입은 옷\n\n[오늘의 문장]\n- Being with my son has made me start to warm to English.\n- It sounds like you two are really close.\n- We sit across from each other talking and laughing.\n- It really hit me.\n- Since it fell on a weekday, we didn't get a chance to eat out as a family.\n- I was traumatized by that experience.\n"
+}

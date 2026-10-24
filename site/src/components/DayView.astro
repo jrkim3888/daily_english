@@ -1,0 +1,78 @@
+---
+import type { Day } from '../lib/data';
+import { formatDate } from '../lib/data';
+
+interface Props {
+  day: Day;
+}
+const { day } = Astro.props;
+const hasNew = day.newVocab.length > 0 || day.newSentences.length > 0;
+---
+<article>
+  <p class="muted date">{formatDate(day.date)}</p>
+  <h1>{day.post ? day.post.title.replace(/^EBS 라디오 입이 트이는 영어 - /, '') : '오늘의 복습'}</h1>
+  {day.post && <p class="muted"><a href={day.post.link}>블로그 원문 보기 →</a></p>}
+
+  <div class="toolbar">
+    <label><input type="checkbox" class="toggle-meaning" /> 뜻 가리기</label>
+  </div>
+
+  {hasNew && (
+    <section>
+      <h2>오늘의 새 표현</h2>
+      {day.newVocab.length > 0 && (
+        <div class="card">
+          <ul class="vocab">
+            {day.newVocab.map((v) => <li><span class="term">{v.term}</span><span class="meaning">{v.meaning}</span></li>)}
+          </ul>
+        </div>
+      )}
+      {day.newSentences.length > 0 && (
+        <div class="card spaced">
+          <ul class="sentences">
+            {day.newSentences.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+  )}
+
+  {(day.reviewVocab.length > 0 || day.reviewSentences.length > 0) && (
+    <section>
+      <h2>복습</h2>
+      {day.reviewVocab.length > 0 && (
+        <div class="card">
+          <ul class="vocab">
+            {day.reviewVocab.map((v) => <li><span class="term">{v.term}</span><span class="meaning">{v.meaning}</span></li>)}
+          </ul>
+        </div>
+      )}
+      {day.reviewSentences.length > 0 && (
+        <div class="card spaced">
+          <ul class="sentences">
+            {day.reviewSentences.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+  )}
+</article>
+
+<script>
+  const toggle = document.querySelector<HTMLInputElement>('.toggle-meaning');
+  toggle?.addEventListener('change', () => {
+    document.body.classList.toggle('hide-meaning', toggle.checked);
+    document.querySelectorAll('.meaning.revealed').forEach((el) => el.classList.remove('revealed'));
+  });
+  document.addEventListener('click', (e) => {
+    const el = (e.target as HTMLElement).closest('.meaning');
+    if (el && document.body.classList.contains('hide-meaning')) el.classList.toggle('revealed');
+  });
+</script>
+
+<style>
+  .date { margin: 0 0 4px; font-size: 0.9rem; }
+  .toolbar { margin-top: 16px; font-size: 0.9rem; color: var(--muted); }
+  .toolbar label { cursor: pointer; user-select: none; }
+  .spaced { margin-top: 12px; }
+</style>

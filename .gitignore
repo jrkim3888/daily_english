@@ -1,0 +1,17 @@
+# runtime / logs
+*.log
+*.bak*
+.DS_Store
+__pycache__/
+.venv/
+data/state.json
+data/today_*.json
+
+# legacy duplicate copies (data/ is the source of truth)
+/english_vocab.md
+/english_sentence.md
+
+# site build
+site/node_modules/
+site/dist/
+site/.astro/

@@ -1,0 +1,34 @@
+{
+  "date": "2026-03-29",
+  "archivedAt": "2026-03-29T01:00:48.923341Z",
+  "today_study": {
+    "date": "2026-03-29",
+    "generatedAt": "2026-03-28T15:00:06.308476Z",
+    "vocab": [
+      "lint: 먼지",
+      "celebrities: 연예인",
+      "update: 갱신하다",
+      "first-timer: 초보자",
+      "attend: 참석하다, 다니다, 주의를 기울이다"
+    ],
+    "sentences": [
+      "I'm a mom raising two daughters, one year apart.",
+      "Convenience stores don't just sell daily necessities.",
+      "So she can play just about any song."
+    ],
+    "counts": {
+      "vocabPool": 2299,
+      "sentencePool": 289
+    }
+  },
+  "today_delta": {
+    "date": "2026-03-26",
+    "title": "EBS 라디오 입이 트이는 영어 - 3.25Vikings Who Limit Alcohol",
+    "link": "https://blog.naver.com/witjung/224229845121?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Thu, 26 Mar 2026 07:22:24 +0900",
+    "vocab": "liquor: 술, 독주\ncatch somebody off guard: 의료를 찌르다\nstrictly: 엄격하게\ninsult: 모욕하다\nself-control: 자제력\nmiss out on: ~을 놓치다\ndescendant: 자손, 후예",
+    "sentences": "The moment it hit 6:05, an employee shut down the liquor section.\nIt really caught me off guard."
+  },
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-03-29)\n\n[오늘의 단어]\n- liquor: 술, 독주\n- catch somebody off guard: 의료를 찌르다\n- strictly: 엄격하게\n- insult: 모욕하다\n- self-control: 자제력\n- miss out on: ~을 놓치다\n- descendant: 자손, 후예\n- lint: 먼지\n- celebrities: 연예인\n- update: 갱신하다\n- first-timer: 초보자\n- attend: 참석하다, 다니다, 주의를 기울이다\n\n[오늘의 문장]\n- The moment it hit 6:05, an employee shut down the liquor section.\n- It really caught me off guard.\n- I'm a mom raising two daughters, one year apart.\n- Convenience stores don't just sell daily necessities.\n- So she can play just about any song.\n"
+}
