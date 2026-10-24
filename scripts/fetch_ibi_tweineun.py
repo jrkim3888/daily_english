@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
-"""Fetch latest '입이 트이는 영어' post from witjung Naver blog (영어 category).
+"""Fetch '입이 트이는 영어' posts from the witjung Naver blog (영어 category).
 
-Workflow (used by cron @ 08:30 KST):
+Workflow (cron @ 08:30 KST):
 - Read RSS: https://rss.blog.naver.com/witjung.xml
-- Pick the latest item where category contains '영어' AND title contains '입이 트이는 영어'
-- If already processed (state.json), exit 0 with no changes.
-- Fetch mobile post HTML (m.blog.naver.com) and extract sections:
-  - 관련 단어
-  - 암기 문장
-- Prepend extracted content to:
-  - <repo>/data/english_vocab.md
-  - <repo>/data/english_sentences.md
-- Save today's delta for sending later:
-  - <repo>/data/today_delta.json
+- Pick every matching item (category '영어', title '입이 트이는 영어') not yet processed
+  (state.json keeps the processed post numbers), oldest first.
+- For each post, extract '관련 단어' / '암기 문장' and add new bullets to the vocab/sentence files.
+- Each post is filed under its blog publish date (KST):
+  - published today  → data/today_delta.json (sent at 09:00, archived by archive_daily.py)
+  - published earlier → merged into outputs/history/<publish date>.json (backfill)
 
+Usage: fetch_ibi_tweineun.py [--dry-run]
 Output: prints a JSON summary to stdout.
 """
 
@@ -22,6 +19,9 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
+import time
+from email.utils import parsedate_to_datetime
 from dataclasses import dataclass
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -36,6 +36,7 @@ DATA = BASE / 'data'
 DATA.mkdir(parents=True, exist_ok=True)
 
 STATE_PATH = DATA / 'state.json'
+HISTORY = BASE / 'outputs' / 'history'
 DELTA_PATH = DATA / 'today_delta.json'
 
 # Primary output files (expected by downstream sends)
@@ -90,9 +91,11 @@ class RssItem:
     pubDate: str
 
 
-def parse_rss_latest() -> Optional[RssItem]:
+def parse_rss_items() -> List[RssItem]:
+    """All matching items in the feed, oldest first."""
     xml = http_get(RSS_URL, timeout=25).text
     root = ET.fromstring(xml)
+    out: List[RssItem] = []
     for it in root.findall('.//item'):
         title = (it.findtext('title') or '').strip()
         link = (it.findtext('link') or '').strip()
@@ -104,8 +107,21 @@ def parse_rss_latest() -> Optional[RssItem]:
             continue
         if '입이 트이는 영어' not in title:
             continue
-        return RssItem(title=title, link=link, category=cat, pubDate=pub)
-    return None
+        out.append(RssItem(title=title, link=link, category=cat, pubDate=pub))
+    out.sort(key=lambda x: pub_kst(x.pubDate) or kst_now())
+    return out
+
+
+def logno_of(link: str) -> str:
+    m = re.search(r'/([0-9]{6,})', link or '')
+    return m.group(1) if m else ''
+
+
+def pub_kst(pub: str) -> Optional[datetime]:
+    try:
+        return parsedate_to_datetime(pub).astimezone(timezone(timedelta(hours=9)))
+    except Exception:
+        return None
 
 
 def to_mobile_post_url(link: str) -> str:
@@ -179,6 +195,12 @@ def prepend_block(path: Path, block: str) -> None:
     path.write_text(block + ('\n\n' if existing and not existing.startswith('\n') else '\n') + existing, encoding='utf-8')
 
 
+def existing_bullets(path: Path) -> set:
+    if not path.exists():
+        return set()
+    return {l.strip()[2:].strip().lower() for l in path.read_text(encoding='utf-8').splitlines() if l.strip().startswith('- ')}
+
+
 PARTICLES = {
     'up','down','out','in','on','off','over','away','back','around','through','into','onto','upon',
     'across','along','by','for','with','without','about','after','before'
@@ -196,8 +218,11 @@ def insert_bullets_under_heading(path: Path, heading_line: str, bullets: List[st
     out: List[str] = []
     inserted = False
 
-    # Normalize bullets
-    b_lines = [f"- {b.strip()}" for b in bullets if b and b.strip()]
+    # Normalize bullets, skipping ones already in the file
+    have = existing_bullets(path)
+    b_lines = [f"- {b.strip()}" for b in bullets if b and b.strip() and b.strip().lower() not in have]
+    if not b_lines:
+        return
 
     for line in lines:
         out.append(line)
@@ -283,9 +308,10 @@ def insert_vocab_bullets_by_section(path: Path, bullets: List[str]) -> None:
 
     # Prepare per-section bullet strings
     buckets: dict[str, List[str]] = {'## Words': [], '## Phrasal Verbs': [], '## Idioms': []}
+    have = existing_bullets(path)
     for b in bullets:
         b = (b or '').strip()
-        if not b:
+        if not b or b.lower() in have:
             continue
         term = b.split(':', 1)[0].strip() if ':' in b else b
         sec = classify_vocab_term(term)
@@ -319,57 +345,121 @@ def insert_vocab_bullets_by_section(path: Path, bullets: List[str]) -> None:
     path.write_text('\n'.join(cleaned).rstrip() + '\n', encoding='utf-8')
 
 
+def archive_deltas(raw: dict) -> List[dict]:
+    """Posts stored in an archive file (new 'deltas' list, or the legacy single 'today_delta')."""
+    if raw.get('deltas'):
+        return list(raw['deltas'])
+    d = raw.get('today_delta') or {}
+    return [d] if d.get('date') == raw.get('date') and d.get('link') else []
+
+
+def seed_processed(state: dict) -> set:
+    """Post numbers already handled: from state, plus every post recorded in the archive."""
+    done = set(state.get('processed') or [])
+    if state.get('last_link'):
+        done.add(logno_of(state['last_link']))
+    for f in HISTORY.glob('*.json'):
+        try:
+            raw = json.loads(f.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for d in archive_deltas(raw):
+            done.add(logno_of(d.get('link', '')))
+    done.discard('')
+    return done
+
+
+def attach_to_archive(date: str, delta: dict) -> None:
+    """Merge a backfilled post into outputs/history/<date>.json, keeping whatever is there."""
+    HISTORY.mkdir(parents=True, exist_ok=True)
+    path = HISTORY / f'{date}.json'
+    raw = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {'date': date, 'today_study': {}, 'message': ''}
+    deltas = [d for d in archive_deltas(raw) if logno_of(d.get('link', '')) != logno_of(delta['link'])]
+    deltas.append(delta)
+    deltas.sort(key=lambda d: pub_kst(d.get('pubDate', '')) or kst_now())
+    raw['deltas'] = deltas
+    raw['today_delta'] = deltas[0]
+    raw['archivedAt'] = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+    tmp = path.with_suffix('.json.tmp')
+    tmp.write_text(json.dumps(raw, ensure_ascii=False, indent=2), encoding='utf-8')
+    tmp.replace(path)
+
+
 def main() -> int:
+    dry = '--dry-run' in sys.argv
     state = load_state()
-    latest = parse_rss_latest()
-    if not latest:
-        out = {"ok": False, "reason": "no matching RSS item"}
-        print(json.dumps(out, ensure_ascii=False))
+    processed = seed_processed(state)
+    items = parse_rss_items()
+    if not items:
+        print(json.dumps({"ok": False, "reason": "no matching RSS item"}, ensure_ascii=False))
         return 0
 
-    last_link = state.get('last_link')
-    if last_link == latest.link:
-        out = {"ok": True, "changed": False, "reason": "already processed", "title": latest.title, "link": latest.link}
-        print(json.dumps(out, ensure_ascii=False))
-        return 0
+    todo = [it for it in items if logno_of(it.link) not in processed]
+    today = kst_date_str()
+    added, failed, today_posts = [], [], []
 
-    mobile_url = to_mobile_post_url(latest.link)
-    html = http_get(mobile_url, timeout=25).text
-    vocab, sent = extract_sections_from_mobile_html(html)
+    for it in todo:
+        pub = pub_kst(it.pubDate)
+        date = pub.strftime('%Y-%m-%d') if pub else today
+        if dry:
+            added.append({"date": date, "title": it.title})
+            continue
+        try:
+            html = http_get(to_mobile_post_url(it.link), timeout=25).text
+        except Exception as e:
+            failed.append({"title": it.title, "error": str(e)})
+            continue
+        vocab, sent = extract_sections_from_mobile_html(html)
+        delta = {
+            "date": date,
+            "title": it.title,
+            "link": it.link,
+            "category": it.category,
+            "pubDate": it.pubDate,
+            "vocab": vocab,
+            "sentences": sent,
+        }
 
-    stamp = kst_now().strftime('%Y-%m-%d %H:%M KST')
-    header = f"## {kst_date_str()} | {latest.title}\n{latest.link}\n(수집: {stamp})\n"
+        if vocab.strip():
+            bullets = [l.strip() for l in vocab.split('\n') if l.strip()]
+            insert_vocab_bullets_by_section(VOCAB_PATH, bullets)
+            insert_vocab_bullets_by_section(VOCAB_PATH_LEGACY, bullets)
+        if sent.strip():
+            bullets = [l.strip() for l in sent.split('\n') if l.strip()]
+            insert_bullets_under_heading(SENT_PATH, '# ✍ 외울 문장 정리', bullets)
+            insert_bullets_under_heading(SENT_PATH_LEGACY, '# ✍ 외울 문장 정리', bullets)
 
-    delta = {
-        "date": kst_date_str(),
-        "title": latest.title,
-        "link": latest.link,
-        "category": latest.category,
-        "pubDate": latest.pubDate,
-        "vocab": vocab,
-        "sentences": sent,
-    }
-    DELTA_PATH.write_text(json.dumps(delta, ensure_ascii=False, indent=2), encoding='utf-8')
+        if date == today:
+            today_posts.append(delta)
+        else:
+            attach_to_archive(date, delta)
 
-    if vocab.strip():
-        # Insert only vocab lines as bullets under the existing heading.
-        bullets = [l.strip() for l in vocab.split('\n') if l.strip()]
-        insert_vocab_bullets_by_section(VOCAB_PATH, bullets)
-        insert_vocab_bullets_by_section(VOCAB_PATH_LEGACY, bullets)
+        processed.add(logno_of(it.link))
+        state['processed'] = sorted(processed)
+        state['last_link'] = it.link
+        save_state(state)
+        added.append({"date": date, "title": it.title, "hasVocab": bool(vocab.strip()), "hasSentences": bool(sent.strip())})
+        time.sleep(0.5)
 
-    if sent.strip():
-        # Insert only the memorization sentences as bullets under the existing heading.
-        bullets = [l.strip() for l in sent.split('\n') if l.strip()]
-        insert_bullets_under_heading(SENT_PATH, '# ✍ 외울 문장 정리', bullets)
-        insert_bullets_under_heading(SENT_PATH_LEGACY, '# ✍ 외울 문장 정리', bullets)
+    if today_posts:
+        # Combined view for today's sends; 'posts' keeps each post for the archive.
+        latest = today_posts[-1]
+        DELTA_PATH.write_text(json.dumps({
+            **latest,
+            "vocab": '\n'.join(p['vocab'] for p in today_posts if p['vocab']),
+            "sentences": '\n'.join(p['sentences'] for p in today_posts if p['sentences']),
+            "posts": today_posts,
+        }, ensure_ascii=False, indent=2), encoding='utf-8')
 
-    state['last_link'] = latest.link
-    state['last_run_kst'] = stamp
-    save_state(state)
+    if not dry:
+        state['processed'] = sorted(processed)
+        state['last_run_kst'] = kst_now().strftime('%Y-%m-%d %H:%M KST')
+        save_state(state)
 
-    out = {"ok": True, "changed": True, "title": latest.title, "link": latest.link, "hasVocab": bool(vocab.strip()), "hasSentences": bool(sent.strip())}
+    out = {"ok": not failed, "dryRun": dry, "changed": bool(added) and not dry, "today": len(today_posts),
+           "backfilled": len([a for a in added if a['date'] != today]), "added": added, "failed": failed}
     print(json.dumps(out, ensure_ascii=False))
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == '__main__':

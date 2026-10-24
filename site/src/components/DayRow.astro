@@ -15,7 +15,8 @@ const sents = day.newSentences.length + day.reviewSentences.length;
     <span class="date">{formatDate(day.date)}</span>
     <span class="title">
       {day.post ? <span class="tag new">Episode</span> : <span class="tag">Review</span>}
-      <span class:list={['t', { review: !day.post }]}>{day.post ? day.post.title : 'Review day'}</span>
+      <span class:list={['t', { review: !day.post }]}>{day.post ? day.episodes.map((e) => e.post.title).join(' · ') : 'Review day'}</span>
+      {day.episodes.length > 1 && <span class="tag">{day.episodes.length} episodes</span>}
     </span>
     <span class="count">{plural(words, 'word')} · {plural(sents, 'sentence')}</span>
     <Icon name="arrow" size={16} />

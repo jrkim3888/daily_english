@@ -58,6 +58,8 @@ def main() -> int:
         return 1
     if today_delta.get('date') != date:
         today_delta = {}
+    # One entry per post (a day can have several); the combined fields stay in today_delta.
+    deltas = today_delta.pop('posts', None) or ([today_delta] if today_delta else [])
 
     # Render message text (best-effort)
     import subprocess
@@ -68,7 +70,7 @@ def main() -> int:
 
     # Skip rewrite when content is unchanged, so repeated sends don't create commits.
     prev = read_json(out_path)
-    if (prev.get('today_study'), prev.get('today_delta'), prev.get('message')) == (today_study, today_delta, message):
+    if (prev.get('today_study'), prev.get('deltas'), prev.get('message')) == (today_study, deltas, message):
         print(str(out_path))
         return 0
 
@@ -77,6 +79,7 @@ def main() -> int:
         'archivedAt': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
         'today_study': today_study,
         'today_delta': today_delta,
+        'deltas': deltas,
         'message': message,
     }
 

@@ -15,7 +15,7 @@ const months = getMonths();
 const current = months.find((m) => m.year === year && m.month === month)!;
 const stats = [
   { n: days.length, l: 'Days studied' },
-  { n: days.filter((d) => d.post).length, l: 'Episodes' },
+  { n: days.reduce((n, d) => n + d.episodes.length, 0), l: 'Episodes' },
   { n: days.reduce((n, d) => n + d.newVocab.length, 0), l: 'New words learned' },
 ];
 ---
@@ -33,7 +33,7 @@ const stats = [
 
 <section>
   <div class="section-head">
-    <h2>{MONTHS_LONG[month - 1]} {year} <small>{plural(current.days.length, 'day')} · {plural(current.days.filter((d) => d.post).length, 'episode')}</small></h2>
+    <h2>{MONTHS_LONG[month - 1]} {year} <small>{plural(current.days.length, 'day')} · {plural(current.days.reduce((n, d) => n + d.episodes.length, 0), 'episode')}</small></h2>
   </div>
   <ul class="rows card">
     {current.days.map((d) => <DayRow day={d} />)}

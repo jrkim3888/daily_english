@@ -17,10 +17,17 @@ export interface Post {
   link: string;
 }
 
+export interface Episode {
+  post: Post;
+  vocab: Vocab[];
+  sentences: string[];
+}
+
 export interface Day {
   date: string;
   dayNo: number;
-  post?: Post;
+  episodes: Episode[]; // a day can have several posts
+  post?: Post; // first episode, for single-title displays
   newVocab: Vocab[];
   newSentences: string[];
   reviewVocab: Vocab[];
@@ -70,14 +77,23 @@ export function getDays(): Day[] {
       const raw = JSON.parse(fs.readFileSync(path.join(HISTORY, f), 'utf-8'));
       const date = f.replace('.json', '');
       const study = raw.today_study ?? {};
-      // Older archives may carry a delta from a previous day; only keep same-day posts.
-      const delta = raw.today_delta?.date === date ? raw.today_delta : {};
+      // 'deltas' lists every post filed under this date; older archives only have today_delta
+      // (and may carry one from a previous day, which is skipped).
+      const deltas: any[] = raw.deltas ?? (raw.today_delta?.date === date ? [raw.today_delta] : []);
+      const episodes: Episode[] = deltas
+        .filter((d) => d?.title)
+        .map((d) => ({
+          post: parsePost(d.title, d.link ?? '', date),
+          vocab: lines(d.vocab).filter((l) => l.includes(':')).map(parseVocab),
+          sentences: lines(d.sentences),
+        }));
       return {
         date,
         dayNo: i + 1,
-        post: delta.title ? parsePost(delta.title, delta.link ?? '', date) : undefined,
-        newVocab: lines(delta.vocab).filter((l) => l.includes(':')).map(parseVocab),
-        newSentences: lines(delta.sentences),
+        episodes,
+        post: episodes[0]?.post,
+        newVocab: episodes.flatMap((e) => e.vocab),
+        newSentences: episodes.flatMap((e) => e.sentences),
         reviewVocab: (study.vocab ?? []).map((v: string) => parseVocab(String(v))),
         reviewSentences: (study.sentences ?? []).map((s: string) => String(s).trim()).filter(Boolean),
       } satisfies Day;
@@ -167,17 +183,23 @@ export function formatDate(date: string, style: 'short' | 'long' | 'plain' = 'sh
 
 export const plural = (n: number, word: string) => `${n.toLocaleString()} ${n === 1 ? word : word + 's'}`;
 
-// Episode days grouped by broadcast month ("YYYY-MM"), newest first.
-export function getSourceMonths(): { key: string; year: number; month: number; days: Day[] }[] {
-  const map = new Map<string, Day[]>();
-  for (const d of getDays().filter((x) => x.post)) {
-    const key = (d.post!.aired || d.date).slice(0, 7);
+export interface SourceEntry extends Episode {
+  date: string; // study day it was filed under
+}
+
+// Every episode grouped by broadcast month ("YYYY-MM"), newest first.
+export function getSourceMonths(): { key: string; year: number; month: number; entries: SourceEntry[] }[] {
+  const all: SourceEntry[] = getDays().flatMap((d) => d.episodes.map((e) => ({ ...e, date: d.date })));
+  all.sort((a, b) => (b.post.aired || b.date).localeCompare(a.post.aired || a.date));
+  const map = new Map<string, SourceEntry[]>();
+  for (const e of all) {
+    const key = (e.post.aired || e.date).slice(0, 7);
     if (!map.has(key)) map.set(key, []);
-    map.get(key)!.push(d);
+    map.get(key)!.push(e);
   }
   return [...map]
     .sort((a, b) => b[0].localeCompare(a[0]))
-    .map(([key, days]) => ({ key, year: Number(key.slice(0, 4)), month: Number(key.slice(5)), days }));
+    .map(([key, entries]) => ({ key, year: Number(key.slice(0, 4)), month: Number(key.slice(5)), entries }));
 }
 
 // First letter bucket for the A–Z navigator ("#" for anything else).

@@ -28,8 +28,9 @@ def main() -> int:
 
     lines = []
     lines.append(f"오늘의 영어 공부 항목 ({d.get('date','')})")
-    lines.append(d.get('title','').strip())
-    lines.append(d.get('link','').strip())
+    for post in d.get('posts') or [d]:
+        lines.append(post.get('title', '').strip())
+        lines.append(post.get('link', '').strip())
 
     vocab_raw = (d.get('vocab') or '').strip()
     sent_raw = (d.get('sentences') or '').strip()
