@@ -2,6 +2,9 @@
 set -euo pipefail
 source "$(dirname "$0")/_env.sh"
 
+# Keep the scheduled daily push on its dedicated Discord channel.
+DAILY_PUSH_CHANNEL_ID="${DAILY_PUSH_CHANNEL_ID:-channel:1563582194985730098}"
+
 MSG="$("$PY" "$BASE/scripts/build_daily_push_message.py")"
 
 if [[ -z "${MSG}" ]]; then
@@ -11,7 +14,7 @@ fi
 
 "$OPENCLAW" message send \
   --channel discord \
-  --target "$CHANNEL_ID" \
+  --target "$DAILY_PUSH_CHANNEL_ID" \
   --message "$MSG"
 
 "$PY" "$BASE/scripts/archive_daily.py"

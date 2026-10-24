@@ -8,6 +8,7 @@ message text to stdout. The cron agentTurn will call message tool to send it.
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 DELTA_PATH = Path(__file__).resolve().parent.parent / 'data' / 'today_delta.json'
@@ -19,6 +20,11 @@ def main() -> int:
         return 0
 
     d = json.loads(DELTA_PATH.read_text(encoding='utf-8'))
+
+    # No new post today: the delta is left over from an earlier day, so send nothing.
+    today = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d')
+    if d.get('date') != today:
+        return 0
 
     lines = []
     lines.append(f"오늘의 영어 공부 항목 ({d.get('date','')})")
