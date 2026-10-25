@@ -1,6 +1,9 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- hospitality: 환대, 접대
+
 - presence: 전재, 있음, 존재감
 - passionate: 열정을 느끼는
 
@@ -2764,6 +2767,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- fill up: 차다, ~을 가득 채우다
 
 - feel deep down: 마음 한켠에 가지고 있다
 - impact on: ~에 충격을 주다
@@ -3024,6 +3028,9 @@
 - put ~ off: 미루다
 
 ## Idioms
+- enter a lottery: 추첨하다
+- for the sake of: ~을 위해서
+- be lucky enough to: 운 좋게 ~하다
 
 - fall into place: 제자리를 찾다
 - competing against: ~과 경쟁하다

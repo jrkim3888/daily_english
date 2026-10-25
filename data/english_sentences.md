@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- Popular places often fill up as soon as reservations open.
+- We're also lucky enough to see a local festival.
+
 - I had always felt deep down that books written in Korean were the best in the world.
 - I have to look up words in the dictionary as I read.
 
