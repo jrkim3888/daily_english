@@ -1,6 +1,11 @@
 # 📘 영어 단어 정리
 
 ## Words
+- volcanic: 화산의
+- shaded: 그늘이 있는
+- constant: 끈임없는, 변함없는
+- suit: 맞다
+- must-eat: 맛집
 
 - hospitality: 환대, 접대
 
@@ -3028,6 +3033,10 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- first time: 처음
+- wonder of nature: 자연의 신비
+
 - enter a lottery: 추첨하다
 - for the sake of: ~을 위해서
 - be lucky enough to: 운 좋게 ~하다

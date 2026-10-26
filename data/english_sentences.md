@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- I was just as excited as if it were my first time.
+- I could truly feel the wonder of nature.
+- Does the food there suit your taste?
+
 - Popular places often fill up as soon as reservations open.
 - We're also lucky enough to see a local festival.
 

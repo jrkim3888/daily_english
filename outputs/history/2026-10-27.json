@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-27",
+  "archivedAt": "2026-10-26T23:30:01.529468Z",
+  "today_study": {
+    "date": "2026-10-27",
+    "generatedAt": "2026-10-26T23:30:00.332597Z",
+    "vocab": [
+      "divine: 신성한, 멋진",
+      "affect: 영향을 미치다",
+      "absorb: 흡수하다",
+      "farewells: 이별, 작별",
+      "concern: 우려하는, 영향을 미치다"
+    ],
+    "sentences": [
+      "I start by setting aside my concern and giving my mind a break.",
+      "Nothing beats them for quenching your thirst.",
+      "Around this time next year, he will be a college student."
+    ],
+    "counts": {
+      "vocabPool": 3008,
+      "sentencePool": 653
+    }
+  },
+  "today_delta": {
+    "date": "2026-10-27",
+    "title": "EBS 라디오 입이 트이는 영어 - 10.21 Trip to Jeju",
+    "link": "https://blog.naver.com/witjung/224454950513?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Tue, 27 Oct 2026 07:27:17 +0900",
+    "vocab": "first time: 처음\nvolcanic: 화산의\nshaded: 그늘이 있는\nconstant: 끈임없는, 변함없는\nwonder of nature: 자연의 신비\nsuit: 맞다\nmust-eat: 맛집",
+    "sentences": "I was just as excited as if it were my first time.\nI could truly feel the wonder of nature.\nDoes the food there suit your taste?"
+  },
+  "deltas": [
+    {
+      "date": "2026-10-27",
+      "title": "EBS 라디오 입이 트이는 영어 - 10.21 Trip to Jeju",
+      "link": "https://blog.naver.com/witjung/224454950513?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Tue, 27 Oct 2026 07:27:17 +0900",
+      "vocab": "first time: 처음\nvolcanic: 화산의\nshaded: 그늘이 있는\nconstant: 끈임없는, 변함없는\nwonder of nature: 자연의 신비\nsuit: 맞다\nmust-eat: 맛집",
+      "sentences": "I was just as excited as if it were my first time.\nI could truly feel the wonder of nature.\nDoes the food there suit your taste?"
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-27)\n\n[오늘의 단어]\n- first time: 처음\n- volcanic: 화산의\n- shaded: 그늘이 있는\n- constant: 끈임없는, 변함없는\n- wonder of nature: 자연의 신비\n- suit: 맞다\n- must-eat: 맛집\n- divine: 신성한, 멋진\n- affect: 영향을 미치다\n- absorb: 흡수하다\n- farewells: 이별, 작별\n- concern: 우려하는, 영향을 미치다\n\n[오늘의 문장]\n- I was just as excited as if it were my first time.\n- I could truly feel the wonder of nature.\n- Does the food there suit your taste?\n- I start by setting aside my concern and giving my mind a break.\n- Nothing beats them for quenching your thirst.\n- Around this time next year, he will be a college student.\n"
+}
