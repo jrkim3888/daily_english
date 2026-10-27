@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- You are still close after all these years.
+- We are practically family now.
+
 - I was just as excited as if it were my first time.
 - I could truly feel the wonder of nature.
 - Does the food there suit your taste?

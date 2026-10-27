@@ -1,6 +1,11 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- playdates: 놀이약속
+- lifelong: 평생동안의, 일생의
+- connection: 유대감
+
 - volcanic: 화산의
 - shaded: 그늘이 있는
 - constant: 끈임없는, 변함없는
@@ -2772,6 +2777,9 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- blossom into: ~으로 생성하다
+
 - fill up: 차다, ~을 가득 채우다
 
 - feel deep down: 마음 한켠에 가지고 있다
@@ -3033,6 +3041,7 @@
 - put ~ off: 미루다
 
 ## Idioms
+- after all these years: 아직도
 
 - first time: 처음
 - wonder of nature: 자연의 신비

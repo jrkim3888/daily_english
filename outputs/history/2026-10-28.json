@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-28",
+  "archivedAt": "2026-10-27T23:30:01.498468Z",
+  "today_study": {
+    "date": "2026-10-28",
+    "generatedAt": "2026-10-27T23:30:00.125267Z",
+    "vocab": [
+      "notable: 주목말 만한, 유명 인물",
+      "lukewarm: 미지근한",
+      "fluorescent : 형광색",
+      "consume: 소모하다",
+      "lutein: 루테인"
+    ],
+    "sentences": [
+      "My husband received a two-week vacation every four months.",
+      "Everyone in my company has been on edge.",
+      "Isn't it a bit of a hassle?"
+    ],
+    "counts": {
+      "vocabPool": 3015,
+      "sentencePool": 656
+    }
+  },
+  "today_delta": {
+    "date": "2026-10-28",
+    "title": "EBS 라디오 입이 트이는 영어 - 10.22 Meeting Friends Through Children",
+    "link": "https://blog.naver.com/witjung/224456199992?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Wed, 28 Oct 2026 07:28:12 +0900",
+    "vocab": "playdates: 놀이약속\nlifelong: 평생동안의, 일생의\nconnection: 유대감\nblossom into: ~으로 생성하다\nafter all these years: 아직도\npractically: 사실상",
+    "sentences": "You are still close after all these years.\nWe are practically family now."
+  },
+  "deltas": [
+    {
+      "date": "2026-10-28",
+      "title": "EBS 라디오 입이 트이는 영어 - 10.22 Meeting Friends Through Children",
+      "link": "https://blog.naver.com/witjung/224456199992?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Wed, 28 Oct 2026 07:28:12 +0900",
+      "vocab": "playdates: 놀이약속\nlifelong: 평생동안의, 일생의\nconnection: 유대감\nblossom into: ~으로 생성하다\nafter all these years: 아직도\npractically: 사실상",
+      "sentences": "You are still close after all these years.\nWe are practically family now."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-28)\n\n[오늘의 단어]\n- playdates: 놀이약속\n- lifelong: 평생동안의, 일생의\n- connection: 유대감\n- blossom into: ~으로 생성하다\n- after all these years: 아직도\n- practically: 사실상\n- notable: 주목말 만한, 유명 인물\n- lukewarm: 미지근한\n- fluorescent : 형광색\n- consume: 소모하다\n- lutein: 루테인\n\n[오늘의 문장]\n- You are still close after all these years.\n- We are practically family now.\n- My husband received a two-week vacation every four months.\n- Everyone in my company has been on edge.\n- Isn't it a bit of a hassle?\n"
+}
