@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- We stopped at a rest area on our way back.
+- It makes me feel sorry all over again.
+
 - You are still close after all these years.
 - We are practically family now.
 

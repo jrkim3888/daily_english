@@ -1,6 +1,7 @@
 # 📘 영어 단어 정리
 
 ## Words
+- struggling: 발버둥치는
 
 - playdates: 놀이약속
 - lifelong: 평생동안의, 일생의
@@ -3041,6 +3042,15 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- think of: 문뜩 생각하다
+- baby octopus: 낙지
+- disabled parking permit: 장애인 주차 허거증
+- on one's way back: 돌아오는 길에
+- rest area: 휴계소
+- put something first: ~을 우선시 하다
+- all over again: 처음부터 다시
+
 - after all these years: 아직도
 
 - first time: 처음
