@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-30",
+  "archivedAt": "2026-10-29T23:30:01.317852Z",
+  "today_study": {
+    "date": "2026-10-30",
+    "generatedAt": "2026-10-29T23:30:00.116771Z",
+    "vocab": [
+      "bedding: 침구, 잠자리",
+      "come down with: 걸리다",
+      "peak: 절정, 최고조, 꼭대기",
+      "infestation: 우글거림",
+      "incorporate: 접목하다"
+    ],
+    "sentences": [
+      "I can't run as often as before now that it is getting cold.",
+      "Playing the piano really puts my mind at ease.",
+      "He has a broad build."
+    ],
+    "counts": {
+      "vocabPool": 3028,
+      "sentencePool": 660
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-30)\n\n[오늘의 단어]\n- bedding: 침구, 잠자리\n- come down with: 걸리다\n- peak: 절정, 최고조, 꼭대기\n- infestation: 우글거림\n- incorporate: 접목하다\n\n[오늘의 문장]\n- I can't run as often as before now that it is getting cold.\n- Playing the piano really puts my mind at ease.\n- He has a broad build.\n"
+}

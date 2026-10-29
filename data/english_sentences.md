@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- We have been to just about every water park in the country.
+- She was absolutely thrilled.
+- I think I'm ready to retire from water parks.
+
 - We stopped at a rest area on our way back.
 - It makes me feel sorry all over again.
 

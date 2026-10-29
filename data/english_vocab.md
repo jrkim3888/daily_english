@@ -1,6 +1,9 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- thrilled: 아주 흥분한
+
 - struggling: 발버둥치는
 
 - playdates: 놀이약속
@@ -2778,6 +2781,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- splurge on: ~에 돈을 펑펑 쓰다
 
 - blossom into: ~으로 생성하다
 
@@ -3042,6 +3046,11 @@
 - put ~ off: 미루다
 
 ## Idioms
+- just about every: 거의 모든
+- to one's heart's content: 원 없이, 여한 없이
+- motion sickness: 멀미
+- retire from: ~에서 은퇴하다, 그만두다
+- have a blast: 아주 즐거운 시간을 보내다
 
 - think of: 문뜩 생각하다
 - baby octopus: 낙지
