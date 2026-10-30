@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-31",
+  "archivedAt": "2026-10-30T23:30:00.521115Z",
+  "today_study": {
+    "date": "2026-10-31",
+    "generatedAt": "2026-10-30T23:30:00.119137Z",
+    "vocab": [
+      "recoil: 움찔하다, 움츠러들다, 반동",
+      "go out: 밖에 나가 놀다",
+      "reimbursement: 갚음, 상환",
+      "eliminate: 제거하다, 탈락시키다",
+      "suffocating: 숨쉬기 힘든, 숨막히는"
+    ],
+    "sentences": [
+      "He didn't go out much last year.",
+      "I have gotten back into programming.",
+      "So she can play just about any song."
+    ],
+    "counts": {
+      "vocabPool": 3035,
+      "sentencePool": 663
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-10-31)\n\n[오늘의 단어]\n- recoil: 움찔하다, 움츠러들다, 반동\n- go out: 밖에 나가 놀다\n- reimbursement: 갚음, 상환\n- eliminate: 제거하다, 탈락시키다\n- suffocating: 숨쉬기 힘든, 숨막히는\n\n[오늘의 문장]\n- He didn't go out much last year.\n- I have gotten back into programming.\n- So she can play just about any song.\n"
+}
