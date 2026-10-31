@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-01",
+  "archivedAt": "2026-10-31T23:30:00.559651Z",
+  "today_study": {
+    "date": "2026-11-01",
+    "generatedAt": "2026-10-31T23:30:00.116168Z",
+    "vocab": [
+      "amazingly: 놀랍게도",
+      "rouse: 깨우다",
+      "innocent: 결백한, 순결한",
+      "catalyst: 촉매, 기폭제",
+      "quadrillion: 1000조"
+    ],
+    "sentences": [
+      "I love eating good food.",
+      "I'm always grateful to her for quietly staying by my side.",
+      "it's easier on the eyes."
+    ],
+    "counts": {
+      "vocabPool": 3035,
+      "sentencePool": 663
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-01)\n\n[오늘의 단어]\n- amazingly: 놀랍게도\n- rouse: 깨우다\n- innocent: 결백한, 순결한\n- catalyst: 촉매, 기폭제\n- quadrillion: 1000조\n\n[오늘의 문장]\n- I love eating good food.\n- I'm always grateful to her for quietly staying by my side.\n- it's easier on the eyes.\n"
+}
