@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-02",
+  "archivedAt": "2026-11-01T23:30:01.282519Z",
+  "today_study": {
+    "date": "2026-11-02",
+    "generatedAt": "2026-11-01T23:30:00.115135Z",
+    "vocab": [
+      "affection: 애착, 보살핌",
+      "stretch: 늘리다, 늘어나다",
+      "munch: 아삭아삭 먹다",
+      "consistently: 꾸준하게",
+      "designated: 지정하다, 지명된"
+    ],
+    "sentences": [
+      "I've been trying to study consistently while balancing work.",
+      "I kept at it consistently.",
+      "Just being part of a group can be enough to keep you motivated."
+    ],
+    "counts": {
+      "vocabPool": 3035,
+      "sentencePool": 663
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-02",
+    "title": "EBS 라디오 입이 트이는 영어 - 10.27 Sabbatical Leave",
+    "link": "https://blog.naver.com/witjung/224461815899?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Mon, 02 Nov 2026 07:38:03 +0900",
+    "vocab": "sabbatical: 안식일의, 휴식의\npaid leave: 유급 휴가\nmonth-long: 한달 동안의\nat a time: 한 번에\npriceless: 돈을 살 수 없는",
+    "sentences": "Planning a month-long trip wasn't easy.\nIt was a priceless experience."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-02",
+      "title": "EBS 라디오 입이 트이는 영어 - 10.27 Sabbatical Leave",
+      "link": "https://blog.naver.com/witjung/224461815899?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Mon, 02 Nov 2026 07:38:03 +0900",
+      "vocab": "sabbatical: 안식일의, 휴식의\npaid leave: 유급 휴가\nmonth-long: 한달 동안의\nat a time: 한 번에\npriceless: 돈을 살 수 없는",
+      "sentences": "Planning a month-long trip wasn't easy.\nIt was a priceless experience."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-02)\n\n[오늘의 단어]\n- sabbatical: 안식일의, 휴식의\n- paid leave: 유급 휴가\n- month-long: 한달 동안의\n- at a time: 한 번에\n- priceless: 돈을 살 수 없는\n- affection: 애착, 보살핌\n- stretch: 늘리다, 늘어나다\n- munch: 아삭아삭 먹다\n- consistently: 꾸준하게\n- designated: 지정하다, 지명된\n\n[오늘의 문장]\n- Planning a month-long trip wasn't easy.\n- It was a priceless experience.\n- I've been trying to study consistently while balancing work.\n- I kept at it consistently.\n- Just being part of a group can be enough to keep you motivated.\n"
+}

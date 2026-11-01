@@ -1,6 +1,8 @@
 # 📘 영어 단어 정리
 
 ## Words
+- sabbatical: 안식일의, 휴식의
+- priceless: 돈을 살 수 없는
 
 - thrilled: 아주 흥분한
 
@@ -3046,6 +3048,10 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- paid leave: 유급 휴가
+- at a time: 한 번에
+
 - just about every: 거의 모든
 - to one's heart's content: 원 없이, 여한 없이
 - motion sickness: 멀미
