@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-03",
+  "archivedAt": "2026-11-02T23:30:01.347718Z",
+  "today_study": {
+    "date": "2026-11-03",
+    "generatedAt": "2026-11-02T23:30:00.116221Z",
+    "vocab": [
+      "setup: 세팅, 구성",
+      "prominent: 중요한, 유명한, 두드러진",
+      "effort: 노력",
+      "cheer on: 응원한다",
+      "intake: 섭취량"
+    ],
+    "sentences": [
+      "The effort I put into drawing it remains.",
+      "I put so much effort into my studies.",
+      "What matters is not giving up."
+    ],
+    "counts": {
+      "vocabPool": 3039,
+      "sentencePool": 665
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-03",
+    "title": "EBS 라디오 입이 트이는 영어 - 10.28 Teaching Korean with 입트영",
+    "link": "https://blog.naver.com/witjung/224463043206?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Tue, 03 Nov 2026 07:40:45 +0900",
+    "vocab": "significantly: 상당히, 중요하게\ninteract with: ~와 상호작용하다\nthe ~ most: ~번째로 ~한\ntrial and error: 사행착오\ngo through: 거치다, 겪다\nnot have a chance: 전혀 가능성이 없다",
+    "sentences": "Korean is now the sixth most studied language in the world.\nI went to through a lot of trial and error\nI never have a chance to get bored."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-03",
+      "title": "EBS 라디오 입이 트이는 영어 - 10.28 Teaching Korean with 입트영",
+      "link": "https://blog.naver.com/witjung/224463043206?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Tue, 03 Nov 2026 07:40:45 +0900",
+      "vocab": "significantly: 상당히, 중요하게\ninteract with: ~와 상호작용하다\nthe ~ most: ~번째로 ~한\ntrial and error: 사행착오\ngo through: 거치다, 겪다\nnot have a chance: 전혀 가능성이 없다",
+      "sentences": "Korean is now the sixth most studied language in the world.\nI went to through a lot of trial and error\nI never have a chance to get bored."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-03)\n\n[오늘의 단어]\n- significantly: 상당히, 중요하게\n- interact with: ~와 상호작용하다\n- the ~ most: ~번째로 ~한\n- trial and error: 사행착오\n- go through: 거치다, 겪다\n- not have a chance: 전혀 가능성이 없다\n- setup: 세팅, 구성\n- prominent: 중요한, 유명한, 두드러진\n- effort: 노력\n- cheer on: 응원한다\n- intake: 섭취량\n\n[오늘의 문장]\n- Korean is now the sixth most studied language in the world.\n- I went to through a lot of trial and error\n- I never have a chance to get bored.\n- The effort I put into drawing it remains.\n- I put so much effort into my studies.\n- What matters is not giving up.\n"
+}

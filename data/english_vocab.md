@@ -1,6 +1,9 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- significantly: 상당히, 중요하게
+
 - sabbatical: 안식일의, 휴식의
 - priceless: 돈을 살 수 없는
 
@@ -2783,6 +2786,10 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- interact with: ~와 상호작용하다
+- go through: 거치다, 겪다
+
 - splurge on: ~에 돈을 펑펑 쓰다
 
 - blossom into: ~으로 생성하다
@@ -3048,6 +3055,9 @@
 - put ~ off: 미루다
 
 ## Idioms
+- the ~ most: ~번째로 ~한
+- trial and error: 사행착오
+- not have a chance: 전혀 가능성이 없다
 
 - paid leave: 유급 휴가
 - at a time: 한 번에

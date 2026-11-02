@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- Korean is now the sixth most studied language in the world.
+- I went to through a lot of trial and error
+- I never have a chance to get bored.
+
 - Planning a month-long trip wasn't easy.
 - It was a priceless experience.
 
