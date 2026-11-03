@@ -1,6 +1,11 @@
 # 📘 영어 단어 정리
 
 ## Words
+- get-together: 모음
+- reminisce: 추억에 잠기다, 추억을 나누다
+- reunion: 동창회
+- lively: 활기찬, 적극적인
+- despite: ~에도 불구하고
 
 - significantly: 상당히, 중요하게
 
@@ -2786,6 +2791,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- meet up with: ~와 만나다
 
 - interact with: ~와 상호작용하다
 - go through: 거치다, 겪다
@@ -3055,6 +3061,11 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- get together: 만나다
+- around the same time: 비슷한 시기에
+- as if: 마치 ~처럼
+
 - the ~ most: ~번째로 ~한
 - trial and error: 사행착오
 - not have a chance: 전혀 가능성이 없다

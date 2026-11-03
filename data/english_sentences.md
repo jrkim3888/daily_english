@@ -1,5 +1,10 @@
 # ✍ 외울 문장 정리
 
+- I always missed those days and wondered if we would ever get together again.
+- I was there around the same time.
+- I remeber that day as if it were yesterday.
+- It felt like we had seen each other just yesterday.
+
 - Korean is now the sixth most studied language in the world.
 - I went to through a lot of trial and error
 - I never have a chance to get bored.
