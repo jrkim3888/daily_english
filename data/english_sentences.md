@@ -1,5 +1,11 @@
 # ✍ 외울 문장 정리
 
+- He said nothing had been turned in.
+- He would also check with the other drivers.
+- He put me in touch with Stuart Polak.
+- Korea is still a place where people look out for one another.
+- You are so scatterbrained.
+
 - I always missed those days and wondered if we would ever get together again.
 - I was there around the same time.
 - I remeber that day as if it were yesterday.

@@ -1,6 +1,11 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- depot: 창고, 차고
+- miraculously: 기적적으로
+- scatterbrained: 침착하지 못한, 덤벙거리는
+
 - get-together: 모음
 - reminisce: 추억에 잠기다, 추억을 나누다
 - reunion: 동창회
@@ -2791,6 +2796,10 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- turn in: 제출하다, 접수하다
+- check with: 알아보다, ~에게 물어보다
+
 - meet up with: ~와 만나다
 
 - interact with: ~와 상호작용하다
@@ -3061,6 +3070,10 @@
 - put ~ off: 미루다
 
 ## Idioms
+- left something on the bus: 버스에 ~를 두고 내리다
+- in a hurry: 서둘러
+- put me in touch with: 연락하게 해주다
+- look out for someone: ~를 돌봐주다
 
 - get together: 만나다
 - around the same time: 비슷한 시기에
