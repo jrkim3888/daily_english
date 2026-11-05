@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-06",
+  "archivedAt": "2026-11-05T23:30:00.532850Z",
+  "today_study": {
+    "date": "2026-11-06",
+    "generatedAt": "2026-11-05T23:30:00.118226Z",
+    "vocab": [
+      "report: 알리다, 발표하다, 보고",
+      "getaway: 도주, 휴가",
+      "write in: 써넣다",
+      "care for each other: 서로 알콜당콜 지내다",
+      "rhinitis: 비염"
+    ],
+    "sentences": [
+      "A dream holds a special meaning for everyone.",
+      "That kind-hearted comment instantly washed away all the fatigue of childcare.",
+      "I lost touch with her after graduation."
+    ],
+    "counts": {
+      "vocabPool": 3063,
+      "sentencePool": 677
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-06)\n\n[오늘의 단어]\n- report: 알리다, 발표하다, 보고\n- getaway: 도주, 휴가\n- write in: 써넣다\n- care for each other: 서로 알콜당콜 지내다\n- rhinitis: 비염\n\n[오늘의 문장]\n- A dream holds a special meaning for everyone.\n- That kind-hearted comment instantly washed away all the fatigue of childcare.\n- I lost touch with her after graduation.\n"
+}
