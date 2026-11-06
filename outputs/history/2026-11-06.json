@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "archivedAt": "2026-11-05T23:30:00.532850Z",
+  "archivedAt": "2026-11-06T23:30:00.663226Z",
   "today_study": {
     "date": "2026-11-06",
     "generatedAt": "2026-11-05T23:30:00.118226Z",
@@ -21,7 +21,25 @@
       "sentencePool": 677
     }
   },
-  "today_delta": {},
-  "deltas": [],
+  "today_delta": {
+    "date": "2026-11-06",
+    "title": "EBS 라디오 입이 트이는 영어 - 11. 2 Five Friends, Five Babies",
+    "link": "https://blog.naver.com/witjung/224467484311?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Fri, 06 Nov 2026 18:13:46 +0900",
+    "vocab": "tied the knot: 결혼을 하다\ngroom: 신랑\nbride: 신부\nexpect a baby: 임신중이다\nfind out: 알게 되다\nin no time: 당장에, 순식간에\nburst out: 갑자기 ~하기 시작하다\nin surprise: 놀라서, 어의가 없어서\nwork out: 운동하다, 잘 풀리다\ncoincidence: 우연의 일치",
+    "sentences": "We had recently found out we were expecting a baby.\nWe all burst out laughing in surprise.\nIt's such a coincidence."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-06",
+      "title": "EBS 라디오 입이 트이는 영어 - 11. 2 Five Friends, Five Babies",
+      "link": "https://blog.naver.com/witjung/224467484311?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Fri, 06 Nov 2026 18:13:46 +0900",
+      "vocab": "tied the knot: 결혼을 하다\ngroom: 신랑\nbride: 신부\nexpect a baby: 임신중이다\nfind out: 알게 되다\nin no time: 당장에, 순식간에\nburst out: 갑자기 ~하기 시작하다\nin surprise: 놀라서, 어의가 없어서\nwork out: 운동하다, 잘 풀리다\ncoincidence: 우연의 일치",
+      "sentences": "We had recently found out we were expecting a baby.\nWe all burst out laughing in surprise.\nIt's such a coincidence."
+    }
+  ],
   "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-06)\n\n[오늘의 단어]\n- report: 알리다, 발표하다, 보고\n- getaway: 도주, 휴가\n- write in: 써넣다\n- care for each other: 서로 알콜당콜 지내다\n- rhinitis: 비염\n\n[오늘의 문장]\n- A dream holds a special meaning for everyone.\n- That kind-hearted comment instantly washed away all the fatigue of childcare.\n- I lost touch with her after graduation.\n"
 }

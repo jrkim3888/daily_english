@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-07",
+  "archivedAt": "2026-11-06T23:30:01.941784Z",
+  "today_study": {
+    "date": "2026-11-07",
+    "generatedAt": "2026-11-06T23:30:00.117776Z",
+    "vocab": [
+      "grounded: 안정된",
+      "reminisce: 추억에 잠기다, 추억담을 나누다",
+      "supportive: 지원하는, 도와주는,",
+      "vast: 어마어마한, 방대한",
+      "weaken: 약화시키다, 약해지다"
+    ],
+    "sentences": [
+      "I binged the show.",
+      "I used to go to PC cafés all the time.",
+      "It was my first time in Northern Europe."
+    ],
+    "counts": {
+      "vocabPool": 3063,
+      "sentencePool": 677
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-07",
+    "title": "EBS 라디오 입이 트이는 영어 - 11. 3 Like Mother, Like Daughter",
+    "link": "https://blog.naver.com/witjung/224467803230?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Sat, 07 Nov 2026 00:13:19 +0900",
+    "vocab": "stay up: 안자다\ncram: 벼락치기\nfeel guilty: 양심에 찔리다\ncivil service: 공무원 조직\nback in the day: 예전에, 왕년에\nfrantically: 제정신이 아닌, 정신없이\nrun in the family: 집안 내력이에요",
+    "sentences": "She stayed up past midnight to cram for her exams.\nI felt a little guilty saying it.\nYou can't really say anything.\nI guess it runs in the family."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-07",
+      "title": "EBS 라디오 입이 트이는 영어 - 11. 3 Like Mother, Like Daughter",
+      "link": "https://blog.naver.com/witjung/224467803230?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Sat, 07 Nov 2026 00:13:19 +0900",
+      "vocab": "stay up: 안자다\ncram: 벼락치기\nfeel guilty: 양심에 찔리다\ncivil service: 공무원 조직\nback in the day: 예전에, 왕년에\nfrantically: 제정신이 아닌, 정신없이\nrun in the family: 집안 내력이에요",
+      "sentences": "She stayed up past midnight to cram for her exams.\nI felt a little guilty saying it.\nYou can't really say anything.\nI guess it runs in the family."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-07)\n\n[오늘의 단어]\n- stay up: 안자다\n- cram: 벼락치기\n- feel guilty: 양심에 찔리다\n- civil service: 공무원 조직\n- back in the day: 예전에, 왕년에\n- frantically: 제정신이 아닌, 정신없이\n- run in the family: 집안 내력이에요\n- grounded: 안정된\n- reminisce: 추억에 잠기다, 추억담을 나누다\n- supportive: 지원하는, 도와주는,\n- vast: 어마어마한, 방대한\n- weaken: 약화시키다, 약해지다\n\n[오늘의 문장]\n- She stayed up past midnight to cram for her exams.\n- I felt a little guilty saying it.\n- You can't really say anything.\n- I guess it runs in the family.\n- I binged the show.\n- I used to go to PC cafés all the time.\n- It was my first time in Northern Europe.\n"
+}

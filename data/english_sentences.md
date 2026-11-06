@@ -1,5 +1,14 @@
 # ✍ 외울 문장 정리
 
+- She stayed up past midnight to cram for her exams.
+- I felt a little guilty saying it.
+- You can't really say anything.
+- I guess it runs in the family.
+
+- We had recently found out we were expecting a baby.
+- We all burst out laughing in surprise.
+- It's such a coincidence.
+
 - He said nothing had been turned in.
 - He would also check with the other drivers.
 - He put me in touch with Stuart Polak.

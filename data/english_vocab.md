@@ -2,6 +2,12 @@
 
 ## Words
 
+- cram: 벼락치기
+- frantically: 제정신이 아닌, 정신없이
+
+- groom: 신랑
+- bride: 신부
+
 - depot: 창고, 차고
 - miraculously: 기적적으로
 - scatterbrained: 침착하지 못한, 덤벙거리는
@@ -2797,6 +2803,12 @@
 
 ## Phrasal Verbs
 
+- stay up: 안자다
+
+- find out: 알게 되다
+- burst out: 갑자기 ~하기 시작하다
+- work out: 운동하다, 잘 풀리다
+
 - turn in: 제출하다, 접수하다
 - check with: 알아보다, ~에게 물어보다
 
@@ -3070,6 +3082,15 @@
 - put ~ off: 미루다
 
 ## Idioms
+- feel guilty: 양심에 찔리다
+- civil service: 공무원 조직
+- back in the day: 예전에, 왕년에
+- run in the family: 집안 내력이에요
+
+- expect a baby: 임신중이다
+- in no time: 당장에, 순식간에
+- in surprise: 놀라서, 어의가 없어서
+
 - left something on the bus: 버스에 ~를 두고 내리다
 - in a hurry: 서둘러
 - put me in touch with: 연락하게 해주다
