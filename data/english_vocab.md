@@ -1,6 +1,8 @@
 # 📘 영어 단어 정리
 
 ## Words
+- obsess: 사로잡다, 집착하게 하다
+- relate: 관련시키다
 
 - cram: 벼락치기
 - frantically: 제정신이 아닌, 정신없이
@@ -3082,6 +3084,9 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- for the sake of: ~를 위해서
+
 - feel guilty: 양심에 찔리다
 - civil service: 공무원 조직
 - back in the day: 예전에, 왕년에

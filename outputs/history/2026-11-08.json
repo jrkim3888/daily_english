@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-08",
+  "archivedAt": "2026-11-07T23:30:01.537911Z",
+  "today_study": {
+    "date": "2026-11-08",
+    "generatedAt": "2026-11-07T23:30:00.340834Z",
+    "vocab": [
+      "brief: 짧은, 잠시 동안의, 간단한, 업무 지침서",
+      "plateau: 정체기, 안정 상태를 유지하다",
+      "pneumonia: 폐렴",
+      "means: 수단",
+      "allergic: 알레르기가 있는"
+    ],
+    "sentences": [
+      "Do you have an allergic reaction to them?",
+      "My wife and I have been taking turns going with him, which means he has seen the movie ten times all told.",
+      "This year my mother joined in, too."
+    ],
+    "counts": {
+      "vocabPool": 3078,
+      "sentencePool": 684
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-08",
+    "title": "EBS 라디오 입이 트이는 영어 - 11. 4 Obsessed with the Numbers",
+    "link": "https://blog.naver.com/witjung/224468726396?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Sun, 08 Nov 2026 00:39:22 +0900",
+    "vocab": "obsess: 사로잡다, 집착하게 하다\nfor the sake of: ~를 위해서\nanxiety: 불안\nrelate: 관련시키다\nat ease: 마음이 편안한",
+    "sentences": "I could relate because I’ve had a similar experience.\nI feel at ease."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-08",
+      "title": "EBS 라디오 입이 트이는 영어 - 11. 4 Obsessed with the Numbers",
+      "link": "https://blog.naver.com/witjung/224468726396?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Sun, 08 Nov 2026 00:39:22 +0900",
+      "vocab": "obsess: 사로잡다, 집착하게 하다\nfor the sake of: ~를 위해서\nanxiety: 불안\nrelate: 관련시키다\nat ease: 마음이 편안한",
+      "sentences": "I could relate because I’ve had a similar experience.\nI feel at ease."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-08)\n\n[오늘의 단어]\n- obsess: 사로잡다, 집착하게 하다\n- for the sake of: ~를 위해서\n- anxiety: 불안\n- relate: 관련시키다\n- at ease: 마음이 편안한\n- brief: 짧은, 잠시 동안의, 간단한, 업무 지침서\n- plateau: 정체기, 안정 상태를 유지하다\n- pneumonia: 폐렴\n- means: 수단\n- allergic: 알레르기가 있는\n\n[오늘의 문장]\n- I could relate because I’ve had a similar experience.\n- I feel at ease.\n- Do you have an allergic reaction to them?\n- My wife and I have been taking turns going with him, which means he has seen the movie ten times all told.\n- This year my mother joined in, too.\n"
+}

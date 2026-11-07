@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- I could relate because I’ve had a similar experience.
+- I feel at ease.
+
 - She stayed up past midnight to cram for her exams.
 - I felt a little guilty saying it.
 - You can't really say anything.
