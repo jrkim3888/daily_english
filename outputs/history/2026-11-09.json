@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-09",
+  "archivedAt": "2026-11-08T23:30:00.548520Z",
+  "today_study": {
+    "date": "2026-11-09",
+    "generatedAt": "2026-11-08T23:30:00.124056Z",
+    "vocab": [
+      "urban: 도시의",
+      "put in: 제출하다",
+      "part of me wants to: 그런 마음이 있다",
+      "surge: 밀려들다",
+      "strap: 끈, 묶다"
+    ],
+    "sentences": [
+      "The effort I put into drawing it remains.",
+      "I gathered up the courage to put in an application.",
+      "That made all the efforts I put into my homework feel pointless."
+    ],
+    "counts": {
+      "vocabPool": 3081,
+      "sentencePool": 686
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-09)\n\n[오늘의 단어]\n- urban: 도시의\n- put in: 제출하다\n- part of me wants to: 그런 마음이 있다\n- surge: 밀려들다\n- strap: 끈, 묶다\n\n[오늘의 문장]\n- The effort I put into drawing it remains.\n- I gathered up the courage to put in an application.\n- That made all the efforts I put into my homework feel pointless.\n"
+}
