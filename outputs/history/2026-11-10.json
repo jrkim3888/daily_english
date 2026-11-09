@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-10",
+  "archivedAt": "2026-11-09T23:30:01.111502Z",
+  "today_study": {
+    "date": "2026-11-10",
+    "generatedAt": "2026-11-09T23:30:00.459902Z",
+    "vocab": [
+      "liken: 비유하다",
+      "speck: 작은 얼룩",
+      "nature: 성격, 특성, 자연",
+      "inspire: 영감을 주다, 불어넣다",
+      "revision: 수정, 검토"
+    ],
+    "sentences": [
+      "I could truly feel the wonder of nature.",
+      "We were filled with anticipation.",
+      "I kept at it consistently."
+    ],
+    "counts": {
+      "vocabPool": 3081,
+      "sentencePool": 686
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-10)\n\n[오늘의 단어]\n- liken: 비유하다\n- speck: 작은 얼룩\n- nature: 성격, 특성, 자연\n- inspire: 영감을 주다, 불어넣다\n- revision: 수정, 검토\n\n[오늘의 문장]\n- I could truly feel the wonder of nature.\n- We were filled with anticipation.\n- I kept at it consistently.\n"
+}
