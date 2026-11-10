@@ -1,6 +1,12 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- scalp: 두피
+- oxidative: 산화의
+- chemical: 화학의
+- irritate: 자극하다, 짜증나게 하다
+
 - obsess: 사로잡다, 집착하게 하다
 - relate: 관련시키다
 
@@ -2804,6 +2810,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- be diagnosed with: ~로 진단받다
 
 - stay up: 안자다
 
@@ -3084,6 +3091,7 @@
 - put ~ off: 미루다
 
 ## Idioms
+- severe contact dermatitis: 지루성 피부염
 
 - for the sake of: ~를 위해서
 

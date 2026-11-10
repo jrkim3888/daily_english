@@ -1,5 +1,10 @@
 # ✍ 외울 문장 정리
 
+- I used regular hair dye without giving it much thought.
+- Ammonia can irritate the scalp.
+- I check the ingredients carefully.
+- Is there a particular reason you do that?
+
 - I could relate because I’ve had a similar experience.
 - I feel at ease.
 
