@@ -1,5 +1,10 @@
 # ✍ 외울 문장 정리
 
+- I decided to make the most of my time.
+- It was a valuable time of personal growth.
+- I actually kept myself really busy.
+- You must have had your hands full.
+
 - I used regular hair dye without giving it much thought.
 - Ammonia can irritate the scalp.
 - I check the ingredients carefully.

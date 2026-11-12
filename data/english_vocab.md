@@ -1,6 +1,9 @@
 # 📘 영어 단어 정리
 
 ## Words
+- vague: 희미한, 모호한
+- postpartum: 산후
+- document: 서류, 기록하다
 
 - scalp: 두피
 - oxidative: 산화의
@@ -3091,6 +3094,12 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- parental leaver: 육아휴직
+- make the most of my time: 시간을 최대한 알차게 보내다
+- personal growth: 개인 성장
+- have one's hand full: 몹시 바쁘다
+
 - severe contact dermatitis: 지루성 피부염
 
 - for the sake of: ~를 위해서
