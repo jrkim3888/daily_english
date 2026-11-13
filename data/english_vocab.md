@@ -1,6 +1,10 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- unexpected: 예기치 않은, 뜻밖의
+- lyrics: 노랫말
+
 - vague: 희미한, 모호한
 - postpartum: 산후
 - document: 서류, 기록하다
@@ -2813,6 +2817,9 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- choke up: 목이 메이다
+
 - be diagnosed with: ~로 진단받다
 
 - stay up: 안자다
@@ -3094,6 +3101,8 @@
 - put ~ off: 미루다
 
 ## Idioms
+- come to an end: 끝나다
+- scrap paper: 이면지
 
 - parental leaver: 육아휴직
 - make the most of my time: 시간을 최대한 알차게 보내다

@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- The five-month program came to an end.
+- I received an unexpected phone call.
+- Hearing that made me choke up.
+
 - I decided to make the most of my time.
 - It was a valuable time of personal growth.
 - I actually kept myself really busy.
