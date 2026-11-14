@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-15",
+  "archivedAt": "2026-11-14T23:30:00.577053Z",
+  "today_study": {
+    "date": "2026-11-15",
+    "generatedAt": "2026-11-14T23:30:00.114009Z",
+    "vocab": [
+      "eatery: 음식점",
+      "fertile: 비옥한",
+      "diabete: 당뇨",
+      "earn: 벌다, 얻다",
+      "military: 군인"
+    ],
+    "sentences": [
+      "I was against it at first.",
+      "I was there around the same time.",
+      "Often the phrases I’ve recently studied pop right into my head."
+    ],
+    "counts": {
+      "vocabPool": 3099,
+      "sentencePool": 697
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-15)\n\n[오늘의 단어]\n- eatery: 음식점\n- fertile: 비옥한\n- diabete: 당뇨\n- earn: 벌다, 얻다\n- military: 군인\n\n[오늘의 문장]\n- I was against it at first.\n- I was there around the same time.\n- Often the phrases I’ve recently studied pop right into my head.\n"
+}
