@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- He is a very thorough planner.
+- I'd like to take this opportunity to thank my husband.
+- That must be a great hands-on learning experience for the kids.
+
 - The five-month program came to an end.
 - I received an unexpected phone call.
 - Hearing that made me choke up.

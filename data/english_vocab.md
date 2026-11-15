@@ -1,6 +1,10 @@
 # 📘 영어 단어 정리
 
 ## Words
+- prehistoric: 선사시대의
+- opportunity: 기회
+- thorough: 빈틈없는, 철저한
+- hands-on: 실습의
 
 - unexpected: 예기치 않은, 뜻밖의
 - lyrics: 노랫말
@@ -3101,6 +3105,11 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- chronological order: 연대기 순으로
+- to wrap thing up: 마무리하다
+- historical sites: 유적지
+
 - come to an end: 끝나다
 - scrap paper: 이면지
 
