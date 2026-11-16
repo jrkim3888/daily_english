@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- It was beyond our expectations.
+- Is your daughter still obsessed with Harry Potter?
+
 - He is a very thorough planner.
 - I'd like to take this opportunity to thank my husband.
 - That must be a great hands-on learning experience for the kids.

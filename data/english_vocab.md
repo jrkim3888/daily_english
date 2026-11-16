@@ -1,6 +1,10 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- wand: 지팡이
+- beyond: 저편에
+
 - prehistoric: 선사시대의
 - opportunity: 기회
 - thorough: 빈틈없는, 철저한
@@ -2821,6 +2825,8 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- obsessed with: ~에 사로잡힌
+- pose for: ~을 위해 포즈를 취하다
 
 - choke up: 목이 메이다
 

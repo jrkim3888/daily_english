@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-17",
+  "archivedAt": "2026-11-16T23:30:01.337838Z",
+  "today_study": {
+    "date": "2026-11-17",
+    "generatedAt": "2026-11-16T23:30:00.127181Z",
+    "vocab": [
+      "candidate: 후보자, 지원자",
+      "retire from: ~에서 은퇴하다, 그만두다",
+      "alongside: 나란히, ~와 함께",
+      "juggle: 병행하다",
+      "term: 용어, 말, 칭하다"
+    ],
+    "sentences": [
+      "I think I'm ready to retire from water parks.",
+      "I set a long-term goal for myself.",
+      "There are a lot of days when I'm feeling guilty about meeting friends or doing anything fun."
+    ],
+    "counts": {
+      "vocabPool": 3106,
+      "sentencePool": 700
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-17",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.12 A Trip to the Wizarding World of Harry Potter",
+    "link": "https://blog.naver.com/witjung/224480036365?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Tue, 17 Nov 2026 07:34:04 +0900",
+    "vocab": "obsessed with: ~에 사로잡힌\nwand: 지팡이\nanticipation: 기대, 예상\nexpectations: 기대\npose for: ~을 위해 포즈를 취하다\nbeyond: 저편에",
+    "sentences": "It was beyond our expectations.\nIs your daughter still obsessed with Harry Potter?"
+  },
+  "deltas": [
+    {
+      "date": "2026-11-17",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.12 A Trip to the Wizarding World of Harry Potter",
+      "link": "https://blog.naver.com/witjung/224480036365?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Tue, 17 Nov 2026 07:34:04 +0900",
+      "vocab": "obsessed with: ~에 사로잡힌\nwand: 지팡이\nanticipation: 기대, 예상\nexpectations: 기대\npose for: ~을 위해 포즈를 취하다\nbeyond: 저편에",
+      "sentences": "It was beyond our expectations.\nIs your daughter still obsessed with Harry Potter?"
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-17)\n\n[오늘의 단어]\n- obsessed with: ~에 사로잡힌\n- wand: 지팡이\n- anticipation: 기대, 예상\n- expectations: 기대\n- pose for: ~을 위해 포즈를 취하다\n- beyond: 저편에\n- candidate: 후보자, 지원자\n- retire from: ~에서 은퇴하다, 그만두다\n- alongside: 나란히, ~와 함께\n- juggle: 병행하다\n- term: 용어, 말, 칭하다\n\n[오늘의 문장]\n- It was beyond our expectations.\n- Is your daughter still obsessed with Harry Potter?\n- I think I'm ready to retire from water parks.\n- I set a long-term goal for myself.\n- There are a lot of days when I'm feeling guilty about meeting friends or doing anything fun.\n"
+}
