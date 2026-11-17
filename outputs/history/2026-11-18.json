@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-18",
+  "archivedAt": "2026-11-17T23:30:00.598487Z",
+  "today_study": {
+    "date": "2026-11-18",
+    "generatedAt": "2026-11-17T23:30:00.119966Z",
+    "vocab": [
+      "sustained: 지속된, 한결같은",
+      "respective: 각자의, 각각의",
+      "fascinate: 사로잡다, 매료하다",
+      "fall into place: 제자리를 찾다",
+      "worn out: 닳고 닳은, 매우 지친"
+    ],
+    "sentences": [
+      "I'm feeling worn out beacuse of the summer heat.",
+      "I started to feel worn out.",
+      "Everything start to fall into place."
+    ],
+    "counts": {
+      "vocabPool": 3110,
+      "sentencePool": 702
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-18)\n\n[오늘의 단어]\n- sustained: 지속된, 한결같은\n- respective: 각자의, 각각의\n- fascinate: 사로잡다, 매료하다\n- fall into place: 제자리를 찾다\n- worn out: 닳고 닳은, 매우 지친\n\n[오늘의 문장]\n- I'm feeling worn out beacuse of the summer heat.\n- I started to feel worn out.\n- Everything start to fall into place.\n"
+}
