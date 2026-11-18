@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-19",
+  "archivedAt": "2026-11-18T23:30:01.429577Z",
+  "today_study": {
+    "date": "2026-11-19",
+    "generatedAt": "2026-11-18T23:30:00.162800Z",
+    "vocab": [
+      "smoothly: 부드럽게, 순조롭게",
+      "avid: 열심인, 열망하는",
+      "figurative: 비유적인, 구조상의",
+      "lock: 잠그다",
+      "unconscious: 의식이 없는, 무의식적인"
+    ],
+    "sentences": [
+      "I'm an avid reader.",
+      "The team finished as runners-up this season.",
+      "Hearing that made me choke up."
+    ],
+    "counts": {
+      "vocabPool": 3110,
+      "sentencePool": 702
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-19)\n\n[오늘의 단어]\n- smoothly: 부드럽게, 순조롭게\n- avid: 열심인, 열망하는\n- figurative: 비유적인, 구조상의\n- lock: 잠그다\n- unconscious: 의식이 없는, 무의식적인\n\n[오늘의 문장]\n- I'm an avid reader.\n- The team finished as runners-up this season.\n- Hearing that made me choke up.\n"
+}

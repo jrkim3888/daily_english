@@ -2825,6 +2825,9 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- give off: 풍기다
+
 - obsessed with: ~에 사로잡힌
 - pose for: ~을 위해 포즈를 취하다
 
@@ -3111,6 +3114,10 @@
 - put ~ off: 미루다
 
 ## Idioms
+- have the chance to: ~할 기회를 갖다
+- pass it on to: ~에게 그것을 전달하다
+- be in a good mood: 기분이 좋다
+- head to work: 출근하다
 
 - chronological order: 연대기 순으로
 - to wrap thing up: 마무리하다

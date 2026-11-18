@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- You look like you're in a good mood these days.
+- People with positive energy can pass it on to those around them.
+
 - It was beyond our expectations.
 - Is your daughter still obsessed with Harry Potter?
 

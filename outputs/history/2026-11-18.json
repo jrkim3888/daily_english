@@ -1,6 +1,6 @@
 {
   "date": "2026-11-18",
-  "archivedAt": "2026-11-17T23:30:00.598487Z",
+  "archivedAt": "2026-11-18T23:30:00.789518Z",
   "today_study": {
     "date": "2026-11-18",
     "generatedAt": "2026-11-17T23:30:00.119966Z",
@@ -21,7 +21,25 @@
       "sentencePool": 702
     }
   },
-  "today_delta": {},
-  "deltas": [],
+  "today_delta": {
+    "date": "2026-11-18",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.13 Where Good Energy Begins",
+    "link": "https://blog.naver.com/witjung/224481517922?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Wed, 18 Nov 2026 08:32:13 +0900",
+    "vocab": "give off: 풍기다\nhave the chance to: ~할 기회를 갖다\npass it on to: ~에게 그것을 전달하다\nbe in a good mood: 기분이 좋다\nhead to work: 출근하다",
+    "sentences": "You look like you're in a good mood these days.\nPeople with positive energy can pass it on to those around them."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-18",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.13 Where Good Energy Begins",
+      "link": "https://blog.naver.com/witjung/224481517922?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Wed, 18 Nov 2026 08:32:13 +0900",
+      "vocab": "give off: 풍기다\nhave the chance to: ~할 기회를 갖다\npass it on to: ~에게 그것을 전달하다\nbe in a good mood: 기분이 좋다\nhead to work: 출근하다",
+      "sentences": "You look like you're in a good mood these days.\nPeople with positive energy can pass it on to those around them."
+    }
+  ],
   "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-18)\n\n[오늘의 단어]\n- sustained: 지속된, 한결같은\n- respective: 각자의, 각각의\n- fascinate: 사로잡다, 매료하다\n- fall into place: 제자리를 찾다\n- worn out: 닳고 닳은, 매우 지친\n\n[오늘의 문장]\n- I'm feeling worn out beacuse of the summer heat.\n- I started to feel worn out.\n- Everything start to fall into place.\n"
 }
