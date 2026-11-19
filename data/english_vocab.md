@@ -1,6 +1,7 @@
 # 📘 영어 단어 정리
 
 ## Words
+- nagging: 잔소리
 
 - wand: 지팡이
 - beyond: 저편에
@@ -3114,6 +3115,10 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- dull and repetitive: 지루하고 반복적인
+- get the message across: 메시지나 생각을 전달하다
+
 - have the chance to: ~할 기회를 갖다
 - pass it on to: ~에게 그것을 전달하다
 - be in a good mood: 기분이 좋다

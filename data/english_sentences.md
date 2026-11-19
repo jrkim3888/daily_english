@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- I can get the message across much more gently.
+- It can even do that.
+
 - You look like you're in a good mood these days.
 - People with positive energy can pass it on to those around them.
 

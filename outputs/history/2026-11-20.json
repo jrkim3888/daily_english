@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-20",
+  "archivedAt": "2026-11-19T23:30:01.511648Z",
+  "today_study": {
+    "date": "2026-11-20",
+    "generatedAt": "2026-11-19T23:30:00.125234Z",
+    "vocab": [
+      "sterilized: 살균한,",
+      "have a talent for: ~에 대한 스킬이 있다",
+      "reptile: 파충류",
+      "come to one's senses: 정신을 차리다",
+      "chore: 싫은 일, 일"
+    ],
+    "sentences": [
+      "I realized I didn't really have a talent for programming.",
+      "I looked up the latest models and visited the store to check them out.",
+      "I'm going to take five."
+    ],
+    "counts": {
+      "vocabPool": 3115,
+      "sentencePool": 704
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-20",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.16 Becoming a Webtoon Artist with AI",
+    "link": "https://blog.naver.com/witjung/224484288151?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Fri, 20 Nov 2026 07:56:35 +0900",
+    "vocab": "dull and repetitive: 지루하고 반복적인\nnagging: 잔소리\nget the message across: 메시지나 생각을 전달하다",
+    "sentences": "I can get the message across much more gently.\nIt can even do that."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-20",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.16 Becoming a Webtoon Artist with AI",
+      "link": "https://blog.naver.com/witjung/224484288151?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Fri, 20 Nov 2026 07:56:35 +0900",
+      "vocab": "dull and repetitive: 지루하고 반복적인\nnagging: 잔소리\nget the message across: 메시지나 생각을 전달하다",
+      "sentences": "I can get the message across much more gently.\nIt can even do that."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-20)\n\n[오늘의 단어]\n- dull and repetitive: 지루하고 반복적인\n- nagging: 잔소리\n- get the message across: 메시지나 생각을 전달하다\n- sterilized: 살균한,\n- have a talent for: ~에 대한 스킬이 있다\n- reptile: 파충류\n- come to one's senses: 정신을 차리다\n- chore: 싫은 일, 일\n\n[오늘의 문장]\n- I can get the message across much more gently.\n- It can even do that.\n- I realized I didn't really have a talent for programming.\n- I looked up the latest models and visited the store to check them out.\n- I'm going to take five.\n"
+}
