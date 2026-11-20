@@ -1,6 +1,12 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- connect: 잇다, 연결하다
+- gratitude: 감사
+- mark: 기념하다, 표시하다
+- decade: 10년
+
 - nagging: 잔소리
 
 - wand: 지팡이
@@ -2826,6 +2832,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- take on: ~에 대한 생각
 
 - give off: 풍기다
 

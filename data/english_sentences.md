@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- We've stayed connected ever since.
+- We write our takes on related questions in English.
+
 - I can get the message across much more gently.
 - It can even do that.
 
