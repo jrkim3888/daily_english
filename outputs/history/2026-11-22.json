@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-22",
+  "archivedAt": "2026-11-21T23:30:00.668220Z",
+  "today_study": {
+    "date": "2026-11-22",
+    "generatedAt": "2026-11-21T23:30:00.150124Z",
+    "vocab": [
+      "oversight: 실수, 관리 감독",
+      "usher: 안내원",
+      "taxpayer: 납세자",
+      "screech: 귀에 거슬리는 소리를 내다",
+      "preserve: 지키다, 보존하다"
+    ],
+    "sentences": [
+      "It really caught me off guard.",
+      "I was given a referral for more testing.",
+      "Everyone is really dedicated."
+    ],
+    "counts": {
+      "vocabPool": 3123,
+      "sentencePool": 708
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-22)\n\n[오늘의 단어]\n- oversight: 실수, 관리 감독\n- usher: 안내원\n- taxpayer: 납세자\n- screech: 귀에 거슬리는 소리를 내다\n- preserve: 지키다, 보존하다\n\n[오늘의 문장]\n- It really caught me off guard.\n- I was given a referral for more testing.\n- Everyone is really dedicated.\n"
+}
