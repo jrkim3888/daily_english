@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-23",
+  "archivedAt": "2026-11-22T23:30:01.418121Z",
+  "today_study": {
+    "date": "2026-11-23",
+    "generatedAt": "2026-11-22T23:30:00.154971Z",
+    "vocab": [
+      "audit: 회계 감사, 감사",
+      "a bit: 조금",
+      "crowd: 사람들, 집단, 가득 매우다, 밀려오다",
+      "desire: 욕구",
+      "occurred to me: 문득 그런 생긱이 들다"
+    ],
+    "sentences": [
+      "I wish she could stay little for a bit longer.",
+      "As I have gotten older, the intense exercise has started to feel a bit too demanding.",
+      "Things felt a bit awkward."
+    ],
+    "counts": {
+      "vocabPool": 3123,
+      "sentencePool": 708
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-23",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.18 A Small Garden, A Big Joy",
+    "link": "https://blog.naver.com/witjung/224487865824?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Mon, 23 Nov 2026 07:53:26 +0900",
+    "vocab": "uneventful: 단조로운\nweight on: 부담이 되다\ncome into: ~의 상태가 되다\nfancy: 끌리다, 상상\napparently: 듣자하니",
+    "sentences": "That always weighed on her.\nA small new space came into her daily life.\nIt's nothing fancy."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-23",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.18 A Small Garden, A Big Joy",
+      "link": "https://blog.naver.com/witjung/224487865824?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Mon, 23 Nov 2026 07:53:26 +0900",
+      "vocab": "uneventful: 단조로운\nweight on: 부담이 되다\ncome into: ~의 상태가 되다\nfancy: 끌리다, 상상\napparently: 듣자하니",
+      "sentences": "That always weighed on her.\nA small new space came into her daily life.\nIt's nothing fancy."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-23)\n\n[오늘의 단어]\n- uneventful: 단조로운\n- weight on: 부담이 되다\n- come into: ~의 상태가 되다\n- fancy: 끌리다, 상상\n- apparently: 듣자하니\n- audit: 회계 감사, 감사\n- a bit: 조금\n- crowd: 사람들, 집단, 가득 매우다, 밀려오다\n- desire: 욕구\n- occurred to me: 문득 그런 생긱이 들다\n\n[오늘의 문장]\n- That always weighed on her.\n- A small new space came into her daily life.\n- It's nothing fancy.\n- I wish she could stay little for a bit longer.\n- As I have gotten older, the intense exercise has started to feel a bit too demanding.\n- Things felt a bit awkward.\n"
+}

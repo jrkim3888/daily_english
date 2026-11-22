@@ -1,5 +1,9 @@
 # ✍ 외울 문장 정리
 
+- That always weighed on her.
+- A small new space came into her daily life.
+- It's nothing fancy.
+
 - We've stayed connected ever since.
 - We write our takes on related questions in English.
 

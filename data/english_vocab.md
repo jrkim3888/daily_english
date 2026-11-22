@@ -1,6 +1,9 @@
 # 📘 영어 단어 정리
 
 ## Words
+- uneventful: 단조로운
+- fancy: 끌리다, 상상
+- apparently: 듣자하니
 
 - connect: 잇다, 연결하다
 - gratitude: 감사
@@ -2832,6 +2835,10 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- weight on: 부담이 되다
+- come into: ~의 상태가 되다
+
 - take on: ~에 대한 생각
 
 - give off: 풍기다
