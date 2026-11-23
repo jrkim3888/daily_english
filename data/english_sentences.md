@@ -1,5 +1,11 @@
 # ✍ 외울 문장 정리
 
+- It was a during the height of the COVID-19 pandemic.
+- After giving it a lot of thought, we decided.
+- He was willing to put his career on hold.
+- I heard your husband is back at work again.
+- That can't have been easy.
+
 - That always weighed on her.
 - A small new space came into her daily life.
 - It's nothing fancy.

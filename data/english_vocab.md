@@ -1,6 +1,10 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- height: 절정, 최고조, 높이
+- devote: 헌신하다, 바치다
+
 - uneventful: 단조로운
 - fancy: 끌리다, 상상
 - apparently: 듣자하니
@@ -3129,6 +3133,9 @@
 - put ~ off: 미루다
 
 ## Idioms
+- maternity leave: 육아 휴직
+- put something on hold: ~을 연기하다
+- district office: 구청
 
 - dull and repetitive: 지루하고 반복적인
 - get the message across: 메시지나 생각을 전달하다
