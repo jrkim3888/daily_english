@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- We rushed her to the hospital.
+- That was the most I've ever cried in my life.
+
 - It was a during the height of the COVID-19 pandemic.
 - After giving it a lot of thought, we decided.
 - He was willing to put his career on hold.

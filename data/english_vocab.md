@@ -1,6 +1,12 @@
 # 📘 영어 단어 정리
 
 ## Words
+- sausage: 소시지
+- collapse: 무너지다, 주저앉다
+- limp: 쩔뚝거리다, 다리를 절다
+- paralyzed: 마미된
+- hereditary: 유전적인
+- belove:~을 사랑하다
 
 - height: 절정, 최고조, 높이
 - devote: 헌신하다, 바치다
@@ -3133,6 +3139,11 @@
 - put ~ off: 미루다
 
 ## Idioms
+
+- spinal disc: 허리 디스크
+- rush to: 부리나케 가다
+- abandoned dog: 유기견
+
 - maternity leave: 육아 휴직
 - put something on hold: ~을 연기하다
 - district office: 구청

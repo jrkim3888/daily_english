@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-25",
+  "archivedAt": "2026-11-24T23:30:01.445125Z",
+  "today_study": {
+    "date": "2026-11-25",
+    "generatedAt": "2026-11-24T23:30:00.151397Z",
+    "vocab": [
+      "breaststroke: 평영",
+      "high-strung: 아주 예민한",
+      "permanent: 영구적인",
+      "despite: ~에도 불구하고",
+      "on-site: 현지의, 현장의"
+    ],
+    "sentences": [
+      "Despite its terrible stench, many people love it for its unique flavor.",
+      "You're a bit high-strung today.",
+      "As I expected, I only got predictable responses at first."
+    ],
+    "counts": {
+      "vocabPool": 3133,
+      "sentencePool": 716
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-25",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.20 A Dog for Life",
+    "link": "https://blog.naver.com/witjung/224490914633?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Wed, 25 Nov 2026 07:29:36 +0900",
+    "vocab": "sausage: 소시지\ncollapse: 무너지다, 주저앉다\nlimp: 쩔뚝거리다, 다리를 절다\nparalyzed: 마미된\nhereditary: 유전적인\nspinal disc: 허리 디스크\nrush to: 부리나케 가다\nbelove:~을 사랑하다\nabandoned dog: 유기견",
+    "sentences": "We rushed her to the hospital.\nThat was the most I've ever cried in my life."
+  },
+  "deltas": [
+    {
+      "date": "2026-11-25",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.20 A Dog for Life",
+      "link": "https://blog.naver.com/witjung/224490914633?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Wed, 25 Nov 2026 07:29:36 +0900",
+      "vocab": "sausage: 소시지\ncollapse: 무너지다, 주저앉다\nlimp: 쩔뚝거리다, 다리를 절다\nparalyzed: 마미된\nhereditary: 유전적인\nspinal disc: 허리 디스크\nrush to: 부리나케 가다\nbelove:~을 사랑하다\nabandoned dog: 유기견",
+      "sentences": "We rushed her to the hospital.\nThat was the most I've ever cried in my life."
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-25)\n\n[오늘의 단어]\n- sausage: 소시지\n- collapse: 무너지다, 주저앉다\n- limp: 쩔뚝거리다, 다리를 절다\n- paralyzed: 마미된\n- hereditary: 유전적인\n- spinal disc: 허리 디스크\n- rush to: 부리나케 가다\n- belove:~을 사랑하다\n- abandoned dog: 유기견\n- breaststroke: 평영\n- high-strung: 아주 예민한\n- permanent: 영구적인\n- despite: ~에도 불구하고\n- on-site: 현지의, 현장의\n\n[오늘의 문장]\n- We rushed her to the hospital.\n- That was the most I've ever cried in my life.\n- Despite its terrible stench, many people love it for its unique flavor.\n- You're a bit high-strung today.\n- As I expected, I only got predictable responses at first.\n"
+}
