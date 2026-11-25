@@ -1,6 +1,11 @@
 # 📘 영어 단어 정리
 
 ## Words
+
+- vet: 수의사
+- learn: 배우다, 알게되다
+- deed: 행위
+
 - sausage: 소시지
 - collapse: 무너지다, 주저앉다
 - limp: 쩔뚝거리다, 다리를 절다
@@ -2845,6 +2850,7 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+- sign up: 등록하다, 신청하다
 
 - weight on: 부담이 되다
 - come into: ~의 상태가 되다

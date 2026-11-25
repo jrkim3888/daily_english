@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-26",
+  "archivedAt": "2026-11-25T23:30:01.676578Z",
+  "today_study": {
+    "date": "2026-11-26",
+    "generatedAt": "2026-11-25T23:30:00.166648Z",
+    "vocab": [
+      "filming: 촬영",
+      "streamline: 유선형으로 하다, 간소화",
+      "faithfully: 신념·충실·성실함",
+      "noticeable: 뚜렷한",
+      "scalp: 두피"
+    ],
+    "sentences": [
+      "Ammonia can irritate the scalp.",
+      "It made us feel like real Jeju locals.",
+      "We've stayed connected ever since."
+    ],
+    "counts": {
+      "vocabPool": 3142,
+      "sentencePool": 718
+    }
+  },
+  "today_delta": {
+    "date": "2026-11-26",
+    "title": "EBS 라디오 입이 트이는 영어 - 11.23 My Cat's First Blood Donation",
+    "link": "https://blog.naver.com/witjung/224492509989?fromRss=true&trackingCode=rss",
+    "category": "영어",
+    "pubDate": "Thu, 26 Nov 2026 07:37:51 +0900",
+    "vocab": "vet: 수의사\nlearn: 배우다, 알게되다\nuneasy: 불안한, 우려되는\nsign up: 등록하다, 신청하다\ndeed: 행위",
+    "sentences": "I already felt uneasy on the way to the hospital.\nCan you sign me up?"
+  },
+  "deltas": [
+    {
+      "date": "2026-11-26",
+      "title": "EBS 라디오 입이 트이는 영어 - 11.23 My Cat's First Blood Donation",
+      "link": "https://blog.naver.com/witjung/224492509989?fromRss=true&trackingCode=rss",
+      "category": "영어",
+      "pubDate": "Thu, 26 Nov 2026 07:37:51 +0900",
+      "vocab": "vet: 수의사\nlearn: 배우다, 알게되다\nuneasy: 불안한, 우려되는\nsign up: 등록하다, 신청하다\ndeed: 행위",
+      "sentences": "I already felt uneasy on the way to the hospital.\nCan you sign me up?"
+    }
+  ],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-26)\n\n[오늘의 단어]\n- vet: 수의사\n- learn: 배우다, 알게되다\n- uneasy: 불안한, 우려되는\n- sign up: 등록하다, 신청하다\n- deed: 행위\n- filming: 촬영\n- streamline: 유선형으로 하다, 간소화\n- faithfully: 신념·충실·성실함\n- noticeable: 뚜렷한\n- scalp: 두피\n\n[오늘의 문장]\n- I already felt uneasy on the way to the hospital.\n- Can you sign me up?\n- Ammonia can irritate the scalp.\n- It made us feel like real Jeju locals.\n- We've stayed connected ever since.\n"
+}

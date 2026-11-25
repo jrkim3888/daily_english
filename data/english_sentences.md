@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- I already felt uneasy on the way to the hospital.
+- Can you sign me up?
+
 - We rushed her to the hospital.
 - That was the most I've ever cried in my life.
 
