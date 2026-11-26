@@ -1,5 +1,8 @@
 # ✍ 외울 문장 정리
 
+- It's been gaining popularity through social media.
+- Pickleball combines elements of tennis, badminton, and table tennis.
+
 - I already felt uneasy on the way to the hospital.
 - Can you sign me up?
 

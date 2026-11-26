@@ -1,6 +1,8 @@
 # 📘 영어 단어 정리
 
 ## Words
+- physically: 신체적으로
+- demending: 부담이 큰, 힘든
 
 - vet: 수의사
 - learn: 배우다, 알게되다
@@ -2850,6 +2852,9 @@
 - traumatize: 정신적 외상을 초래하다, 엄청난 충격을 주다
 
 ## Phrasal Verbs
+
+- look into: ~을 조사하다
+
 - sign up: 등록하다, 신청하다
 
 - weight on: 부담이 되다
@@ -3145,6 +3150,8 @@
 - put ~ off: 미루다
 
 ## Idioms
+- gain popularity: 인기를 얻다
+- combine elements of: ~의 요소를 모으다
 
 - spinal disc: 허리 디스크
 - rush to: 부리나케 가다
