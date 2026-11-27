@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-28",
+  "archivedAt": "2026-11-27T23:30:00.732750Z",
+  "today_study": {
+    "date": "2026-11-28",
+    "generatedAt": "2026-11-27T23:30:00.114030Z",
+    "vocab": [
+      "kind of: 약간, 어느 정도",
+      "hard-working: 성실한, 근면한",
+      "audit: 회계 감사, 감사",
+      "snap: 끊어지다",
+      "duty: 의무"
+    ],
+    "sentences": [
+      "It's my kind of thing.",
+      "It was kind of funny.",
+      "He seemed like the kind of person who you could trust."
+    ],
+    "counts": {
+      "vocabPool": 3151,
+      "sentencePool": 722
+    }
+  },
+  "today_delta": {},
+  "deltas": [],
+  "message": "[알림][오늘의영어]\n오늘의 영어 공부 (2026-11-28)\n\n[오늘의 단어]\n- kind of: 약간, 어느 정도\n- hard-working: 성실한, 근면한\n- audit: 회계 감사, 감사\n- snap: 끊어지다\n- duty: 의무\n\n[오늘의 문장]\n- It's my kind of thing.\n- It was kind of funny.\n- He seemed like the kind of person who you could trust.\n"
+}
